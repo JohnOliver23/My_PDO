@@ -27,7 +27,7 @@ public class Deletar {
 		deletar();
 
 		manager.close();	
-		System.out.println("\n\n aviso: feche sempre o plugin eclipse antes de executar aplicação");
+		System.out.println("\n\n aviso: feche sempre o plugin eclipse antes de executar aplicaÃ§Ã£o");
 	}
 
 	public void abrirBancoLocal(){
@@ -36,7 +36,7 @@ public class Deletar {
 	config.common().objectClass(Autor.class).cascadeOnDelete(true);
 	config.common().objectClass(Autor.class).cascadeOnUpdate(true);
 	config.common().objectClass(Autor.class).cascadeOnActivate(true);
-	config.common().objectClass(Livro.class).cascadeOnDelete(true);
+	config.common().objectClass(Livro.class).cascadeOnDelete(false);
 	config.common().objectClass(Livro.class).cascadeOnUpdate(true);
 	config.common().objectClass(Livro.class).cascadeOnActivate(true);
 	manager = Db4oEmbedded.openFile(config,"banco.db4o");
@@ -58,17 +58,11 @@ public class Deletar {
 		System.out.println(java.getTotalAutores());
 		for(Autor a : java.getAutores()) {
 			a.removerLivro(java);
+			manager.store(a);
+			manager.commit();
 		}
-		manager.store(java);
+		manager.delete(java);
 		manager.commit();
-		Iterator i = java.getAutores().iterator(); //obtém o iterator
-		while(i.hasNext()) { //testa se há elementos
-			Autor a = (Autor) i.next(); //acessa cada elemento
-			i.remove(); //remove o elemento atual
-		}
-		manager.store(java);
-		manager.commit();
-
 
 	}
 
