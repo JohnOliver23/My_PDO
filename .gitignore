@@ -1,0 +1,8 @@
+# Ignorando pastas/
+.metadata
+.recommenders
+.project
+.classpath
+bin
+.settings
+lib
