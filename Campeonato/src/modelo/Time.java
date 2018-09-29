@@ -17,7 +17,7 @@ public class Time {
 	private ArrayList<Jogo> jogos = new ArrayList<>();
 	/*constructor*/
 	
-	public Time(int id, String nome, Time time) {
+	public Time(int id, String nome, Liga liga) {
 		super();
 		this.id = id;
 		this.nome = nome;

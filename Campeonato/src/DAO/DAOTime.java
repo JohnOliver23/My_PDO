@@ -1,11 +1,12 @@
 package DAO;
 
-import java.sql.Time;
+
 import java.util.List;
 
 import com.db4o.query.Query;
 
 import modelo.Liga;
+import modelo.Time;
 
 public class DAOTime extends DAO<Time> {
 	
@@ -19,11 +20,20 @@ public class DAOTime extends DAO<Time> {
 		else
 			return null;
 	}
-	
-	public List<Time> consultarTimePorPontos(int ponto) {
+	/*retorna os times que têm pontos maior que o do parâmetro */
+	public List<Time> consultarTimesMaiorPorPontos(int ponto) {
 		Query q = manager.query();
 		q.constrain(Time.class);
-		q.descend("pontos").constrain(ponto);
+		q.descend("pontos").constrain(ponto).or(q.constrain(ponto).greater());
+		List<Time> times = q.execute();
+		return times;
+	}
+	
+	/*retorna os times que têm pontos menor que o do parâmetro */
+	public List<Time> consultarTimesMenorPorPontos(int ponto) {
+		Query q = manager.query();
+		q.constrain(Time.class);
+		q.descend("pontos").constrain(ponto).or(q.constrain(ponto).smaller());
 		List<Time> times = q.execute();
 		return times;
 	}
