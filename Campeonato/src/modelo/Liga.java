@@ -45,6 +45,7 @@ public class Liga {
 	/*remove and add */
 	public void adicionar(Time time) {
 		times.add(time);
+		time.setLiga(this);
 	}
 	
 	public void remover (Time time) {
