@@ -1,6 +1,5 @@
 package fachada;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -58,7 +57,7 @@ public class Fachada {
 		return t;
 	}
 	
-public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Date dthora, Estadio estadio) throws Exception {
+public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Date dthora)throws Exception {
 		
 		int key = daojogo.getKey();
 		DAO.begin();			
@@ -66,10 +65,7 @@ public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Date dth
 		if(j!= null) {
 			throw new Exception("jogo ja cadastrado: " + mandante.getNome()+" x "+ visitante.getNome());
 		}
-		j = new Jogo(id, mandante, visitante, dthora, estadio);
-		mandante.adicionar(j);
-		visitante.adicionar(j);
-		estadio.adicionar(j);
+		j = new Jogo(id, mandante, visitante, dthora);
 		daojogo.create(j);		
 		DAO.commit();
 		return j;

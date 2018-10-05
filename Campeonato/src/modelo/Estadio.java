@@ -1,11 +1,8 @@
 package modelo;
 
-import java.util.ArrayList;
-
 public class Estadio {
 	private int id;
 	private String nome;
-	private ArrayList<Jogo>jogos = new ArrayList<>();
 	
 
 	/*constructor*/
@@ -13,13 +10,6 @@ public class Estadio {
 		super();
 		this.id = id;
 		this.nome = nome;
-	}
-	
-	public void adicionar(Jogo jogo) {
-		jogos.add(jogo);
-	}
-	public void remover(Jogo jogo) {
-		jogos.remove(jogo);
 	}
 	
 	/*getters and setters */

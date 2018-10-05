@@ -12,15 +12,14 @@ import modelo.Time;
 public class TesteRapido {
 	public static void main(String[] args) {
 		Fachada.inicializar();
-		cadastro();
+		cadastrarEstadio();
+		cadastrarLigasETimesEJogos();
+		listarEstadios();
 		listarLigas();
 		listarJogos();
 		Fachada.finalizar();
 	}
-	
-
-
-	public static void cadastro() {
+	public static void cadastrarEstadio() {
 		try {
 			Estadio maracana, pacaembu, vila, morumbi, mineirao, allianz, beirario;
 			maracana = Fachada.cadastrarEstadio(1, "Maracanã");
@@ -30,6 +29,24 @@ public class TesteRapido {
 			mineirao = Fachada.cadastrarEstadio(5, "Mineirão");
 			allianz = Fachada.cadastrarEstadio(6, "Allianz Parque");
 			beirario = Fachada.cadastrarEstadio(7, "Beira Rio");
+			
+			
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	public static void listarEstadios() {
+		try {
+			System.out.println(Fachada.getEstadios());
+			
+			
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+
+	public static void cadastrarLigasETimesEJogos() {
+		try {
 			Liga brasileiro = Fachada.cadastrarLiga(1, "Brasileirão", "a");
 			Liga espanhol = Fachada.cadastrarLiga(2, "Espanhol", "a");
 			Time flamengo, saopaulo, santos, palmeiras, internacional, corinthians, cruzeiro, barcelona, realmadrid, sevilla, atleticomadrid;
@@ -47,18 +64,16 @@ public class TesteRapido {
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			Date one = formatter.parse("2018-05-01");
 			Date two = formatter.parse("2018-05-07");
-			Fachada.cadastrarJogo(1, flamengo, saopaulo, one, morumbi);
-			Fachada.cadastrarJogo(1, flamengo, santos, two, vila);
+			Fachada.cadastrarJogo(1, flamengo, saopaulo, one);
+			Fachada.cadastrarJogo(1, flamengo, santos, two);
 			
 			
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 	}
-	
 	public static void listarLigas() {
 		try {
-			System.out.println(Fachada.getEstadios());
 			System.out.println(Fachada.getLigas());
 			
 			

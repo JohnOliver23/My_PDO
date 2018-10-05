@@ -12,19 +12,18 @@ public class Jogo {
 	private int placarMandante;
 	private int placarVisitante;
 	private Date dataHorario;
-	private Estadio estadio;
+	private ArrayList<Time> times = new ArrayList<>();
 	
 	
 	/*constructors*/
 	
 	
-	public Jogo(int id, Time timeMandante, Time timeVisitante, Date dataHorario, Estadio estadio) {
+	public Jogo(int id, Time timeMandante, Time timeVisitante, Date dataHorario) {
 		super();
 		this.id = id;
 		this.timeMandante = timeMandante;
 		this.timeVisitante = timeVisitante;
 		this.dataHorario = dataHorario;
-		this.estadio = estadio;
 	}
 
 	/*getters and setters */
@@ -75,7 +74,29 @@ public class Jogo {
 		this.dataHorario = dataHorario;
 	}
 
-
+	public ArrayList<Time> getTimes() {
+		return times;
+	}
+	
+	
+	/*remove and add */
+	public void adicionar(Time time) {
+		times.add(time);
+	}
+	
+	public void remover (Time time) {
+		times.remove(time);
+	}
+	
+	/*localizar */
+	public Time localizarTime(String nome) {
+		for(Time t : times) {
+			if(t.getNome().equals(nome)) {
+				return t;
+			}
+		}
+		return null;
+	}
 	
 	public void atualizaSaldoGols() {
 		timeMandante.setSG(timeMandante.getGP() - timeMandante.getGS());
@@ -118,21 +139,11 @@ public class Jogo {
 		}
 		return null;
 	}
-	public Estadio getEstadio() {
-		return estadio;
-	}
-
-	public void setEstadio(Estadio estadio) {
-		this.estadio = estadio;
-	}
-
-	
-	
 	@Override
 	public String toString() {
 		return "Jogo [id=" + id + ", timeMandante=" + timeMandante.getNome() + ", timeVisitante=" + timeVisitante.getNome()
-				+ ", placarMandante=" + placarMandante + ", placarVisitante=" + placarVisitante + ", dataHorario = "
-				+ dataHorario.getTime()+ " estadio = "+estadio.getNome()+ "]";
+				+ ", placarMandante=" + placarMandante + ", placarVisitante=" + placarVisitante + ", dataHorario="
+				+ dataHorario.getTime()+  "]";
 	}
 
 
