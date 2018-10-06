@@ -29,7 +29,7 @@ public class Estadio {
 	
 	@Override
 	public String toString() {
-		return "Estadio [id=" + id + ", nome=" + nome + "]";
+		return "id=" + id + ", nome=" + nome + "\n";
 	}
 
 	

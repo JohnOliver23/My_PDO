@@ -61,15 +61,23 @@ public class Liga {
 		}
 		return null;
 	}
+	public String classificacao(){
+		String texto ="";
+		for(Time t: times) {
+			texto+= t.getNome()+" "+t.getPontos()+" "+t.getJogos()+" "+t.getVitorias()+" "+
+			t.getDerrotas()+" "+t.getEmpates()+" "+t.getGP()+" "+t.getSG()+" "+t.getGS()+"\n";
+		}
+		return texto;
+	}
 	
 	/*toString*/
 	@Override
 	public String toString() {
-		String texto = "Liga [id=" + id + ", nome=" + nome + ", serie=" + serie + ", times=";
+		String texto = "id= " + id + "\nnome= " + nome + "\nserie= " + serie + ",\ntimes= \n";
 		for(Time t: times) {
-			texto+=t.getNome()+" , ";
+			texto+=t.getNome()+"\n";
 		}
-				texto+= "]";
+				texto+="\n";
 				return texto;
 	}
 	

@@ -57,7 +57,7 @@ public class Fachada {
 		return t;
 	}
 	
-public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Date dthora)throws Exception {
+public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Estadio estadio, Date dthora)throws Exception {
 		
 		int key = daojogo.getKey();
 		DAO.begin();			
@@ -65,7 +65,7 @@ public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Date dth
 		if(j!= null) {
 			throw new Exception("jogo ja cadastrado: " + mandante.getNome()+" x "+ visitante.getNome());
 		}
-		j = new Jogo(id, mandante, visitante, dthora);
+		j = new Jogo(id, mandante, visitante, estadio, dthora);
 		daojogo.create(j);		
 		DAO.commit();
 		return j;
@@ -83,6 +83,26 @@ public static Estadio cadastrarEstadio(int id, String nome)throws Exception {
 	daoestadio.create(e);		
 	DAO.commit();
 	return e;
+}
+
+public static Jogo finalizaJogo(Jogo jogo, int placarMandante, int placarVisitante)throws Exception {
+	if(jogo.isFinalizado()) {
+		throw new Exception("Esse jogo já foi finalizado");
+	}
+	for(int i=0; i<placarMandante; i++) {
+		jogo.marcaGolMandante();
+	}
+	for(int i=0; i<placarVisitante; i++) {
+		jogo.marcaGolVisitante();
+	}
+	jogo.finalizarJogo();
+	daojogo.update(jogo);
+	DAO.commit();
+	return jogo;
+}
+
+public static String classificacao(Liga liga) {
+	return liga.classificacao();
 }
 
 public static List <Estadio> getEstadios(){
