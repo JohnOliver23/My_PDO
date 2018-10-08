@@ -1,9 +1,11 @@
 package DAO;
-import java.sql.Time;
+
 import java.util.List;
 
 import com.db4o.query.Query;
+
 import modelo.Liga;
+import modelo.Time;
 
 public class DAOLiga extends DAO<Liga> {
 	
@@ -28,9 +30,18 @@ public class DAOLiga extends DAO<Liga> {
 	public List<Time> consultarTimesPorLiga(String nome){
 		Query q = manager.query();
 		q.constrain(Liga.class);
-		q.descend("time").descend("nome").constrain(nome);
+		q.descend("times").descend("nome").constrain(nome);
 		List<Time> result = q.execute(); 
 		return result;	
+	}
+	
+	public List <Time> classificacao(Liga liga){
+		Query q = manager.query();
+		q.constrain(Time.class);
+		q.descend("liga").descend("id").constrain(liga.getId());
+		q.descend("pontos").orderDescending();
+		List<Time> result =  q.execute();
+		return result;
 	}
 
 

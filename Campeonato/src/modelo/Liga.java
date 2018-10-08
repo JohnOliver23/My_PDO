@@ -1,12 +1,13 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Liga {
 	private int id;
 	private String nome;
 	private String serie;
-	private ArrayList<Time> times = new ArrayList<>();
+	private List<Time> times = new ArrayList<>();
 	
 
 
@@ -19,7 +20,7 @@ public class Liga {
 	}
 	
 	/*getters and setters */
-	public ArrayList<Time> getTimes() {
+	public List<Time> getTimes() {
 		return times;
 	}
 	
@@ -71,15 +72,15 @@ public class Liga {
 	}
 	
 	/*toString*/
-	@Override
-	public String toString() {
-		String texto = "id= " + id + "\nnome= " + nome + "\nserie= " + serie + ",\ntimes= \n";
-		for(Time t: times) {
-			texto+=t.getNome()+"\n";
-		}
-				texto+="\n";
-				return texto;
-	}
+//	@Override
+//	public String toString() {
+//		String texto = "id= " + id + "\nnome= " + nome + "\nserie= " + serie + ",\ntimes= \n";
+//		for(Time t: times) {
+//			texto+=t.getNome()+"\n";
+//		}
+//				texto+="\n";
+//				return texto;
+//	}
 	
 	
 	

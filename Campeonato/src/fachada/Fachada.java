@@ -1,5 +1,6 @@
 package fachada;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -101,8 +102,10 @@ public static Jogo finalizaJogo(Jogo jogo, int placarMandante, int placarVisitan
 	return jogo;
 }
 
-public static String classificacao(Liga liga) {
-	return liga.classificacao();
+public static List<Time> classificacao(Liga liga) {
+	return daoliga.classificacao(liga);
+	
+	
 }
 
 public static List <Estadio> getEstadios(){

@@ -117,9 +117,8 @@ public class Time {
 
 	@Override
 	public String toString() {
-		String texto =  "Time [id=" + id + ", nome=" + nome + ", SG=" + SG + ", GP=" + GP + ", GS=" + GS + ", pontos=" + pontos
-				+ ", vitorias=" + vitorias + ", empates=" + empates + ", derrotas=" + derrotas + ", numjogos="
-				+ numjogos + ", liga=" + liga.getNome() + "]";
+		String texto= this.getNome()+" "+this.getPontos()+" "+this.getJogos()+" "+this.getVitorias()+" "+
+		this.getDerrotas()+" "+this.getEmpates()+" "+this.getGP()+" "+this.getSG()+" "+this.getGS()+"\n";
 		return texto;
 	}
 	
