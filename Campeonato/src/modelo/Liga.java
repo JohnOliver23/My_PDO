@@ -72,15 +72,15 @@ public class Liga {
 	}
 	
 	/*toString*/
-//	@Override
-//	public String toString() {
-//		String texto = "id= " + id + "\nnome= " + nome + "\nserie= " + serie + ",\ntimes= \n";
-//		for(Time t: times) {
-//			texto+=t.getNome()+"\n";
-//		}
-//				texto+="\n";
-//				return texto;
-//	}
+	@Override
+	public String toString() {
+		String texto = "id= " + id + "\nnome= " + nome + "\nserie= " + serie + ",\ntimes= \n";
+		for(Time t: times) {
+			texto+=t.getNome()+"\n";
+		}
+				texto+="\n";
+				return texto;
+	}
 	
 	
 	

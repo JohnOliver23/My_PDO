@@ -18,4 +18,14 @@ public class DAOEstadio extends DAO<Estadio> {
 		else
 			return null;
 	}
+	public Estadio localizarPorNome(String nome) {
+		Query q = manager.query();
+		q.constrain(Estadio.class);
+		q.descend("nome").constrain(nome);
+		List<Estadio> estadios = q.execute();
+		if(estadios.size()> 0)
+			return estadios.get(0);
+		return null;
+	}
+	
 }

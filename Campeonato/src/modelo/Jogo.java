@@ -181,7 +181,7 @@ public class Jogo {
 		String data = dia+"/"+mes+"/"+ano;
 		texto+="\nData = "+data;
 		texto+="\nHorario = "+hour+":"+minutes;
-		texto+="\nFinalizado = "+finalizado+"\n";
+		texto+="\nFinalizado = "+finalizado+"\n\n";
 		return texto;
 	}
 

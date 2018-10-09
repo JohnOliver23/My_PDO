@@ -13,10 +13,11 @@ import modelo.Time;
 public class TesteRapido {
 	public static void main(String[] args) {
 		Fachada.inicializar();
-		cadastro();
+		//cadastro();
 		listarEstadios();
 		listarLigas();
 		listarJogos();
+		classificacao();
 		Fachada.finalizar();
 	}
 
@@ -67,10 +68,6 @@ public class TesteRapido {
 			Fachada.finalizaJogo(jogo6, 1, 1);
 			Fachada.finalizaJogo(jogo7, 2, 0);
 			Fachada.finalizaJogo(jogo8, 2, 3);
-			System.out.println("\n---------------------\n");
-			System.out.println("Classificaçao");
-			System.out.println(Fachada.classificacao(brasileiro));
-			System.out.println("\n---------------------\n");
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
@@ -105,6 +102,20 @@ public class TesteRapido {
 			System.out.println("\n---------------------\n");
 			System.out.println("Listando os Jogos");
 			System.out.println(Fachada.getJogos());
+			System.out.println("\n---------------------\n");
+			
+			
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public static void classificacao() {
+		try {
+			
+			System.out.println("\n---------------------\n");
+			System.out.println("Classificaçao");
+			System.out.println(Fachada.classificacao(Fachada.consultar("Brasileirão")));
 			System.out.println("\n---------------------\n");
 			
 			

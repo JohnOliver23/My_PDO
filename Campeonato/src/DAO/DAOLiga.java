@@ -43,6 +43,18 @@ public class DAOLiga extends DAO<Liga> {
 		List<Time> result =  q.execute();
 		return result;
 	}
+	
+	public Liga localizarPorNome(String nome) {
+		Query q = manager.query();
+		q.constrain(Liga.class);
+		q.descend("nome").constrain(nome);
+		List<Liga> ligas = q.execute();
+		if(ligas.size()> 0)
+			return ligas.get(0);
+		return null;
+		
+		
+	}
 
 
 }

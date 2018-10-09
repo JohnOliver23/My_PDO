@@ -31,9 +31,8 @@ public class Fachada {
 	
 	public static Liga cadastrarLiga(int id, String nome, String serie)throws Exception {
 		
-		int key = daoliga.getKey();
 		DAO.begin();			
-		Liga l = daoliga.read(key);
+		Liga l = daoliga.localizarPorNome(nome);
 		if(l!= null) {
 			throw new Exception("ja cadastrado:" + nome);
 		}
@@ -44,10 +43,8 @@ public class Fachada {
 	}
 	
 	public static Time cadastrarTime(int id, String nome, Liga liga)throws Exception {
-		
-		int key = daotime.getKey();
 		DAO.begin();			
-		Time t  = daotime.read(key);
+		Time t  = daotime.localizarPorNome(nome);
 		if(t!= null) {
 			throw new Exception("ja cadastrado:" + nome);
 		}
@@ -74,11 +71,10 @@ public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Estadio 
 
 public static Estadio cadastrarEstadio(int id, String nome)throws Exception {
 	
-	int key = daoestadio.getKey();
 	DAO.begin();			
-	Estadio e  = daoestadio.read(key);
+	Estadio e  = daoestadio.localizarPorNome(nome);
 	if(e!= null) {
-		throw new Exception("jogo ja cadastrado: " + nome);
+		throw new Exception("Estadio ja cadastrado: " + nome);
 	}
 	e = new Estadio(id, nome);
 	daoestadio.create(e);		
@@ -102,10 +98,12 @@ public static Jogo finalizaJogo(Jogo jogo, int placarMandante, int placarVisitan
 	return jogo;
 }
 
+public static Liga consultar(String nome) {
+	return daoliga.consultarLiga(nome);
+}
+
 public static List<Time> classificacao(Liga liga) {
 	return daoliga.classificacao(liga);
-	
-	
 }
 
 public static List <Estadio> getEstadios(){

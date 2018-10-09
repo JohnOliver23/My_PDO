@@ -37,6 +37,17 @@ public class DAOTime extends DAO<Time> {
 		List<Time> times = q.execute();
 		return times;
 	}
-
+	
+	public Time localizarPorNome(String nome) {
+		Query q = manager.query();
+		q.constrain(Time.class);
+		q.descend("nome").constrain(nome);
+		List<Time> times = q.execute();
+		if(times.size()> 0)
+			return times.get(0);
+		return null;
+		
+		
+	}
 	
 }
