@@ -98,8 +98,31 @@ public static Jogo finalizaJogo(Jogo jogo, int placarMandante, int placarVisitan
 	return jogo;
 }
 
-public static Liga consultar(String nome) {
+public static Time  deletarTime(String nome) throws Exception{
+	DAO.begin();
+	Time t = daotime.localizarPorNome(nome);
+	if(t== null) {
+		throw new Exception("Time não cadastrado");
+	}
+	Liga l = daoliga.localizarPorNome(t.getLiga().getNome());
+	t.setLiga(null);
+	l.remover(t);
+	daoliga.update(l);
+	daotime.update(t);
+	
+	
+	DAO.commit();
+	return t;
+	
+
+}
+
+public static Liga consultarLiga(String nome) {
 	return daoliga.consultarLiga(nome);
+}
+
+public static Time consultarTime(String nome) {
+	return daotime.localizarPorNome(nome);
 }
 
 public static List<Time> classificacao(Liga liga) {

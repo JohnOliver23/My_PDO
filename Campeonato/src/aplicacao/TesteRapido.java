@@ -2,7 +2,6 @@ package aplicacao;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import fachada.Fachada;
 import modelo.Estadio;
@@ -13,7 +12,8 @@ import modelo.Time;
 public class TesteRapido {
 	public static void main(String[] args) {
 		Fachada.inicializar();
-		//cadastro();
+		cadastro();
+		deletes();
 		listarEstadios();
 		listarLigas();
 		listarJogos();
@@ -72,6 +72,20 @@ public class TesteRapido {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public static void deletes() {
+		try {
+			System.out.println("\n---------------------\n");
+			System.out.println("apagando o time vasco");
+			Fachada.deletarTime("vasco");
+			System.out.println("\n---------------------\n");
+			
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
 	public static void listarEstadios() {
 		try {
 			System.out.println("\n---------------------\n");
@@ -115,7 +129,7 @@ public class TesteRapido {
 			
 			System.out.println("\n---------------------\n");
 			System.out.println("Classificaçao");
-			System.out.println(Fachada.classificacao(Fachada.consultar("Brasileirão")));
+			System.out.println(Fachada.classificacao(Fachada.consultarLiga("Brasileirão")));
 			System.out.println("\n---------------------\n");
 			
 			
