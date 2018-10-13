@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.db4o.query.Query;
 
+import modelo.Estadio;
+import modelo.Jogo;
 import modelo.Liga;
 import modelo.Time;
 
@@ -49,12 +51,14 @@ public class DAOLiga extends DAO<Liga> {
 		q.constrain(Liga.class);
 		q.descend("nome").constrain(nome);
 		List<Liga> ligas = q.execute();
-		if(ligas.size()> 0)
+		if(ligas.size()> 0) {
 			return ligas.get(0);
+		}
 		return null;
 		
 		
 	}
+
 
 
 }

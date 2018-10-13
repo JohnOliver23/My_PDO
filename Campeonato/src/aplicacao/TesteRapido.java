@@ -18,13 +18,15 @@ public class TesteRapido {
 		listarLigas();
 		listarJogos();
 		classificacao();
+		consultas();
 		Fachada.finalizar();
+		
 	}
 
 
 	public static void cadastro() {
 		try {
-			Estadio maracana, pacaembu, vila, morumbi, mineirao, allianz, beirario;
+			Estadio maracana, pacaembu, vila, morumbi, mineirao, allianz, beirario, campNou, santiago, sanchez, wanda;
 			maracana = Fachada.cadastrarEstadio(1, "Maracanã");
 			pacaembu = Fachada.cadastrarEstadio(2, "Pacaembu");
 			vila = Fachada.cadastrarEstadio(3, "Vila Beumiro");
@@ -32,21 +34,25 @@ public class TesteRapido {
 			mineirao = Fachada.cadastrarEstadio(5, "Mineirão");
 			allianz = Fachada.cadastrarEstadio(6, "Allianz Parque");
 			beirario = Fachada.cadastrarEstadio(7, "Beira Rio");
+			campNou = Fachada.cadastrarEstadio(8, "Camp Nou");
+			santiago = Fachada.cadastrarEstadio(9, "Santiago Bernabeu");
+			sanchez = Fachada.cadastrarEstadio(10, "Ramon Sanchez");
+			wanda = Fachada.cadastrarEstadio(11, "Wanda Metropolitano");
 			Liga brasileiro = Fachada.cadastrarLiga(1, "Brasileirão", "a");
 			Liga espanhol = Fachada.cadastrarLiga(2, "Espanhol", "a");
 			Time flamengo, saopaulo, santos, palmeiras, internacional, corinthians, cruzeiro,vasco, barcelona, realmadrid, sevilla, atleticomadrid;
-			flamengo = Fachada.cadastrarTime(1, "flamengo", brasileiro);
-			saopaulo = Fachada.cadastrarTime(2, "São Paulo", brasileiro);
-			santos = Fachada.cadastrarTime(3, "Santos", brasileiro);
-			corinthians = Fachada.cadastrarTime(4, "Corinthians", brasileiro);
-			palmeiras = Fachada.cadastrarTime(5, "palmeiras", brasileiro);
-			internacional = Fachada.cadastrarTime(6, "Internacional", brasileiro);
-			cruzeiro = Fachada.cadastrarTime(7, "Cruzeiro", brasileiro);
-			vasco = Fachada.cadastrarTime(8, "vasco", brasileiro);
-			barcelona = Fachada.cadastrarTime(1, "Barcelona", espanhol);
-			realmadrid = Fachada.cadastrarTime(2, "Real Madrid", espanhol);
-			sevilla = Fachada.cadastrarTime(3, "Sevilla", espanhol);
-			atleticomadrid = Fachada.cadastrarTime(4, "Atletico de Madrid", espanhol);
+			flamengo = Fachada.cadastrarTime(1, "flamengo", "Brasileirão");
+			saopaulo = Fachada.cadastrarTime(2, "São Paulo", "Brasileirão");
+			santos = Fachada.cadastrarTime(3, "Santos", "Brasileirão");
+			corinthians = Fachada.cadastrarTime(4, "Corinthians", "Brasileirão");
+			palmeiras = Fachada.cadastrarTime(5, "palmeiras", "Brasileirão");
+			internacional = Fachada.cadastrarTime(6, "Internacional", "Brasileirão");
+			cruzeiro = Fachada.cadastrarTime(7, "Cruzeiro", "Brasileirão");
+			vasco = Fachada.cadastrarTime(8, "vasco", "Brasileirão");
+			barcelona = Fachada.cadastrarTime(1, "Barcelona", "Espanhol");
+			realmadrid = Fachada.cadastrarTime(2, "Real Madrid", "Espanhol");
+			sevilla = Fachada.cadastrarTime(3, "Sevilla", "Espanhol");
+			atleticomadrid = Fachada.cadastrarTime(4, "Atletico de Madrid", "Espanhol");
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			Jogo jogo1 = Fachada.cadastrarJogo(1, flamengo, saopaulo,maracana, formatter.parse("2018-10-01 16:30:00"));
 			Jogo jogo2 = Fachada.cadastrarJogo(2, internacional, santos, beirario, formatter.parse("2018-10-01 16:30:00"));
@@ -60,14 +66,22 @@ public class TesteRapido {
 			Fachada.cadastrarJogo(10, internacional, vasco, beirario, formatter.parse("2018-10-14 16:30:00"));
 			Fachada.cadastrarJogo(11, santos, vasco, vila, formatter.parse("2018-10-14 19:30:00"));
 			Fachada.cadastrarJogo(12, cruzeiro, palmeiras, mineirao, formatter.parse("2018-10-14 19:30:00"));
-			Fachada.finalizaJogo(jogo1,4, 1);
-			Fachada.finalizaJogo(jogo2, 2, 1);
-			Fachada.finalizaJogo(jogo3, 1, 1);
-			Fachada.finalizaJogo(jogo4, 3, 0);
-			Fachada.finalizaJogo(jogo5, 2, 1);
-			Fachada.finalizaJogo(jogo6, 1, 1);
-			Fachada.finalizaJogo(jogo7, 2, 0);
-			Fachada.finalizaJogo(jogo8, 2, 3);
+			Jogo jogo13 = Fachada.cadastrarJogo(1, barcelona, realmadrid,campNou, formatter.parse("2018-10-01 16:30:00"));
+			Jogo jogo14 = Fachada.cadastrarJogo(2, sevilla, atleticomadrid, sanchez, formatter.parse("2018-10-01 16:30:00"));
+			Jogo jogo15 = Fachada.cadastrarJogo(3, realmadrid, sevilla, santiago, formatter.parse("2018-10-07 19:30:00"));
+			Jogo jogo16 =Fachada.cadastrarJogo(4, atleticomadrid, barcelona, wanda, formatter.parse("2018-10-07 19:30:00"));
+			Jogo jogo17 = Fachada.cadastrarJogo(5, realmadrid, atleticomadrid, santiago, formatter.parse("2018-10-14 16:30:00"));
+			Jogo jogo18 = Fachada.cadastrarJogo(6, barcelona, sevilla, campNou, formatter.parse("2018-10-14 16:30:00"));
+			Fachada.finalizaJogo(1,1, 4, 1);
+			Fachada.finalizaJogo(1, 2, 2, 1);
+			Fachada.finalizaJogo(1, 3, 1, 1);
+			Fachada.finalizaJogo(1, 4, 3, 0);
+			Fachada.finalizaJogo(1, 5, 2, 1);
+			Fachada.finalizaJogo(1, 6, 1, 1);
+			Fachada.finalizaJogo(1, 7, 2, 0);
+			Fachada.finalizaJogo(1, 8, 2, 3);
+			//Fachada.finalizaJogo(1, 8, 2, 3);
+			
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
@@ -128,8 +142,28 @@ public class TesteRapido {
 		try {
 			
 			System.out.println("\n---------------------\n");
-			System.out.println("Classificaçao");
-			System.out.println(Fachada.classificacao(Fachada.consultarLiga("Brasileirão")));
+			System.out.println("Classificaçao Brasileirão");
+			System.out.println(Fachada.classificacao("Brasileirão"));
+			System.out.println("\n---------------------\n");
+			System.out.println("\n---------------------\n");
+			System.out.println("Classificaçao Espanhol");
+			System.out.println(Fachada.classificacao("Espanhol"));
+			System.out.println("\n---------------------\n");
+			
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
+	}
+	public static void consultas() {
+		try {
+			
+			System.out.println("\n---------------------\n");
+			System.out.println("Consultando os estádios jogados no Brasileirão");
+			System.out.println(Fachada.consultarEstadiosPorLiga("Brasileirão"));
+			System.out.println("\n---------------------\n");
+			System.out.println("\n---------------------\n");
+			System.out.println("Consultando os Jogos que não aconteceram do Brasileirão");
+			System.out.println(Fachada.consultarJogosNaoRealisados("Brasileirão"));
 			System.out.println("\n---------------------\n");
 			
 			
@@ -137,7 +171,6 @@ public class TesteRapido {
 			System.out.println(e.getMessage());
 		}
 	}
-
 
 
 }
