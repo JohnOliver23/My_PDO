@@ -88,15 +88,16 @@ public static Estadio cadastrarEstadio(int id, String nome)throws Exception {
 	return e;
 }
 
-public static Jogo finalizaJogo(int idliga,int idjogo, int placarMandante, int placarVisitante)throws Exception {
-	Liga l = daoliga.read(idliga);
+public static Jogo finalizaJogo(String liga,int idjogo, int placarMandante, int placarVisitante)throws Exception {
+	Liga l = daoliga.localizarPorNome(liga);
 	if(l==null) {
 		throw new Exception("Liga não encontrada");
 	}
-	Jogo jogo = daojogo.read(idjogo);
+	Jogo jogo = daojogo.consultarUmJogoPorLiga(idjogo, l);
 	if(jogo == null) {
 		throw new Exception("Jogo não encontrado");
 	}
+	
 	if(jogo.isFinalizado()) {
 		throw new Exception("Esse jogo já foi finalizado");
 	}

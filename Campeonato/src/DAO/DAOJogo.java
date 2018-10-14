@@ -38,6 +38,19 @@ public class DAOJogo extends DAO<Jogo> {
 		return jogos;
 	}
 	
+	public Jogo consultarUmJogoPorLiga(int idjogo, Liga liga) {
+		Query q = manager.query();
+		q.constrain(Jogo.class);
+		q.descend("id").constrain(idjogo).and(
+		q.descend("timeVisitante").descend("liga").constrain(liga));
+		List<Jogo> jogos = q.execute();
+		if(jogos.size()>0) {
+			return jogos.get(0);
+		}
+		return null;
+		
+	}
+	
 
 
 }

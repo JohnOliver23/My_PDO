@@ -54,6 +54,7 @@ public class TesteRapido {
 			sevilla = Fachada.cadastrarTime(3, "Sevilla", "Espanhol");
 			atleticomadrid = Fachada.cadastrarTime(4, "Atletico de Madrid", "Espanhol");
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			
 			Jogo jogo1 = Fachada.cadastrarJogo(1, flamengo, saopaulo,maracana, formatter.parse("2018-10-01 16:30:00"));
 			Jogo jogo2 = Fachada.cadastrarJogo(2, internacional, santos, beirario, formatter.parse("2018-10-01 16:30:00"));
 			Jogo jogo3 = Fachada.cadastrarJogo(3, corinthians, palmeiras, pacaembu, formatter.parse("2018-10-01 19:30:00"));
@@ -65,22 +66,27 @@ public class TesteRapido {
 			Fachada.cadastrarJogo(9, corinthians, flamengo, pacaembu, formatter.parse("2018-10-14 16:30:00"));
 			Fachada.cadastrarJogo(10, internacional, vasco, beirario, formatter.parse("2018-10-14 16:30:00"));
 			Fachada.cadastrarJogo(11, santos, vasco, vila, formatter.parse("2018-10-14 19:30:00"));
+			
 			Fachada.cadastrarJogo(12, cruzeiro, palmeiras, mineirao, formatter.parse("2018-10-14 19:30:00"));
-			Jogo jogo13 = Fachada.cadastrarJogo(1, barcelona, realmadrid,campNou, formatter.parse("2018-10-01 16:30:00"));
-			Jogo jogo14 = Fachada.cadastrarJogo(2, sevilla, atleticomadrid, sanchez, formatter.parse("2018-10-01 16:30:00"));
-			Jogo jogo15 = Fachada.cadastrarJogo(3, realmadrid, sevilla, santiago, formatter.parse("2018-10-07 19:30:00"));
-			Jogo jogo16 =Fachada.cadastrarJogo(4, atleticomadrid, barcelona, wanda, formatter.parse("2018-10-07 19:30:00"));
-			Jogo jogo17 = Fachada.cadastrarJogo(5, realmadrid, atleticomadrid, santiago, formatter.parse("2018-10-14 16:30:00"));
-			Jogo jogo18 = Fachada.cadastrarJogo(6, barcelona, sevilla, campNou, formatter.parse("2018-10-14 16:30:00"));
-			Fachada.finalizaJogo(1,1, 4, 1);
-			Fachada.finalizaJogo(1, 2, 2, 1);
-			Fachada.finalizaJogo(1, 3, 1, 1);
-			Fachada.finalizaJogo(1, 4, 3, 0);
-			Fachada.finalizaJogo(1, 5, 2, 1);
-			Fachada.finalizaJogo(1, 6, 1, 1);
-			Fachada.finalizaJogo(1, 7, 2, 0);
-			Fachada.finalizaJogo(1, 8, 2, 3);
-			//Fachada.finalizaJogo(1, 8, 2, 3);
+			Jogo jogo13 = Fachada.cadastrarJogo(12, barcelona, realmadrid,campNou, formatter.parse("2018-10-01 16:30:00"));
+			Jogo jogo14 = Fachada.cadastrarJogo(13, sevilla, atleticomadrid, sanchez, formatter.parse("2018-10-01 16:30:00"));
+			Jogo jogo15 = Fachada.cadastrarJogo(14, realmadrid, sevilla, santiago, formatter.parse("2018-10-07 19:30:00"));
+			Jogo jogo16 = Fachada.cadastrarJogo(15, atleticomadrid, barcelona, wanda, formatter.parse("2018-10-07 19:30:00"));
+			Jogo jogo17 = Fachada.cadastrarJogo(16, realmadrid, atleticomadrid, santiago, formatter.parse("2018-10-14 16:30:00"));
+			Jogo jogo18 = Fachada.cadastrarJogo(17, barcelona, sevilla, campNou, formatter.parse("2018-10-14 16:30:00"));
+			Fachada.finalizaJogo("Brasileirão",1, 4, 1);
+			Fachada.finalizaJogo("Brasileirão", 2, 2, 1);
+			Fachada.finalizaJogo("Brasileirão", 3, 1, 1);
+			Fachada.finalizaJogo("Brasileirão", 4, 3, 0);
+			Fachada.finalizaJogo("Brasileirão", 5, 2, 1);
+			Fachada.finalizaJogo("Brasileirão", 6, 1, 1);
+			Fachada.finalizaJogo("Brasileirão", 7, 2, 0);
+			Fachada.finalizaJogo("Brasileirão", 8, 2, 3);
+			Fachada.finalizaJogo("Espanhol", 1, 3, 3);
+			System.out.println("oi");
+			Fachada.finalizaJogo("Espanhol", 2, 1, 2);
+			Fachada.finalizaJogo("Espanhol", 3, 3, 0);
+			Fachada.finalizaJogo("Espanhol", 4, 0, 4);
 			
 		}catch(Exception e){
 			System.out.println(e.getMessage());
