@@ -95,7 +95,7 @@ public static Jogo finalizaJogo(String liga,int idjogo, int placarMandante, int 
 	}
 	Jogo jogo = daojogo.consultarUmJogoPorLiga(idjogo, l);
 	if(jogo == null) {
-		throw new Exception("Jogo não encontrado");
+		throw new Exception("Jogo não encontrado = "+idjogo+" "+ l.getNome());
 	}
 	
 	if(jogo.isFinalizado()) {
