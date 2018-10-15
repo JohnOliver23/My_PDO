@@ -26,7 +26,7 @@ public class TesteRapido {
 
 	public static void cadastro() {
 		try {
-			Estadio maracana, pacaembu, vila, morumbi, mineirao, allianz, beirario, campNou, santiago, sanchez, wanda;
+			Estadio maracana, pacaembu, vila, morumbi, mineirao, allianz, beirario, campNou, santiago, sanchez, wanda, mestala;
 			maracana = Fachada.cadastrarEstadio(1, "Maracanã");
 			pacaembu = Fachada.cadastrarEstadio(2, "Pacaembu");
 			vila = Fachada.cadastrarEstadio(3, "Vila Beumiro");
@@ -38,6 +38,7 @@ public class TesteRapido {
 			santiago = Fachada.cadastrarEstadio(9, "Santiago Bernabeu");
 			sanchez = Fachada.cadastrarEstadio(10, "Ramon Sanchez");
 			wanda = Fachada.cadastrarEstadio(11, "Wanda Metropolitano");
+			//mestala = Fachada.cadastrarEstadio(12, "Mestala");
 			Liga brasileiro = Fachada.cadastrarLiga(1, "Brasileirão", "a");
 			Liga espanhol = Fachada.cadastrarLiga(2, "Espanhol", "a");
 			Time flamengo, saopaulo, santos, palmeiras, internacional, corinthians, cruzeiro,vasco, barcelona, realmadrid, sevilla, atleticomadrid;
@@ -167,8 +168,13 @@ public class TesteRapido {
 			System.out.println(Fachada.consultarEstadiosPorLiga("Brasileirão"));
 			System.out.println("\n---------------------\n");
 			System.out.println("\n---------------------\n");
-			System.out.println("Consultando os Jogos que não aconteceram do Espanhol");
-			System.out.println(Fachada.consultarJogosNaoRealisados("Espanhol"));
+			System.out.println("Consultando os estádios  não jogados no Brasileirão");
+			System.out.println(Fachada.consultarEstadiosNaoJogados("Brasileirão"));
+			System.out.println("\n---------------------\n");
+			System.out.println("Consultando os estádios  não jogados no Espanhol");
+			System.out.println(Fachada.consultarEstadiosNaoJogados("Espanhol"));
+			System.out.println("\n---------------------\n");
+			System.out.println("\n---------------------\n");
 			System.out.println("\n---------------------\n");
 			System.out.println("Consultando os Jogos que não aconteceram do Brasileirão");
 			System.out.println(Fachada.consultarJogosNaoRealisados("Brasileirão"));

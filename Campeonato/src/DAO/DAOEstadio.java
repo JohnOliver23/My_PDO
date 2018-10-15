@@ -3,6 +3,8 @@ package DAO;
 import java.sql.Time;
 import java.util.List;
 
+import com.db4o.query.Candidate;
+import com.db4o.query.Evaluation;
 import com.db4o.query.Query;
 
 import modelo.Estadio;
@@ -34,9 +36,7 @@ public class DAOEstadio extends DAO<Estadio> {
 		Query q = manager.query();
 		q.constrain(Estadio.class);
 		q.descend("jogos").descend("timeMandante").descend("liga")
-		.descend("nome").constrain(l.getNome()).or(q.descend("jogos")
-		.descend("timeVisitante").descend("liga").descend("nome")
-		.constrain(l.getNome()));
+		.descend("nome").constrain(l.getNome());
 		List<Estadio> result = q.execute();
 		if(result.size()>0) {
 			return result;
@@ -49,11 +49,10 @@ public class DAOEstadio extends DAO<Estadio> {
 	public List<Estadio> consultarEstadiosNaoJogados(Liga l) {
 		Query q = manager.query();
 		q.constrain(Estadio.class);
+		q.constrain(new Filtro1());
+		/*
 		q.descend("jogos").descend("timeMandante").descend("liga")
-		.descend("nome").constrain(l.getNome()).or(q.descend("jogos")
-		.descend("timeVisitante").descend("liga").descend("nome")
-		.constrain(l.getNome()));
-		
+		.descend("nome").constrain(l.getNome());*/
 		List<Estadio> result = q.execute();
 		if(result.size()>0) {
 			return result;
@@ -61,5 +60,18 @@ public class DAOEstadio extends DAO<Estadio> {
 		return null;
 		
 	}
+	
+	class Filtro1 implements Evaluation {
+		public void evaluate(Candidate candidate) {
+			Estadio e = (Estadio) candidate.getObject();
+			if(e.getJogos().size()==0) {
+				candidate.include(true);
+			}else {
+				candidate.include(false);
+			}
+			
+		}
+	}
+	
 	
 }

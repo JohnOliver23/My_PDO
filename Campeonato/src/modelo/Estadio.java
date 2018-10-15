@@ -23,6 +23,14 @@ public class Estadio {
 	public void setId(int id) {
 		this.id = id;
 	}
+	public ArrayList<Jogo> getJogos() {
+		return jogos;
+	}
+
+	public void setJogos(ArrayList<Jogo> jogos) {
+		this.jogos = jogos;
+	}
+
 	public String getNome() {
 		return nome;
 	}

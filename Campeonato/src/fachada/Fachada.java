@@ -149,7 +149,7 @@ public static List<Estadio> consultarEstadiosPorLiga(String nome) throws Excepti
 }
 
 public static List<Estadio> consultarEstadiosNaoJogados(String nome) throws Exception {
-	Liga l = daoliga.consultarLiga(nome);
+	Liga l = daoliga.localizarPorNome(nome);
 	if(l==null) {
 		throw new Exception("Liga não encontrada"+nome);
 	}
