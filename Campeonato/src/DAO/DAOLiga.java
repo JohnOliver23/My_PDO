@@ -52,6 +52,8 @@ public class DAOLiga extends DAO<Liga> {
 		q.constrain(Time.class);
 		q.descend("liga").descend("id").constrain(liga.getId());
 		q.descend("pontos").orderDescending();
+		q.descend("SG").orderDescending();
+		
 		List<Time> result =  q.execute();
 		List<Time> primeiros = new ArrayList<>();
 		for(int i=0; i<n; i++) {

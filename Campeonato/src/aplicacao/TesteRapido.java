@@ -81,7 +81,7 @@ public class TesteRapido {
 			Fachada.finalizaJogo("Brasileirão", 4, 3, 0);
 			Fachada.finalizaJogo("Brasileirão", 5, 2, 1);
 			Fachada.finalizaJogo("Brasileirão", 6, 1, 1);
-			Fachada.finalizaJogo("Brasileirão", 7, 2, 0);
+			Fachada.finalizaJogo("Brasileirão", 7, 4, 0);
 			Fachada.finalizaJogo("Brasileirão", 8, 2, 3);
 			Fachada.finalizaJogo("Espanhol", 1, 3, 3);
 			Fachada.finalizaJogo("Espanhol", 2, 1, 2);
