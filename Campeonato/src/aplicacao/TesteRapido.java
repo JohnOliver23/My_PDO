@@ -12,8 +12,8 @@ import modelo.Time;
 public class TesteRapido {
 	public static void main(String[] args) {
 		Fachada.inicializar();
-		//cadastro();
-		//deletes();
+		cadastro();
+		deletes();
 		listarEstadios();
 		listarLigas();
 		listarJogos();
@@ -38,7 +38,7 @@ public class TesteRapido {
 			santiago = Fachada.cadastrarEstadio(9, "Santiago Bernabeu");
 			sanchez = Fachada.cadastrarEstadio(10, "Ramon Sanchez");
 			wanda = Fachada.cadastrarEstadio(11, "Wanda Metropolitano");
-			//mestala = Fachada.cadastrarEstadio(12, "Mestala");
+			mestala = Fachada.cadastrarEstadio(12, "Mestala");
 			Liga brasileiro = Fachada.cadastrarLiga(1, "Brasileirão", "a");
 			Liga espanhol = Fachada.cadastrarLiga(2, "Espanhol", "a");
 			Time flamengo, saopaulo, santos, palmeiras, internacional, corinthians, cruzeiro,vasco, barcelona, realmadrid, sevilla, atleticomadrid;
@@ -99,7 +99,10 @@ public class TesteRapido {
 			System.out.println("apagando o time vasco");
 			Fachada.deletarTime("vasco");
 			System.out.println("\n---------------------\n");
-			
+			System.out.println("\n---------------------\n");
+			System.out.println("apagando o Estadio Mestala");
+			Fachada.deletarEstadio("Mestala");
+			System.out.println("\n---------------------\n");
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
@@ -168,16 +171,16 @@ public class TesteRapido {
 			System.out.println(Fachada.consultarEstadiosPorLiga("Brasileirão"));
 			System.out.println("\n---------------------\n");
 			System.out.println("\n---------------------\n");
-			System.out.println("Consultando os estádios  não jogados no Brasileirão");
-			System.out.println(Fachada.consultarEstadiosNaoJogados("Brasileirão"));
-			System.out.println("\n---------------------\n");
-			System.out.println("Consultando os estádios  não jogados no Espanhol");
-			System.out.println(Fachada.consultarEstadiosNaoJogados("Espanhol"));
-			System.out.println("\n---------------------\n");
+			System.out.println("Consultando os estádios  não jogados");
+			System.out.println(Fachada.consultarEstadiosNaoJogados());
 			System.out.println("\n---------------------\n");
 			System.out.println("\n---------------------\n");
 			System.out.println("Consultando os Jogos que não aconteceram do Brasileirão");
 			System.out.println(Fachada.consultarJogosNaoRealisados("Brasileirão"));
+			System.out.println("\n---------------------\n");
+			System.out.println("\n---------------------\n");
+			System.out.println("Consultando os 4 primeiros colocados do brasileirão");
+			System.out.println(Fachada.retornaNPrimeirosColocados("Brasileirão",4));
 			System.out.println("\n---------------------\n");
 			
 			

@@ -46,13 +46,10 @@ public class DAOEstadio extends DAO<Estadio> {
 		
 	}
 	
-	public List<Estadio> consultarEstadiosNaoJogados(Liga l) {
+	public List<Estadio> consultarEstadiosNaoJogados() {
 		Query q = manager.query();
 		q.constrain(Estadio.class);
 		q.constrain(new Filtro1());
-		/*
-		q.descend("jogos").descend("timeMandante").descend("liga")
-		.descend("nome").constrain(l.getNome());*/
 		List<Estadio> result = q.execute();
 		if(result.size()>0) {
 			return result;

@@ -124,12 +124,19 @@ public static Time  deletarTime(String nome) throws Exception{
 	l.remover(t);
 	daoliga.update(l);
 	daotime.update(t);
-	
-	
 	DAO.commit();
 	return t;
-	
+}
 
+public static Estadio deletarEstadio(String nome) throws Exception{
+	DAO.begin();
+	Estadio e = daoestadio.localizarPorNome(nome);
+	if(e==null) {
+		throw new Exception("Estadio não encontrado");
+	}
+	daoestadio.delete(e);
+	DAO.commit();
+	return e;
 }
 
 public static List<Time> classificacao(String liga)throws Exception {
@@ -140,6 +147,14 @@ public static List<Time> classificacao(String liga)throws Exception {
 	return daoliga.classificacao(l);
 }
 
+public static List<Time>retornaNPrimeirosColocados(String liga, int n)throws Exception {
+	Liga l = daoliga.localizarPorNome(liga);
+	if(l==null) {
+		throw new Exception("liga não encontrada"+liga);
+	}
+	return daoliga.retornaNPrimeiros(l, n);
+}
+
 public static List<Estadio> consultarEstadiosPorLiga(String nome) throws Exception {
 	Liga l = daoliga.consultarLiga(nome);
 	if(l==null) {
@@ -148,12 +163,8 @@ public static List<Estadio> consultarEstadiosPorLiga(String nome) throws Excepti
 	return daoestadio.consultarEstadiosPorLiga(l);
 }
 
-public static List<Estadio> consultarEstadiosNaoJogados(String nome) throws Exception {
-	Liga l = daoliga.localizarPorNome(nome);
-	if(l==null) {
-		throw new Exception("Liga não encontrada"+nome);
-	}
-	return daoestadio.consultarEstadiosNaoJogados(l);
+public static List<Estadio> consultarEstadiosNaoJogados() throws Exception {
+	return daoestadio.consultarEstadiosNaoJogados();
 }
 
 public static List<Jogo> consultarJogosNaoRealisados(String nome) throws Exception {

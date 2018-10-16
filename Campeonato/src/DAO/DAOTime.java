@@ -46,8 +46,7 @@ public class DAOTime extends DAO<Time> {
 		if(times.size()> 0)
 			return times.get(0);
 		return null;
-		
-		
 	}
+	
 	
 }
