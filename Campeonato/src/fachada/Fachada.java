@@ -59,15 +59,29 @@ public class Fachada {
 		return t;
 	}
 	
-public static Jogo cadastrarJogo(int id, Time mandante, Time visitante, Estadio estadio, Date dthora)throws Exception {
+public static Jogo cadastrarJogo(int id, String nomemandante, String nomevisitante, String nomeestadio, Date dthora)throws Exception {
 		
 		int key = daojogo.getKey();
-		DAO.begin();			
+		DAO.begin();		
+		Time mandante = daotime.localizarPorNome(nomemandante);
+		if(mandante==null) {
+			throw new Exception("time mandante não cadastrado"+nomemandante);
+		}
+		Time visitante = daotime.localizarPorNome(nomevisitante);
+		if(visitante==null) {
+			throw new Exception ("time vistante não cadastrado"+nomevisitante);
+		}
+		Estadio estadio = daoestadio.localizarPorNome(nomeestadio);
+		if(estadio==null) {
+			throw new Exception("Estádio não cadastrado"+nomeestadio);
+		}
 		Jogo j  = daojogo.read(key);
 		if(j!= null) {
 			throw new Exception("jogo ja cadastrado: " + mandante.getNome()+" x "+ visitante.getNome());
 		}
 		j = new Jogo(id, mandante, visitante, estadio, dthora);
+		mandante.adicionar(j);
+		visitante.adicionar(j);
 		estadio.adicionar(j);
 		daojogo.create(j);	
 		DAO.commit();
