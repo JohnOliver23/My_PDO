@@ -12,8 +12,8 @@ import modelo.Time;
 public class TesteRapido {
 	public static void main(String[] args) {
 		Fachada.inicializar();
-		cadastro();
-		deletes();
+		//cadastro();
+		//deletes();
 		listarEstadios();
 		listarLigas();
 		listarJogos();
