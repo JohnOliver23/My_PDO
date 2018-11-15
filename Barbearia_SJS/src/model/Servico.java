@@ -6,7 +6,6 @@ private Barbeiro barbeiro;
 private Cliente cliente;
 private String data;
 private Tipo tipo;
-private Conta conta;
 
 
 
@@ -28,13 +27,7 @@ public void setTipo(Tipo tipo) {
 	this.tipo = tipo;
 }
 
-public Conta getConta() {
-	return conta;
-}
 
-public void setConta(Conta conta) {
-	this.conta = conta;
-}
 public int getId() {
 	return id;
 }
