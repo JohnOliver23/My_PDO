@@ -1,0 +1,66 @@
+[EL Fine]: server: 2018-11-16 23:14:25.888--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2018-11-16 23:14:27.591--ServerSession(650023597)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Produto] is set to [FIELD].
+[EL Config]: metadata: 2018-11-16 23:14:27.825--ServerSession(650023597)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Pessoa] is set to [FIELD].
+[EL Config]: metadata: 2018-11-16 23:14:27.841--ServerSession(650023597)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Aluno] is set to [FIELD].
+[EL Config]: metadata: 2018-11-16 23:14:27.841--ServerSession(650023597)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Professor] is set to [FIELD].
+[EL Config]: metadata: 2018-11-16 23:14:27.857--ServerSession(650023597)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Produto] is being defaulted to: Produto.
+[EL Config]: metadata: 2018-11-16 23:14:27.872--ServerSession(650023597)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Produto] is being defaulted to: PRODUTO.
+[EL Config]: metadata: 2018-11-16 23:14:28.028--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [preco] is being defaulted to: PRECO.
+[EL Config]: metadata: 2018-11-16 23:14:28.028--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [estoque] is being defaulted to: ESTOQUE.
+[EL Config]: metadata: 2018-11-16 23:14:28.028--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2018-11-16 23:14:28.028--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-11-16 23:14:28.044--ServerSession(650023597)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Aluno] is being defaulted to: Aluno.
+[EL Config]: metadata: 2018-11-16 23:14:28.044--ServerSession(650023597)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Pessoa] is being defaulted to: Pessoa.
+[EL Config]: metadata: 2018-11-16 23:14:28.044--ServerSession(650023597)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Pessoa] is being defaulted to: PESSOA.
+[EL Config]: metadata: 2018-11-16 23:14:28.044--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2018-11-16 23:14:28.044--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-11-16 23:14:28.044--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [sexo] is being defaulted to: SEXO.
+[EL Config]: metadata: 2018-11-16 23:14:28.091--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [dtcadastro] is being defaulted to: DTCADASTRO.
+[EL Config]: metadata: 2018-11-16 23:14:28.122--ServerSession(650023597)--Thread(Thread[main,5,main])--The discriminator column name for the root inheritance class [modelo.Pessoa] is being defaulted to: DTYPE.
+[EL Config]: metadata: 2018-11-16 23:14:28.122--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [nota] is being defaulted to: NOTA.
+[EL Config]: metadata: 2018-11-16 23:14:28.122--ServerSession(650023597)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Professor] is being defaulted to: Professor.
+[EL Config]: metadata: 2018-11-16 23:14:28.153--ServerSession(650023597)--Thread(Thread[main,5,main])--The column name for element [salario] is being defaulted to: SALARIO.
+[EL Info]: 2018-11-16 23:14:33.438--ServerSession(650023597)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
+[EL Fine]: connection: 2018-11-16 23:14:34.552--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
+[EL Config]: connection: 2018-11-16 23:14:34.614--ServerSession(650023597)--Connection(558216562)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=>PostgreSQLPlatform
+	user name=> "postgres"
+	datasource URL=> "jdbc:postgresql://localhost:5432/agenda"
+))
+[EL Config]: connection: 2018-11-16 23:14:34.833--ServerSession(650023597)--Connection(961712517)--Thread(Thread[main,5,main])--Connected: jdbc:postgresql://localhost:5432/agenda
+	User: postgres
+	Database: PostgreSQL  Version: 9.3.24
+	Driver: PostgreSQL Native Driver  Version: PostgreSQL 9.4 JDBC4.2 (build 1206)
+[EL Info]: connection: 2018-11-16 23:14:36.067--ServerSession(650023597)--Thread(Thread[main,5,main])--/file:/C:/My_PDO/AgendaJPA-Produto/bin/_agenda login successful
+[EL Fine]: sql: 2018-11-16 23:14:36.599--ServerSession(650023597)--Connection(961712517)--Thread(Thread[main,5,main])--CREATE TABLE PRODUTO (ID  SERIAL NOT NULL, ESTOQUE INTEGER, NOME VARCHAR(255), PRECO FLOAT, PRIMARY KEY (ID))
+[EL Fine]: sql: 2018-11-16 23:14:37.724--ServerSession(650023597)--Connection(961712517)--Thread(Thread[main,5,main])--CREATE TABLE PESSOA (ID  SERIAL NOT NULL, DTYPE VARCHAR(31), DTCADASTRO DATE, NOME VARCHAR(255), SEXO VARCHAR(255), NOTA FLOAT, SALARIO FLOAT, PRIMARY KEY (ID))
+[EL Fine]: sql: 2018-11-16 23:14:38.333--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PESSOA (DTCADASTRO, NOME, SEXO, DTYPE) VALUES (?, ?, ?, ?)
+	bind => [2018-11-16, joao, MASCULINO, Pessoa]
+[EL Fine]: sql: 2018-11-16 23:14:38.427--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.552--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PESSOA (DTCADASTRO, NOME, SEXO, DTYPE) VALUES (?, ?, ?, ?)
+	bind => [2018-11-16, maria, FEMININO, Pessoa]
+[EL Fine]: sql: 2018-11-16 23:14:38.568--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.568--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PESSOA (DTCADASTRO, NOME, SEXO, DTYPE) VALUES (?, ?, ?, ?)
+	bind => [2018-11-16, jose, MASCULINO, Pessoa]
+[EL Fine]: sql: 2018-11-16 23:14:38.583--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.599--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PESSOA (DTCADASTRO, NOME, NOTA, SEXO, DTYPE) VALUES (?, ?, ?, ?, ?)
+	bind => [2018-11-16, paulo, 9.0, MASCULINO, Aluno]
+[EL Fine]: sql: 2018-11-16 23:14:38.63--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.646--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PESSOA (DTCADASTRO, NOME, SALARIO, SEXO, DTYPE) VALUES (?, ?, ?, ?, ?)
+	bind => [2018-11-16, fausto, 1000.0, MASCULINO, Professor]
+[EL Fine]: sql: 2018-11-16 23:14:38.646--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.661--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PRODUTO (ESTOQUE, NOME, PRECO) VALUES (?, ?, ?)
+	bind => [10, feijão, 2.5]
+[EL Fine]: sql: 2018-11-16 23:14:38.708--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.724--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PRODUTO (ESTOQUE, NOME, PRECO) VALUES (?, ?, ?)
+	bind => [15, arroz, 1.5]
+[EL Fine]: sql: 2018-11-16 23:14:38.724--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.739--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PRODUTO (ESTOQUE, NOME, PRECO) VALUES (?, ?, ?)
+	bind => [20, macarrão, 1.7]
+[EL Fine]: sql: 2018-11-16 23:14:38.739--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Fine]: sql: 2018-11-16 23:14:38.755--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--INSERT INTO PRODUTO (ESTOQUE, NOME, PRECO) VALUES (?, ?, ?)
+	bind => [30, biscoito, 1.1]
+[EL Fine]: sql: 2018-11-16 23:14:38.755--ClientSession(615438348)--Connection(961712517)--Thread(Thread[main,5,main])--select lastval()
+[EL Config]: connection: 2018-11-16 23:14:38.771--ServerSession(650023597)--Connection(961712517)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2018-11-16 23:14:38.771--ServerSession(650023597)--Thread(Thread[main,5,main])--/file:/C:/My_PDO/AgendaJPA-Produto/bin/_agenda logout successful
+[EL Config]: connection: 2018-11-16 23:14:38.771--ServerSession(650023597)--Connection(558216562)--Thread(Thread[main,5,main])--disconnect

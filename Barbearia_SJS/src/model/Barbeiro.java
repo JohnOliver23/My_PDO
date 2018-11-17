@@ -1,13 +1,21 @@
 package model;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+@Entity
 public class Barbeiro extends Pessoa  {
 	private boolean ocupado;
 	private ArrayList<Servico> servicos = new ArrayList<>();
-	public Barbeiro(int id, String nome, String celular) {
-		super(id, nome, celular);
+	
+	//construtor vazio
+	public Barbeiro() {};
+	
+	public Barbeiro(String nome, String sobrenome, Date data) {
+		super(nome, sobrenome, data);
 	}
+
 	
 	public void adicionar(Servico s) {
 		servicos.add(s);
@@ -27,8 +35,7 @@ public class Barbeiro extends Pessoa  {
 
 	@Override
 	public String toString() {
-		return "Barbeiro [id= "+super.getId()+"nome= "+super.getNome()+" celular= "+
-				super.getCelular()+" "+"ocupado=" + ocupado + "]";
+		return super.toString()+"ocupado"+ocupado;
 	}
 	
 }

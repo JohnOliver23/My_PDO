@@ -1,14 +1,33 @@
 package model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+@Entity 
 public class Pessoa {
+	@Id		
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String nome;
-	private String celular;
+	String sobrenome;
+	@Temporal(TemporalType.DATE)
+	private Date datanasc;
 	
-	public Pessoa(int id, String nome, String celular) {
-		this.id = id;
+	//construtor vazio
+	public Pessoa (){}
+	
+	public Pessoa(String nome, String sobrenome, Date data) {
+		super();
 		this.nome = nome;
-		this.celular = celular;
+		this.sobrenome = sobrenome;
+		this.datanasc = data;
+		
 	}
 	public int getId() {
 		return id;
@@ -22,16 +41,14 @@ public class Pessoa {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getCelular() {
-		return celular;
-	}
-	public void setCelular(String celular) {
-		this.celular = celular;
-	}
+	
+
 	@Override
 	public String toString() {
-		return "Pessoa [id=" + id + ", nome=" + nome + ", celular=" + celular + "]";
+		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+		return "Pessoa [id=" + id + ", nome=" + nome +"sobrenome="+sobrenome+ ",data cadastro= "+f.format(datanasc.getTime()) +"]";
 	}
-	
+
+
 	
 }

@@ -7,9 +7,9 @@
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-		    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/agenda" />
+		    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/agenda" />
 		    <property name="javax.persistence.jdbc.user" value="postgres" />
-		    <property name="javax.persistence.jdbc.password" value="ifpb" />
+		    <property name="javax.persistence.jdbc.password" value="475524" />
 		    
     		<property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="javax.persistence.schema-generation.scripts.action" value="create"/>  
@@ -17,8 +17,8 @@
 		    <property name="eclipselink.logging.level" value="fine"/>	
 		    <property name="eclipselink.logging.file" value="log.txt"/>    
 		</properties>	
-		
-<!-- 
+	<!-- 
+ 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 		    <property name="javax.persistence.jdbc.url"  value="jdbc:mysql://127.0.0.1:3306/agenda" />
@@ -31,7 +31,7 @@
 		    <property name="eclipselink.logging.level" value="fine"/>	    
 		    <property name="eclipselink.logging.file" value="log.txt"/>	
 		</properties> 
--->	
+-->
 <!--ORACLE 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
