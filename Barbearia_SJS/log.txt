@@ -1,38 +1,98 @@
-[EL Fine]: server: 2018-11-17 00:27:09.787--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
-[EL Config]: metadata: 2018-11-17 00:27:11.171--ServerSession(346861221)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Pessoa] is set to [FIELD].
-[EL Config]: metadata: 2018-11-17 00:27:11.358--ServerSession(346861221)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Barbeiro] is set to [FIELD].
-[EL Config]: metadata: 2018-11-17 00:27:11.374--ServerSession(346861221)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Cliente] is set to [FIELD].
-[EL Config]: metadata: 2018-11-17 00:27:11.374--ServerSession(346861221)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Barbeiro] is being defaulted to: Barbeiro.
-[EL Config]: metadata: 2018-11-17 00:27:11.374--ServerSession(346861221)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Pessoa] is being defaulted to: Pessoa.
-[EL Config]: metadata: 2018-11-17 00:27:11.437--ServerSession(346861221)--Thread(Thread[main,5,main])--The table name for entity [class model.Pessoa] is being defaulted to: PESSOA.
-[EL Config]: metadata: 2018-11-17 00:27:11.579--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [datanasc] is being defaulted to: DATANASC.
-[EL Config]: metadata: 2018-11-17 00:27:11.61--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
-[EL Config]: metadata: 2018-11-17 00:27:11.61--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2018-11-17 00:27:11.61--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [sobrenome] is being defaulted to: SOBRENOME.
-[EL Config]: metadata: 2018-11-17 00:27:11.626--ServerSession(346861221)--Thread(Thread[main,5,main])--The discriminator column name for the root inheritance class [model.Pessoa] is being defaulted to: DTYPE.
-[EL Config]: metadata: 2018-11-17 00:27:11.642--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [servicos] is being defaulted to: SERVICOS.
-[EL Fine]: metadata: 2018-11-17 00:27:11.642--Thread(Thread[main,5,main])--java.lang.ClassNotFoundException: java.util.ArrayListmodel.Servico
-[EL Config]: metadata: 2018-11-17 00:27:11.673--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [ocupado] is being defaulted to: OCUPADO.
-[EL Config]: metadata: 2018-11-17 00:27:11.673--ServerSession(346861221)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Cliente] is being defaulted to: Cliente.
-[EL Config]: metadata: 2018-11-17 00:27:11.673--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [servicos] is being defaulted to: SERVICOS.
-[EL Config]: metadata: 2018-11-17 00:27:11.689--ServerSession(346861221)--Thread(Thread[main,5,main])--The column name for element [contas] is being defaulted to: CONTAS.
-[EL Fine]: metadata: 2018-11-17 00:27:11.689--Thread(Thread[main,5,main])--java.lang.ClassNotFoundException: java.util.ArrayListmodel.Conta
-[EL Info]: 2018-11-17 00:27:15.641--ServerSession(346861221)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
-[EL Fine]: connection: 2018-11-17 00:27:17.0--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
-[EL Config]: connection: 2018-11-17 00:27:17.078--ServerSession(346861221)--Connection(1209702763)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+[EL Fine]: server: 2018-12-03 22:11:38.895--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2018-12-03 22:11:39.036--ServerSession(1196765369)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Conta] is set to [FIELD].
+[EL Config]: metadata: 2018-12-03 22:11:39.051--ServerSession(1196765369)--Thread(Thread[main,5,main])--The element [field pagamento] is being defaulted to a one to one mapping.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to one mapping element [field pagamento] is being defaulted to: class model.Pagamento.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Pagamento] is set to [FIELD].
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Pessoa] is set to [FIELD].
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Barbeiro] is set to [FIELD].
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The element [field servicos] is being defaulted to a one to many mapping.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Servico] is set to [FIELD].
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Cliente] is set to [FIELD].
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The element [field servicos] is being defaulted to a one to many mapping.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The element [field contas] is being defaulted to a one to many mapping.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field contas] is being defaulted to: class model.Conta.
+[EL Config]: metadata: 2018-12-03 22:11:39.067--ServerSession(1196765369)--Thread(Thread[main,5,main])--The access type for the persistent class [class model.Tipo] is set to [FIELD].
+[EL Config]: metadata: 2018-12-03 22:11:39.083--ServerSession(1196765369)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Conta] is being defaulted to: Conta.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [total] is being defaulted to: TOTAL.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [dtfechamento] is being defaulted to: DTFECHAMENTO.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Pagamento] is being defaulted to: Pagamento.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [valorpago] is being defaulted to: VALORPAGO.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Barbeiro] is being defaulted to: Barbeiro.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Pessoa] is being defaulted to: Pessoa.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [datanasc] is being defaulted to: DATANASC.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [sobrenome] is being defaulted to: SOBRENOME.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The discriminator column name for the root inheritance class [model.Pessoa] is being defaulted to: DTYPE.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [ocupado] is being defaulted to: OCUPADO.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Servico] is being defaulted to: Servico.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [tipo] is being defaulted to: TIPO.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [idCliente] is being defaulted to: IDCLIENTE.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [data] is being defaulted to: DATA.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [idBarbeiro] is being defaulted to: IDBARBEIRO.
+[EL Warning]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--You have specified multiple ids for the entity class [model.Servico] without specifying an @IdClass. By doing this you may lose the ability to find by identity, distributed cache support etc. Note: You may however use EntityManager find operations by passing a list of primary key fields. Else, you will have to use JPQL queries to read your entities. For other id options see @PrimaryKey.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Cliente] is being defaulted to: Cliente.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The alias name for the entity class [class model.Tipo] is being defaulted to: Tipo.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [preco] is being defaulted to: PRECO.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2018-12-03 22:11:39.098--ServerSession(1196765369)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.114--ServerSession(1196765369)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field pagamento] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.114--ServerSession(1196765369)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [pagamento] is being defaulted to: PAGAMENTO_ID.
+[EL Warning]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--Element [field servicos] within entity class [class model.Barbeiro] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The join table name for the many to many mapping [field servicos] is being defaulted to: Pessoa_Servico.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The source primary key column name for the many to many mapping [field servicos] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The source foreign key column name for the many to many mapping [servicos] is being defaulted to: Barbeiro_ID.
+[EL Warning]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--Element [field servicos] within entity class [class model.Cliente] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The join table name for the many to many mapping [field servicos] is being defaulted to: Pessoa_Servico.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The source primary key column name for the many to many mapping [field servicos] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The source foreign key column name for the many to many mapping [servicos] is being defaulted to: Cliente_ID.
+[EL Warning]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--Element [field contas] within entity class [class model.Cliente] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The join table name for the many to many mapping [field contas] is being defaulted to: Pessoa_Conta.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The source primary key column name for the many to many mapping [field contas] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The source foreign key column name for the many to many mapping [contas] is being defaulted to: Cliente_ID.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The target primary key column name for the many to many mapping [field contas] is being defaulted to: id.
+[EL Config]: metadata: 2018-12-03 22:11:39.13--ServerSession(1196765369)--Thread(Thread[main,5,main])--The target foreign key column name for the many to many mapping [contas] is being defaulted to: contas_id.
+[EL Info]: 2018-12-03 22:11:39.458--ServerSession(1196765369)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
+[EL Fine]: connection: 2018-12-03 22:11:39.536--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
+[EL Config]: connection: 2018-12-03 22:11:39.551--ServerSession(1196765369)--Connection(1525919705)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
 	platform=>PostgreSQLPlatform
 	user name=> "postgres"
 	datasource URL=> "jdbc:postgresql://localhost:5432/barbearia"
 ))
-[EL Config]: connection: 2018-11-17 00:27:17.844--ServerSession(346861221)--Connection(1028780142)--Thread(Thread[main,5,main])--Connected: jdbc:postgresql://localhost:5432/barbearia
+[EL Config]: connection: 2018-12-03 22:11:39.567--ServerSession(1196765369)--Connection(842741472)--Thread(Thread[main,5,main])--Connected: jdbc:postgresql://localhost:5432/barbearia
 	User: postgres
-	Database: PostgreSQL  Version: 9.3.24
+	Database: PostgreSQL  Version: 9.5.15
 	Driver: PostgreSQL Native Driver  Version: PostgreSQL 9.4 JDBC4.2 (build 1206)
-[EL Info]: connection: 2018-11-17 00:27:18.281--ServerSession(346861221)--Thread(Thread[main,5,main])--/file:/C:/My_PDO/Barbearia_SJS/bin/_barbearia login successful
-[EL Fine]: sql: 2018-11-17 00:27:18.657--ServerSession(346861221)--Connection(1028780142)--Thread(Thread[main,5,main])--CREATE TABLE PESSOA (ID  SERIAL NOT NULL, DTYPE VARCHAR(31), DATANASC DATE, NOME VARCHAR(255), SOBRENOME VARCHAR(255), OCUPADO BOOLEAN, SERVICOS BYTEA, CONTAS BYTEA, PRIMARY KEY (ID))
-[EL Fine]: sql: 2018-11-17 00:27:20.352--ClientSession(1965237677)--Connection(1028780142)--Thread(Thread[main,5,main])--INSERT INTO PESSOA (DATANASC, NOME, SOBRENOME, DTYPE) VALUES (?, ?, ?, ?)
-	bind => [1993-10-01, Pepeu, Silva, Pessoa]
-[EL Fine]: sql: 2018-11-17 00:27:20.414--ClientSession(1965237677)--Connection(1028780142)--Thread(Thread[main,5,main])--select lastval()
-[EL Config]: connection: 2018-11-17 00:27:20.524--ServerSession(346861221)--Connection(1028780142)--Thread(Thread[main,5,main])--disconnect
-[EL Info]: connection: 2018-11-17 00:27:20.524--ServerSession(346861221)--Thread(Thread[main,5,main])--/file:/C:/My_PDO/Barbearia_SJS/bin/_barbearia logout successful
-[EL Config]: connection: 2018-11-17 00:27:20.524--ServerSession(346861221)--Connection(1209702763)--Thread(Thread[main,5,main])--disconnect
+[EL Warning]: metadata: 2018-12-03 22:11:39.583--ServerSession(1196765369)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Cliente] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2018-12-03 22:11:39.583--ServerSession(1196765369)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [contas] for the entity class [class model.Cliente] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2018-12-03 22:11:39.583--ServerSession(1196765369)--Thread(Thread[main,5,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Barbeiro] since weaving was not enabled or did not occur.
+[EL Severe]: 2018-12-03 22:11:39.614--ServerSession(1196765369)--Thread(Thread[main,5,main])--Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-63] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: The instance creation method [model.Pagamento.<Default Constructor>], with no parameters, does not exist, or is not accessible.
+Internal Exception: java.lang.NoSuchMethodException: model.Pagamento.<init>()
+Descriptor: RelationalDescriptor(model.Pagamento --> [DatabaseTable(Pagamento)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+
+[EL Config]: connection: 2018-12-03 22:11:39.614--ServerSession(1196765369)--Connection(842741472)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2018-12-03 22:11:39.614--ServerSession(1196765369)--Thread(Thread[main,5,main])--/file:/C:/Users/olive/My_PDO/Barbearia_SJS/bin/_barbearia logout successful
+[EL Config]: connection: 2018-12-03 22:11:39.614--ServerSession(1196765369)--Connection(1525919705)--Thread(Thread[main,5,main])--disconnect
+[EL Severe]: ejb: 2018-12-03 22:11:39.614--ServerSession(1196765369)--Thread(Thread[main,5,main])--Exception [EclipseLink-0] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.IntegrityException
+Descriptor Exceptions: 
+---------------------------------------------------------
+
+Exception [EclipseLink-63] (Eclipse Persistence Services - 2.7.3.v20180807-4be1041): org.eclipse.persistence.exceptions.DescriptorException
+Exception Description: The instance creation method [model.Pagamento.<Default Constructor>], with no parameters, does not exist, or is not accessible.
+Internal Exception: java.lang.NoSuchMethodException: model.Pagamento.<init>()
+Descriptor: RelationalDescriptor(model.Pagamento --> [DatabaseTable(Pagamento)])
+
+Runtime Exceptions: 
+---------------------------------------------------------
+

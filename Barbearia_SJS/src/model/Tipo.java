@@ -1,13 +1,30 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name="Tipo", uniqueConstraints = @UniqueConstraint(
+		columnNames= {"id"}))
 public class Tipo {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	@Column(length=30, unique=true, nullable=false,
+			insertable=true, updatable=true)
 	private String nome;
+	
 	private double preco;
 	
+	public Tipo() {};
 	
-	public Tipo(int id, String nome, double preco) {
-		this.id = id;
+	
+	public Tipo(String nome, double preco) {
 		this.nome = nome;
 		this.preco = preco;
 	}

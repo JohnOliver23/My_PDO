@@ -1,60 +1,105 @@
 package model;
 
+
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name="Servico", uniqueConstraints = @UniqueConstraint(
+		columnNames= {"idBarbeiro, idCliente, tipo"}))
 public class Servico {
-private int id;
-private Barbeiro barbeiro;
-private Cliente cliente;
-private String data;
-private Tipo tipo;
+@Id
+private int idBarbeiro;
+@Id
+private int idCliente;
+@Temporal(TemporalType.DATE)
+private Date data;
+@Id
+private int tipo;
 
 
+public Servico(){};
 
-
-public Servico(int id, Barbeiro barbeiro, Cliente cliente, String data, Tipo tipo) {
+public Servico(int barbeiro, int cliente, Date data, int tipo) {
 	
-	this.id = id;
-	this.barbeiro = barbeiro;
-	this.cliente = cliente;
+	this.idBarbeiro = barbeiro;
+	this.idCliente = cliente;
 	this.data = data;
 	this.tipo = tipo;
 }
 
-public Tipo getTipo() {
+
+
+
+public int getIdBarbeiro() {
+	return idBarbeiro;
+}
+
+
+
+
+public void setIdBarbeiro(int idBarbeiro) {
+	this.idBarbeiro = idBarbeiro;
+}
+
+
+
+
+public int getIdCliente() {
+	return idCliente;
+}
+
+
+
+
+public void setIdCliente(int idCliente) {
+	this.idCliente = idCliente;
+}
+
+
+
+
+
+
+public Date getData() {
+	return data;
+}
+
+
+
+
+public void setData(Date data) {
+	this.data = data;
+}
+
+
+
+
+public int getTipo() {
 	return tipo;
 }
 
-public void setTipo(Tipo tipo) {
+
+
+
+public void setTipo(int tipo) {
 	this.tipo = tipo;
 }
 
 
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public Barbeiro getBarbeiro() {
-	return barbeiro;
-}
-public void setBarbeiro(Barbeiro barbeiro) {
-	this.barbeiro = barbeiro;
-}
-public Cliente getCliente() {
-	return cliente;
-}
-public void setCliente(Cliente cliente) {
-	this.cliente = cliente;
-}
-public String getData() {
-	return data;
-}
-public void setData(String data) {
-	this.data = data;
-}
+
 
 @Override
 public String toString() {
-	return "Servico [id=" + id + ", barbeiro=" + barbeiro.getNome() + ", cliente=" + cliente.getNome() + ", data=" + data +"tipo="+tipo.getNome()+", preco = "+tipo.getPreco()+ "]";
+	return "Servico [idBarbeiro=" + idBarbeiro + ", idCliente=" + idCliente + ", data=" + data + ", tipo=" + tipo + "]";
 }
+
+
 }

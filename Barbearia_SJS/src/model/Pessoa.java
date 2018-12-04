@@ -3,19 +3,31 @@ package model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 @Entity 
+@Table(name="Pessoa", uniqueConstraints = @UniqueConstraint(
+		columnNames= {"id"}))
 public class Pessoa {
-	@Id		
+	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
+	
+	@Column(length=30, unique=false, nullable=false,
+			insertable=true, updatable=true)
 	private String nome;
-	String sobrenome;
+	
+	@Column(length=50, unique=false, nullable=false,
+			insertable=true, updatable=true)
+	private String sobrenome;
+	
 	@Temporal(TemporalType.DATE)
 	private Date datanasc;
 	
