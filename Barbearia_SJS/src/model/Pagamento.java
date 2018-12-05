@@ -7,9 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-@Entity 
-@Table(name="Pagamento", uniqueConstraints = @UniqueConstraint(
-		columnNames= {"id"}))
+@Entity
 public abstract class Pagamento {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -17,10 +15,10 @@ public abstract class Pagamento {
 	
 	private  double valorpago;
 	
-	
+	public Pagamento (){};
 	public Pagamento(double valor) {
 		super();
-		valorpago = valor;
+		this.valorpago = valor;
 	}
 	
 	

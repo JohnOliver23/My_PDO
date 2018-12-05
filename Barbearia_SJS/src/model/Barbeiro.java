@@ -3,10 +3,14 @@ package model;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 @Entity
 public class Barbeiro extends Pessoa  {
 	private boolean ocupado;
+	@OneToMany(mappedBy="Barbeiro", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)  
 	private ArrayList<Servico> servicos = new ArrayList<>();
 	
 	//construtor vazio

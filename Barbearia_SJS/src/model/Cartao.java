@@ -1,8 +1,14 @@
 package model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Cartao extends Pagamento {
 	private String cartao;
 	private int quantidadeparcelas;
+	
+	public Cartao() {};
+	
 	
 	public Cartao(double valor, String card, int qtdparc) {
 		super(valor);

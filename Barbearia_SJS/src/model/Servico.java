@@ -4,69 +4,72 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
+
 @Table(name="Servico", uniqueConstraints = @UniqueConstraint(
-		columnNames= {"idBarbeiro, idCliente, tipo"}))
+		columnNames= {"id"}))
 public class Servico {
-@Id
-private int idBarbeiro;
-@Id
-private int idCliente;
+@Id		
+@GeneratedValue(strategy=GenerationType.IDENTITY)
+private int id;
+@ManyToOne
+private Barbeiro barbeiro;
+@ManyToOne
+private Cliente cliente;
 @Temporal(TemporalType.DATE)
 private Date data;
-@Id
-private int tipo;
+@ManyToOne
+private Tipo tipo;
 
 
 public Servico(){};
 
-public Servico(int barbeiro, int cliente, Date data, int tipo) {
+public Servico(Barbeiro barbeiro, Cliente cliente, Date data, Tipo tipo) {
 	
-	this.idBarbeiro = barbeiro;
-	this.idCliente = cliente;
+	this.barbeiro = barbeiro;
+	this.cliente = cliente;
 	this.data = data;
 	this.tipo = tipo;
 }
 
 
-
-
-public int getIdBarbeiro() {
-	return idBarbeiro;
+public Barbeiro getBarbeiro() {
+	return barbeiro;
 }
 
-
-
-
-public void setIdBarbeiro(int idBarbeiro) {
-	this.idBarbeiro = idBarbeiro;
+public void setBarbeiro(Barbeiro barbeiro) {
+	this.barbeiro = barbeiro;
 }
 
-
-
-
-public int getIdCliente() {
-	return idCliente;
+public Cliente getCliente() {
+	return cliente;
 }
 
-
-
-
-public void setIdCliente(int idCliente) {
-	this.idCliente = idCliente;
+public void setCliente(Cliente cliente) {
+	this.cliente = cliente;
 }
 
+public Tipo getTipo() {
+	return tipo;
+}
 
-
-
-
+public void setTipo(Tipo tipo) {
+	this.tipo = tipo;
+}
 
 public Date getData() {
 	return data;
@@ -82,24 +85,7 @@ public void setData(Date data) {
 
 
 
-public int getTipo() {
-	return tipo;
-}
 
-
-
-
-public void setTipo(int tipo) {
-	this.tipo = tipo;
-}
-
-
-
-
-@Override
-public String toString() {
-	return "Servico [idBarbeiro=" + idBarbeiro + ", idCliente=" + idCliente + ", data=" + data + ", tipo=" + tipo + "]";
-}
 
 
 }

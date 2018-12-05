@@ -1,8 +1,13 @@
 package model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Dinheiro extends Pagamento {
 	private int percentualdesconto;
 	
+	
+	public Dinheiro () {};
 	public Dinheiro(double valor, int percentual) {
 		super(valor);
 		percentualdesconto = percentual;

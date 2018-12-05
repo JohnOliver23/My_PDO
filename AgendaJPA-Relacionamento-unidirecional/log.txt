@@ -1,0 +1,72 @@
+[EL Fine]: server: 2018-12-04 00:51:10.737--Thread(Thread[main,5,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2018-12-04 00:51:11.324--ServerSession(1268650975)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Compromisso] is set to [FIELD].
+[EL Config]: metadata: 2018-12-04 00:51:11.409--ServerSession(1268650975)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Pessoa] is set to [FIELD].
+[EL Config]: metadata: 2018-12-04 00:51:11.433--ServerSession(1268650975)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field compromissos] is being defaulted to: class modelo.Compromisso.
+[EL Config]: metadata: 2018-12-04 00:51:11.446--ServerSession(1268650975)--Thread(Thread[main,5,main])--The target class (reference) class for the element collection mapping element [field logradouros] is being defaulted to: class modelo.Logradouro.
+[EL Config]: metadata: 2018-12-04 00:51:11.448--ServerSession(1268650975)--Thread(Thread[main,5,main])--The target entity (reference) class for the one to many mapping element [field telefones] is being defaulted to: class modelo.Telefone.
+[EL Config]: metadata: 2018-12-04 00:51:11.449--ServerSession(1268650975)--Thread(Thread[main,5,main])--The target class (reference) class for the element collection mapping element [field apelidos] is being defaulted to: class java.lang.String.
+[EL Config]: metadata: 2018-12-04 00:51:11.449--ServerSession(1268650975)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Telefone] is set to [FIELD].
+[EL Config]: metadata: 2018-12-04 00:51:11.451--ServerSession(1268650975)--Thread(Thread[main,5,main])--The target entity (reference) class for the many to one mapping element [field pessoa] is being defaulted to: class modelo.Pessoa.
+[EL Config]: metadata: 2018-12-04 00:51:11.452--ServerSession(1268650975)--Thread(Thread[main,5,main])--The access type for the persistent class [class modelo.Logradouro] is set to [FIELD].
+[EL Config]: metadata: 2018-12-04 00:51:11.454--ServerSession(1268650975)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Compromisso] is being defaulted to: Compromisso.
+[EL Config]: metadata: 2018-12-04 00:51:11.457--ServerSession(1268650975)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Compromisso] is being defaulted to: COMPROMISSO.
+[EL Config]: metadata: 2018-12-04 00:51:11.501--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [data] is being defaulted to: DATA.
+[EL Config]: metadata: 2018-12-04 00:51:11.508--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [descricao] is being defaulted to: DESCRICAO.
+[EL Config]: metadata: 2018-12-04 00:51:11.509--ServerSession(1268650975)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Pessoa] is being defaulted to: Pessoa.
+[EL Config]: metadata: 2018-12-04 00:51:11.51--ServerSession(1268650975)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Pessoa] is being defaulted to: PESSOA.
+[EL Config]: metadata: 2018-12-04 00:51:11.511--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [bairro] is being defaulted to: BAIRRO.
+[EL Config]: metadata: 2018-12-04 00:51:11.512--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [rua] is being defaulted to: RUA.
+[EL Config]: metadata: 2018-12-04 00:51:11.514--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2018-12-04 00:51:11.515--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-04 00:51:11.516--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [sexo] is being defaulted to: SEXO.
+[EL Config]: metadata: 2018-12-04 00:51:11.523--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [dtcadastro] is being defaulted to: DTCADASTRO.
+[EL Config]: metadata: 2018-12-04 00:51:11.523--ServerSession(1268650975)--Thread(Thread[main,5,main])--The alias name for the entity class [class modelo.Telefone] is being defaulted to: Telefone.
+[EL Config]: metadata: 2018-12-04 00:51:11.524--ServerSession(1268650975)--Thread(Thread[main,5,main])--The table name for entity [class modelo.Telefone] is being defaulted to: TELEFONE.
+[EL Config]: metadata: 2018-12-04 00:51:11.525--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [numero] is being defaulted to: NUMERO.
+[EL Config]: metadata: 2018-12-04 00:51:11.526--ServerSession(1268650975)--Thread(Thread[main,5,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-04 00:51:11.572--ServerSession(1268650975)--Thread(Thread[main,5,main])--The collection table name for the basic collection/map mapping [field apelidos] is being defaulted to: Pessoa_APELIDOS.
+[EL Config]: metadata: 2018-12-04 00:51:11.573--ServerSession(1268650975)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field apelidos] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-04 00:51:11.574--ServerSession(1268650975)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [apelidos] is being defaulted to: Pessoa_ID.
+[EL Config]: metadata: 2018-12-04 00:51:11.577--ServerSession(1268650975)--Thread(Thread[main,5,main])--The value column name for the basic collection/map mapping element mapping element [apelidos] is being defaulted to: APELIDOS.
+[EL Fine]: metadata: 2018-12-04 00:51:11.578--Thread(Thread[main,5,main])--java.lang.ClassNotFoundException: java.util.Listjava.lang.String
+[EL Config]: metadata: 2018-12-04 00:51:11.587--ServerSession(1268650975)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field compromissos] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-04 00:51:11.601--ServerSession(1268650975)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field pessoa] is being defaulted to: ID.
+[EL Config]: metadata: 2018-12-04 00:51:11.601--ServerSession(1268650975)--Thread(Thread[main,5,main])--The foreign key column name for the mapping element [pessoa] is being defaulted to: PESSOA_ID.
+[EL Config]: metadata: 2018-12-04 00:51:11.608--ServerSession(1268650975)--Thread(Thread[main,5,main])--The primary key column name for the mapping element [field logradouros] is being defaulted to: ID.
+[EL Info]: 2018-12-04 00:51:12.542--ServerSession(1268650975)--Thread(Thread[main,5,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
+[EL Fine]: connection: 2018-12-04 00:51:12.905--Thread(Thread[main,5,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
+[EL Config]: connection: 2018-12-04 00:51:12.932--ServerSession(1268650975)--Connection(306612792)--Thread(Thread[main,5,main])--connecting(DatabaseLogin(
+	platform=>PostgreSQLPlatform
+	user name=> "postgres"
+	datasource URL=> "jdbc:postgresql://localhost:5432/agenda"
+))
+[EL Config]: connection: 2018-12-04 00:51:13.033--ServerSession(1268650975)--Connection(447212746)--Thread(Thread[main,5,main])--Connected: jdbc:postgresql://localhost:5432/agenda
+	User: postgres
+	Database: PostgreSQL  Version: 9.5.14
+	Driver: PostgreSQL Native Driver  Version: PostgreSQL 9.4 JDBC4.2 (build 1206)
+[EL Info]: connection: 2018-12-04 00:51:13.104--ServerSession(1268650975)--Thread(Thread[main,5,main])--/file:/C:/Users/IFPB/Dropbox/aula-copratilhada/POB/ProjetosBDNC-MOR - novo/AgendaJPA-Relacionamento-unidirecional/bin/_agenda-eclipselink login successful
+[EL Fine]: sql: 2018-12-04 00:51:13.768--ServerSession(1268650975)--Connection(447212746)--Thread(Thread[main,5,main])--SELECT ID, DTCADASTRO, NOME, SEXO FROM PESSOA WHERE (NOME = ?)
+	bind => [maria]
+[EL Fine]: sql: 2018-12-04 00:51:13.784--ServerSession(1268650975)--Connection(447212746)--Thread(Thread[main,5,main])--SELECT BAIRRO, RUA, idpessoa FROM tablogradouros WHERE (idpessoa = ?)
+	bind => [2]
+[EL Fine]: sql: 2018-12-04 00:51:13.791--ServerSession(1268650975)--Connection(447212746)--Thread(Thread[main,5,main])--SELECT DATA, DESCRICAO FROM COMPROMISSO WHERE (idpessoa = ?)
+	bind => [2]
+[EL Fine]: sql: 2018-12-04 00:51:13.811--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--DELETE FROM COMPROMISSO WHERE (DATA = ?)
+	bind => [2018-12-20 00:00:00.0]
+[EL Fine]: sql: 2018-12-04 00:51:13.82--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--DELETE FROM COMPROMISSO WHERE (DATA = ?)
+	bind => [2018-12-21 00:00:00.0]
+[EL Fine]: sql: 2018-12-04 00:51:13.822--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--DELETE FROM COMPROMISSO WHERE (DATA = ?)
+	bind => [2018-12-22 00:00:00.0]
+[EL Fine]: sql: 2018-12-04 00:51:13.83--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--DELETE FROM tablogradouros WHERE (idpessoa = ?)
+	bind => [2]
+[EL Fine]: sql: 2018-12-04 00:51:13.832--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--DELETE FROM Pessoa_APELIDOS WHERE (Pessoa_ID = ?)
+	bind => [2]
+[EL Fine]: sql: 2018-12-04 00:51:13.835--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--DELETE FROM TELEFONE WHERE (PESSOA_ID = ?)
+	bind => [2]
+[EL Fine]: sql: 2018-12-04 00:51:13.837--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--UPDATE COMPROMISSO SET idpessoa = ? WHERE (idpessoa = ?)
+	bind => [null, 2]
+[EL Fine]: sql: 2018-12-04 00:51:13.84--ClientSession(208043846)--Connection(447212746)--Thread(Thread[main,5,main])--DELETE FROM PESSOA WHERE (ID = ?)
+	bind => [2]
+[EL Config]: connection: 2018-12-04 00:51:13.859--ServerSession(1268650975)--Connection(447212746)--Thread(Thread[main,5,main])--disconnect
+[EL Info]: connection: 2018-12-04 00:51:13.86--ServerSession(1268650975)--Thread(Thread[main,5,main])--/file:/C:/Users/IFPB/Dropbox/aula-copratilhada/POB/ProjetosBDNC-MOR - novo/AgendaJPA-Relacionamento-unidirecional/bin/_agenda-eclipselink logout successful
+[EL Config]: connection: 2018-12-04 00:51:13.86--ServerSession(1268650975)--Connection(306612792)--Thread(Thread[main,5,main])--disconnect

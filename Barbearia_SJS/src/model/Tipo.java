@@ -21,6 +21,8 @@ public class Tipo {
 	
 	private double preco;
 	
+	
+	
 	public Tipo() {};
 	
 	

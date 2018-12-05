@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,6 +26,7 @@ public class Conta {
 	private Date dtfechamento;
 	
 	private double total;
+	@OneToOne
 	private Pagamento pagamento;
 	
 	public Conta () {};
@@ -54,6 +56,7 @@ public class Conta {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	
 	public Pagamento getPagamento() {
 		return pagamento;
 	}
