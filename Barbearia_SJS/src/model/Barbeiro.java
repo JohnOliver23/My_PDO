@@ -1,7 +1,8 @@
 package model;
 
-import java.sql.Date;
+
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,8 +17,8 @@ public class Barbeiro extends Pessoa  {
 	//construtor vazio
 	public Barbeiro() {};
 	
-	public Barbeiro(String nome, String sobrenome, Date data) {
-		super(nome, sobrenome, data);
+	public Barbeiro(String nome, String sobrenome, Date date) {
+		super(nome, sobrenome, date);
 	}
 
 	

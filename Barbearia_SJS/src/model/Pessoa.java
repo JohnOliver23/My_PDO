@@ -13,10 +13,27 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
-@MappedSuperclass
+@Entity
 @Table(name="Pessoa", uniqueConstraints = @UniqueConstraint(
 		columnNames= {"id"}))
 public class Pessoa {
+	public String getSobrenome() {
+		return sobrenome;
+	}
+
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
+	public Date getDatanasc() {
+		return datanasc;
+	}
+
+	public void setDatanasc(Date datanasc) {
+		this.datanasc = datanasc;
+	}
+
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -36,7 +53,6 @@ public class Pessoa {
 	public Pessoa (){}
 	
 	public Pessoa(String nome, String sobrenome, Date data) {
-		super();
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.datanasc = data;
@@ -59,7 +75,7 @@ public class Pessoa {
 	@Override
 	public String toString() {
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
-		return "Pessoa [id=" + id + ", nome=" + nome +"sobrenome="+sobrenome+ ",data cadastro= "+f.format(datanasc.getTime()) +"]";
+		return "Pessoa [id=" + id + ", nome=" + nome +"sobrenome="+sobrenome+ ",data de nascimento= "+f.format(datanasc.getTime()) +"]";
 	}
 
 

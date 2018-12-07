@@ -28,22 +28,22 @@ public class Servico {
 private int id;
 @ManyToOne
 private Barbeiro barbeiro;
-@ManyToOne
-private Cliente cliente;
 @Temporal(TemporalType.DATE)
 private Date data;
 @ManyToOne
 private Tipo tipo;
+@ManyToOne
+Conta conta;
 
 
 public Servico(){};
 
-public Servico(Barbeiro barbeiro, Cliente cliente, Date data, Tipo tipo) {
+public Servico(Barbeiro barbeiro, Tipo tipo, Conta c) {
 	
 	this.barbeiro = barbeiro;
-	this.cliente = cliente;
-	this.data = data;
+	this.data = new Date();
 	this.tipo = tipo;
+	this.conta = c;
 }
 
 
@@ -55,13 +55,6 @@ public void setBarbeiro(Barbeiro barbeiro) {
 	this.barbeiro = barbeiro;
 }
 
-public Cliente getCliente() {
-	return cliente;
-}
-
-public void setCliente(Cliente cliente) {
-	this.cliente = cliente;
-}
 
 public Tipo getTipo() {
 	return tipo;
@@ -80,6 +73,11 @@ public Date getData() {
 
 public void setData(Date data) {
 	this.data = data;
+}
+
+@Override
+public String toString() {
+	return "Servico [id=" + id + ", barbeiro=" + barbeiro.getNome() + ", data=" + data + ", tipo=" + tipo.getNome() + "]";
 }
 
 

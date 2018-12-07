@@ -1,12 +1,16 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -15,12 +19,11 @@ import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="Conta", uniqueConstraints = @UniqueConstraint(
-		columnNames= {"numero"}))
+		columnNames= {"id"}))
 public class Conta {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
-	private int numero;
+	private int id;
 	
 	@Temporal(TemporalType.DATE)
 	private Date dtfechamento;
@@ -28,20 +31,36 @@ public class Conta {
 	private double total;
 	@OneToOne
 	private Pagamento pagamento;
+	@ManyToOne
+	private Cliente cliente;
+	
+	//RELACIONAMENTO BIDIRECIONAL
+	@OneToMany(mappedBy="conta", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)   
+	private ArrayList<Servico> servicos = new ArrayList<>();
 	
 	public Conta () {};
+
+	public Conta (Cliente c) {
+		this.cliente = c;
+	};
 	
-	public Conta(int numero) {
-		this.numero = numero;
-	}
 	
-	public int getNumero() {
-		return numero;
-	}
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
+
 	
+	public int getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+
 	public Date getDtfechamento() {
 		return dtfechamento;
 	}
@@ -66,7 +85,7 @@ public class Conta {
 
 	@Override
 	public String toString() {
-		return "Conta [numero=" + numero + ", dtfechamento=" + dtfechamento + ", total=" + total + ", pagamento="
+		return "Conta [id=" + id + ", dtfechamento=" + dtfechamento + ", total=" + total + ", pagamento="
 				+ pagamento + "]";
 	}
 	
