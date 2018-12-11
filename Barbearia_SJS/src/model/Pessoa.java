@@ -14,8 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 @Entity
-@Table(name="Pessoa", uniqueConstraints = @UniqueConstraint(
-		columnNames= {"id"}))
+
 public class Pessoa {
 	public String getSobrenome() {
 		return sobrenome;

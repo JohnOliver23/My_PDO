@@ -9,6 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import fachada.Fachada;
 import model.Barbeiro;
 import model.Cliente;
 import model.Pessoa;
@@ -22,6 +23,15 @@ public class Listagem {
 		// INSTANCIAÇÃO DO MANAGER--------------------------------
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("barbearia");
 		manager = factory.createEntityManager();
+		try {
+			System.out.println("===================================");
+			System.out.println("Listagem das pessoas");
+			System.out.println(Fachada.listarPessoas());
+			System.out.println("===================================");
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		/*
 	
 		System.out.println("Listagem das pessoas");
 		query = manager.createQuery("select p from Pessoa p  order by p.nome");
@@ -43,6 +53,7 @@ public class Listagem {
 		
 		manager.close();
 		factory.close();
+		*/
 	}
 	
 	

@@ -1,13 +1,12 @@
 package aplicacao;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
+import fachada.Fachada;
 import model.Barbeiro;
 import model.Cliente;
 import model.Conta;
@@ -16,26 +15,29 @@ import model.Servico;
 import model.Tipo;
 
 public class Cadastro {
-	protected static EntityManager manager;
 	public Cadastro(){
-		Pessoa p1;
-		Tipo t = null;
-		Conta c = null;
-		Servico s;
-		Barbeiro b = null;
 		try {
 		// INSTANCIAÇÃO DO MANAGER--------------------------------
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("barbearia");
-		manager = factory.createEntityManager();
+			Fachada.inicializar();
 
-		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 //		PERSISTÊNCIA DOS OBJETOS NO BANCO-----------------------
-		/*
-		manager.getTransaction().begin();
-		p1 = new Pessoa("Pepeu","Silva", formatter.parse("1993-10-01"));
-		manager.persist(p1);
-		manager.getTransaction().commit();
+			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			System.out.println("===================================");
+			System.out.println("Cadastrando Pessoa");
+			/*
+			Pessoa p1 = Fachada.cadastrarPessoa("Pepeu", "Silva", formatter.parse("1996-05-11"));
+			*/
+			System.out.println("===================================");
+			System.out.println("Cadastrando Barbeiro");
+			Barbeiro b = Fachada.cadastrarBarbeiro("Pedro", "Ricardo", formatter.parse("1995-10-01"));
+			
+			System.out.println("===================================");
+			System.out.println("Cadastrando Cliente");
+			Cliente c  = Fachada.cadastrarCliente("Murivaldo", "Ynho", formatter.parse("1990-05-01"));
+			
 		
+		Fachada.finalizar();
+		/*
 //		INSERINDO BARBEIRO
 		manager.getTransaction().begin();
 		p1 = new Barbeiro("Pedro","Ricardo",formatter.parse("1996-05-11"));
@@ -66,7 +68,7 @@ public class Cadastro {
 */
 //		CADASTRANDO CONTAS
 		
-		//consultando o cliente
+		/*
 		Query query = manager.createQuery("select c from Cliente c");
 		List<Cliente> resultados3 = (List<Cliente>) query.getResultList();
 		for(Cliente c1: resultados3) {
@@ -105,6 +107,7 @@ public class Cadastro {
 		manager.close();
 		factory.close();
 		System.out.println("fim da aplicação");
+		*/
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
