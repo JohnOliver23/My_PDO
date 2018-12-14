@@ -3,6 +3,7 @@
  */
 package daojpa;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -21,6 +22,12 @@ public class DAOPessoa  extends DAO<Pessoa>{
 		}catch(NoResultException e){			
 			return null;
 		}
+	}
+	
+	public List<Pessoa> readAll(){
+		
+		Query query = manager.createQuery("select p from Pessoa p where type(p) = Pessoa");
+		return (List<Pessoa>) query.getResultList();
 	}
 
 

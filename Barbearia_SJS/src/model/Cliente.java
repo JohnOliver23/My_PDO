@@ -4,10 +4,12 @@ import java.util.Date;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 @Entity
+@DiscriminatorValue("2")
 public class Cliente extends Pessoa{
 	
 

@@ -6,10 +6,12 @@ import daojpa.DAO;
 import daojpa.DAOBarbeiro;
 import daojpa.DAOCliente;
 import daojpa.DAOPessoa;
+import daojpa.DAOTipo;
 import model.Barbeiro;
 import model.Cliente;
 //import daodb4o.*;
 import model.Pessoa;
+import model.Tipo;
 
 /**********************************
  * IFPB - Curso Superior de Tec. em Sist. para Internet
@@ -22,6 +24,7 @@ public class Fachada {
 	private static DAOPessoa daopessoa = new DAOPessoa();
 	private static DAOBarbeiro daobarbeiro = new DAOBarbeiro() ;
 	private static DAOCliente daocliente = new DAOCliente() ;
+	private static DAOTipo daotipo = new DAOTipo() ;
 
 	public static void inicializar(){
 		DAO.open();
@@ -74,6 +77,21 @@ public class Fachada {
 		daocliente.create(c);		
 		DAO.commit();
 		return c;
+	}
+	
+	public static Tipo cadastrarTipos(String nome, double preco) 
+			throws  Exception{
+		DAO.begin();			
+		Tipo t = daotipo.readByNome(nome);
+		if(t != null) {
+			DAO.rollback();
+			throw new Exception("Tipo já cadastrado:" + nome);
+		}
+		
+		t = new Tipo(nome,preco);
+		daotipo.create(t);		
+		DAO.commit();
+		return t;
 	}
 	/*
 	public static Produto apagarProduto(String nome) throws  Exception{
@@ -166,6 +184,45 @@ public class Fachada {
 		else {	
 			for(Pessoa p: aux) {
 				texto += "\n" + p; 
+			}
+		}
+		return texto;		
+	}
+	
+	public static String listarClientes() {
+		List<Cliente> aux = daocliente.readAll();
+		String texto = "\nListagem de pessoas: ";
+		if (aux.isEmpty())
+			texto += "não tem clientes cadastradas";
+		else {	
+			for(Cliente c: aux) {
+				texto += "\n" + c; 
+			}
+		}
+		return texto;		
+	}
+	
+	public static String listarBarbeiros() {
+		List<Barbeiro> aux = daobarbeiro.readAll();
+		String texto = "\nListagem de Barbeiros: ";
+		if (aux.isEmpty())
+			texto += "não tem barbeiros cadastradas";
+		else {	
+			for(Barbeiro b: aux) {
+				texto += "\n" + b; 
+			}
+		}
+		return texto;		
+	}
+	
+	public static String listarTipos() {
+		List<Tipo> aux = daotipo.readAll();
+		String texto = "\nListagem de Tipos: ";
+		if (aux.isEmpty())
+			texto += "não tem tipos cadastradas";
+		else {	
+			for(Tipo t: aux) {
+				texto += "\n" + t; 
 			}
 		}
 		return texto;		

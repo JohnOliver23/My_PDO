@@ -50,7 +50,7 @@ public class Tipo {
 	}
 	@Override
 	public String toString() {
-		return "Tipo [id=" + id + ", nome=" + nome + ", preco=" + preco + "]";
+		return "Tipo [id=" + id + ", nome= " + nome + ", preco= " + preco + "]";
 	}
 	
 	

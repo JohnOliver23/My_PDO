@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 @Entity
+@DiscriminatorValue("3")
 public class Barbeiro extends Pessoa  {
 	private boolean ocupado;
 	@OneToMany(mappedBy="Barbeiro", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)  

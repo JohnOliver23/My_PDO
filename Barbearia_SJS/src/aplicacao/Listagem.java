@@ -25,6 +25,18 @@ public class Listagem {
 			System.out.println("Listagem das pessoas");
 			System.out.println(Fachada.listarPessoas());
 			System.out.println("===================================");
+			System.out.println("===================================");
+			System.out.println("Listagem das Barbeiros");
+			System.out.println(Fachada.listarBarbeiros());
+			System.out.println("===================================");
+			System.out.println("===================================");
+			System.out.println("Listagem das Clientes");
+			System.out.println(Fachada.listarClientes());
+			System.out.println("===================================");
+			System.out.println("===================================");
+			System.out.println("Listagem das Tipos");
+			System.out.println(Fachada.listarTipos());
+			System.out.println("===================================");
 			Fachada.finalizar();
 			
 		}catch(Exception e) {

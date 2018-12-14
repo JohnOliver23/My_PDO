@@ -21,6 +21,7 @@ public class Cadastro {
 			Fachada.inicializar();
 
 //		PERSISTÊNCIA DOS OBJETOS NO BANCO-----------------------
+			/*
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			System.out.println("===================================");
 			System.out.println("Cadastrando Pessoa");
@@ -34,21 +35,19 @@ public class Cadastro {
 			System.out.println("===================================");
 			System.out.println("Cadastrando Cliente");
 			Cliente c  = Fachada.cadastrarCliente("Murivaldo", "Ynho", formatter.parse("1990-05-01"));
+			*/
+			System.out.println("===================================");
+			System.out.println("Cadastrando Tipos");
+			Tipo t  = Fachada.cadastrarTipos("Corte de cabelo", 15.00);
+			t  = Fachada.cadastrarTipos("Barba", 10.00);
+			t  = Fachada.cadastrarTipos("Combo (Corte e Barba)", 22.00);
+			t  = Fachada.cadastrarTipos("Lavagem", 10.00);
+			
 			
 		
 		Fachada.finalizar();
 		/*
-//		INSERINDO BARBEIRO
-		manager.getTransaction().begin();
-		p1 = new Barbeiro("Pedro","Ricardo",formatter.parse("1996-05-11"));
-		manager.persist(p1);
-		manager.getTransaction().commit();
-		
-//		INSERINDO CLIENTE
-		manager.getTransaction().begin();
-		p1 = new Cliente("Murivaldo ","Zebra",formatter.parse("1991-08-05"));
-		manager.persist(p1);
-		manager.getTransaction().commit();
+
 
 //		CADASTRANDO TIPOS DE SERVICOS
 		manager.getTransaction().begin();
