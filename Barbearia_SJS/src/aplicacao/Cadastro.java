@@ -24,9 +24,9 @@ public class Cadastro {
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			System.out.println("===================================");
 			System.out.println("Cadastrando Pessoa");
-			/*
+			
 			Pessoa p1 = Fachada.cadastrarPessoa("Pepeu", "Silva", formatter.parse("1996-05-11"));
-			*/
+			
 			System.out.println("===================================");
 			System.out.println("Cadastrando Barbeiro");
 			Barbeiro b = Fachada.cadastrarBarbeiro("Pedro", "Ricardo", formatter.parse("1995-10-01"));

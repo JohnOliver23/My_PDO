@@ -18,16 +18,15 @@ import model.Pessoa;
 public class Listagem {
 	protected static EntityManager manager;
 	public Listagem(){
-		Query query;
 		
-		// INSTANCIAÇÃO DO MANAGER--------------------------------
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("barbearia");
-		manager = factory.createEntityManager();
 		try {
+			Fachada.inicializar();
 			System.out.println("===================================");
 			System.out.println("Listagem das pessoas");
 			System.out.println(Fachada.listarPessoas());
 			System.out.println("===================================");
+			Fachada.finalizar();
+			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}

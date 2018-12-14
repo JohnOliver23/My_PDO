@@ -170,6 +170,7 @@ public class Fachada {
 		}
 		return texto;		
 	}
+	
 /*
 	public static String listarPrateleiras() {
 		List<Prateleira> aux = daoprateleira.readAll();

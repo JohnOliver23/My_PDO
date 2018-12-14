@@ -40,7 +40,7 @@ public class Barbeiro extends Pessoa  {
 
 	@Override
 	public String toString() {
-		return super.toString()+"ocupado"+ocupado;
+		return super.toString()+", ocupado = "+ocupado;
 	}
 	
 }

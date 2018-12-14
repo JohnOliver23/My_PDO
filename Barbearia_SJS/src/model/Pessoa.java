@@ -74,7 +74,7 @@ public class Pessoa {
 	@Override
 	public String toString() {
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
-		return "Pessoa [id=" + id + ", nome=" + nome +"sobrenome="+sobrenome+ ",data de nascimento= "+f.format(datanasc.getTime()) +"]";
+		return "Pessoa [id=" + id + ", nome= " + nome +" ,sobrenome= "+sobrenome+ " ,data de nascimento= "+f.format(datanasc.getTime()) +"]";
 	}
 
 
