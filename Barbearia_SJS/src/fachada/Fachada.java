@@ -5,12 +5,16 @@ import java.util.List;
 import daojpa.DAO;
 import daojpa.DAOBarbeiro;
 import daojpa.DAOCliente;
+import daojpa.DAOConta;
 import daojpa.DAOPessoa;
+import daojpa.DAOServico;
 import daojpa.DAOTipo;
 import model.Barbeiro;
 import model.Cliente;
+import model.Conta;
 //import daodb4o.*;
 import model.Pessoa;
+import model.Servico;
 import model.Tipo;
 
 /**********************************
@@ -25,6 +29,8 @@ public class Fachada {
 	private static DAOBarbeiro daobarbeiro = new DAOBarbeiro() ;
 	private static DAOCliente daocliente = new DAOCliente() ;
 	private static DAOTipo daotipo = new DAOTipo() ;
+	private static DAOConta daoconta = new DAOConta() ;
+	private static DAOServico daoservico = new DAOServico() ;
 
 	public static void inicializar(){
 		DAO.open();
@@ -40,7 +46,7 @@ public class Fachada {
 		Pessoa p = daopessoa.readByNome(nome);
 		if(p != null) {
 			DAO.rollback();
-			throw new Exception("Pessoa já cadastrada:" + nome);
+			throw new Exception("Pessoa já cadastrada: " + nome);
 		}
 		
 		p = new Pessoa(nome,sobrenome, data);
@@ -55,7 +61,7 @@ public class Fachada {
 		Barbeiro b = daobarbeiro.readByNome(nome);
 		if(b != null) {
 			DAO.rollback();
-			throw new Exception("Barbeiro já cadastrada:" + nome);
+			throw new Exception("Barbeiro já cadastrada: " + nome);
 		}
 		
 		b = new Barbeiro(nome,sobrenome, data);
@@ -70,7 +76,7 @@ public class Fachada {
 		Cliente c = daocliente.readByNome(nome);
 		if(c != null) {
 			DAO.rollback();
-			throw new Exception("Cliente já cadastrada:" + nome);
+			throw new Exception("Cliente já cadastrada: " + nome);
 		}
 		
 		c = new Cliente(nome,sobrenome, data);
@@ -85,13 +91,55 @@ public class Fachada {
 		Tipo t = daotipo.readByNome(nome);
 		if(t != null) {
 			DAO.rollback();
-			throw new Exception("Tipo já cadastrado:" + nome);
+			throw new Exception("Tipo já cadastrado: " + nome);
 		}
 		
 		t = new Tipo(nome,preco);
 		daotipo.create(t);		
 		DAO.commit();
 		return t;
+	}
+	public static Conta cadastrarConta(int idcliente)
+			throws Exception{		
+			DAO.begin();			
+			Cliente c = daocliente.read(idcliente);
+			if(c == null) {
+				DAO.rollback();
+				throw new Exception("Cliente não encontrado");
+			}
+			Conta conta = new Conta(c);
+			daoconta.create(conta);
+			DAO.commit();
+			return conta;
+			
+		
+	}
+	public static Servico cadastrarServico(String barbeiro, String tipo, int idconta)
+			throws Exception{		
+			DAO.begin();			
+			Barbeiro b = daobarbeiro.readByNome(barbeiro);
+			if(b == null) {
+				DAO.rollback();
+				throw new Exception("Barbeiro não encontrado : "+barbeiro);
+			}
+			Tipo t = daotipo.readByNome(tipo);
+			if(t == null) {
+				DAO.rollback();
+				throw new Exception("Tipo de serviço não encontrado : "+tipo);
+			}
+			Conta c = daoconta.read(idconta);
+			if(c == null) {
+				DAO.rollback();
+				throw new Exception("conta não encontrada : "+idconta);
+			}
+			if(b.isOcupado()) {
+				throw new Exception("o barbeiro está atendendo no momento : "+barbeiro);
+			}
+			b.setOcupado(true);
+			Servico s = new Servico(b,t,c);
+			daoservico.create(s);
+			DAO.commit();
+			return s;
 	}
 	/*
 	public static Produto apagarProduto(String nome) throws  Exception{
@@ -222,6 +270,31 @@ public class Fachada {
 			texto += "não tem tipos cadastradas";
 		else {	
 			for(Tipo t: aux) {
+				texto += "\n" + t; 
+			}
+		}
+		return texto;		
+	}
+	
+	public static String listarContas() {
+		List<Conta> aux = daoconta.readAll();
+		String texto = "\nListagem de Contas: ";
+		if (aux.isEmpty())
+			texto += "não tem contas cadastradas";
+		else {	
+			for(Conta c: aux) {
+				texto += "\n" + c; 
+			}
+		}
+		return texto;		
+	}
+	public static String listarAtendimentoAtual() {
+		List<Tipo> aux = daotipo.consultarAtendimentoAtual();
+		String texto = "\nListagem de Contas: ";
+		if (aux.isEmpty())
+			texto += "não tem Atendimento no momento";
+		else {	
+			for(Tipo t : aux) {
 				texto += "\n" + t; 
 			}
 		}

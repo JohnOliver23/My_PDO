@@ -21,7 +21,7 @@ public class Cadastro {
 			Fachada.inicializar();
 
 //		PERSISTÊNCIA DOS OBJETOS NO BANCO-----------------------
-			/*
+			
 			DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 			System.out.println("===================================");
 			System.out.println("Cadastrando Pessoa");
@@ -35,13 +35,25 @@ public class Cadastro {
 			System.out.println("===================================");
 			System.out.println("Cadastrando Cliente");
 			Cliente c  = Fachada.cadastrarCliente("Murivaldo", "Ynho", formatter.parse("1990-05-01"));
-			*/
+			 c  = Fachada.cadastrarCliente("Pedro", "Cirrose", formatter.parse("1991-05-01"));
+			 c  = Fachada.cadastrarCliente("Jonnas", "Santos", formatter.parse("1992-07-12"));
 			System.out.println("===================================");
 			System.out.println("Cadastrando Tipos");
 			Tipo t  = Fachada.cadastrarTipos("Corte de cabelo", 15.00);
 			t  = Fachada.cadastrarTipos("Barba", 10.00);
 			t  = Fachada.cadastrarTipos("Combo (Corte e Barba)", 22.00);
 			t  = Fachada.cadastrarTipos("Lavagem", 10.00);
+			//lembrar de parar pra demostrar
+			System.out.println("===================================");
+			System.out.println("Cadastrando Contas");
+			Fachada.cadastrarConta(3);
+			Fachada.cadastrarConta(4);
+			Fachada.cadastrarConta(5);
+			
+			System.out.println("===================================");
+			System.out.println("Cadastrando Servicos");
+			Fachada.cadastrarServico("Pedro","Corte de cabelo",1);
+			
 			
 			
 		
@@ -49,40 +61,6 @@ public class Cadastro {
 		/*
 
 
-//		CADASTRANDO TIPOS DE SERVICOS
-		manager.getTransaction().begin();
-		t = new Tipo("Corte ",15.00);
-		manager.persist(t);
-		manager.getTransaction().commit();	
-		
-		manager.getTransaction().begin();
-		t = new Tipo("Barba ",8.00);
-		manager.persist(t);
-		manager.getTransaction().commit();	
-		
-		manager.getTransaction().begin();
-		t = new Tipo("Combo (Corte e Barba) ",20.00);
-		manager.persist(t);
-		manager.getTransaction().commit();	
-*/
-//		CADASTRANDO CONTAS
-		
-		/*
-		Query query = manager.createQuery("select c from Cliente c");
-		List<Cliente> resultados3 = (List<Cliente>) query.getResultList();
-		for(Cliente c1: resultados3) {
-			manager.getTransaction().begin();
-			c = new Conta(c1);
-			manager.persist(c);
-			manager.getTransaction().commit();	
-		}
-
-//		CONSULTANO A CONTA
-		query = manager.createQuery("select c from Conta c");
-		List<Conta> resultados4 = (List<Conta>) query.getResultList();
-		for(Conta c1: resultados4) {
-			c = c1;
-		}
 //		CONSULTANO O BARBEIRO
 		query = manager.createQuery("select b from Barbeiro b");
 		List<Barbeiro> resultados5 = (List<Barbeiro>) query.getResultList();

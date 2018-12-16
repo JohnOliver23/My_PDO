@@ -9,7 +9,10 @@ import javax.persistence.Query;
 
 import model.Servico;
 
+import model.Tipo;
+
 public class DAOServico extends DAO<Servico> {
+
 	
 
 }

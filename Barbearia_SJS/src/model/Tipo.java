@@ -1,10 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -20,7 +25,8 @@ public class Tipo {
 	private String nome;
 	
 	private double preco;
-	
+	@OneToMany(mappedBy="tipo", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)   
+	private ArrayList<Servico> servicos = new ArrayList<>();
 	
 	
 	public Tipo() {};
@@ -50,7 +56,13 @@ public class Tipo {
 	}
 	@Override
 	public String toString() {
-		return "Tipo [id=" + id + ", nome= " + nome + ", preco= " + preco + "]";
+		String texto = "Tipo [id=" + id + ", nome= " + nome + ", preco= " + preco ;
+		for(Servico s: servicos) {
+			texto+=", Barbeiro : "+s.getBarbeiro().getNome();
+			texto+=", Cliente : "+s.getConta().getCliente().getNome();
+		}
+				texto+="]";
+				return texto;
 	}
 	
 	

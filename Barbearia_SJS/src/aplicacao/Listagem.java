@@ -37,6 +37,13 @@ public class Listagem {
 			System.out.println("Listagem das Tipos");
 			System.out.println(Fachada.listarTipos());
 			System.out.println("===================================");
+			System.out.println("===================================");
+			System.out.println("Listagem das Contas");
+			System.out.println(Fachada.listarContas());
+			System.out.println("===================================");
+			System.out.println("Listar o atendimento atual");
+			System.out.println(Fachada.listarAtendimentoAtual());
+			System.out.println("===================================");
 			Fachada.finalizar();
 			
 		}catch(Exception e) {

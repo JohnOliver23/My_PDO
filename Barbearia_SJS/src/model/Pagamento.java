@@ -32,19 +32,26 @@ public abstract class Pagamento {
 	public void setValorpago(double valorpago) {
 		this.valorpago = valorpago;
 	}
+	
 
 
-
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public abstract void calcularPagamento(double totalconta);
 	
 	public double calcularGorjeta() {
 		return (valorpago*10)/100;
 	}
-
 	@Override
 	public String toString() {
-		return "Pagamento [valorpago=" + valorpago + "]";
+		return "Pagamento [id=" + id + ", valorpago=" + valorpago + "]";
 	}
+
+	
 		
 	
 	
