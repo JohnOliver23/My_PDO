@@ -57,11 +57,6 @@ public class Tipo {
 	@Override
 	public String toString() {
 		String texto = "Tipo [id=" + id + ", nome= " + nome + ", preco= " + preco ;
-		for(Servico s: servicos) {
-			texto+=", Barbeiro : "+s.getBarbeiro().getNome();
-			texto+=", Cliente : "+s.getConta().getCliente().getNome();
-		}
-				texto+="]";
 				return texto;
 	}
 	

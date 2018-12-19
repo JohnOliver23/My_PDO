@@ -2,16 +2,10 @@ package aplicacao;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
 import fachada.Fachada;
 import model.Barbeiro;
 import model.Cliente;
-import model.Conta;
 import model.Pessoa;
-import model.Servico;
 import model.Tipo;
 
 public class Cadastro {
@@ -53,6 +47,7 @@ public class Cadastro {
 			System.out.println("===================================");
 			System.out.println("Cadastrando Servicos");
 			Fachada.cadastrarServico("Pedro","Corte de cabelo",1);
+			
 			
 			
 			

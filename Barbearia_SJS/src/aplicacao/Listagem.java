@@ -1,18 +1,7 @@
 package aplicacao;
-/**IFPB - Curso SI - Disciplina de PERSISTENCIA DE OBJETOS
- * @author Prof Fausto Ayres
- */
-import java.util.List;
-
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 import fachada.Fachada;
-import model.Barbeiro;
-import model.Cliente;
-import model.Pessoa;
 
 
 public class Listagem {
@@ -44,6 +33,10 @@ public class Listagem {
 			System.out.println("Listar o atendimento atual");
 			System.out.println(Fachada.listarAtendimentoAtual());
 			System.out.println("===================================");
+			System.out.println("Fechar a conta 1");
+			//Fachada.fecharConta(1);
+			Fachada.pagarConta(1, "Dinheiro", 0, "hiper", 5);
+			
 			Fachada.finalizar();
 			
 		}catch(Exception e) {

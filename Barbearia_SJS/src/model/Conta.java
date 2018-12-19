@@ -82,11 +82,11 @@ public class Conta {
 
 
 
-	public Date getDtfechamento() {
+	public Date getDtHorarioFechamento() {
 		return dthorariofechamento;
 	}
 
-	public void setDtfechamento(Date dtfechamento) {
+	public void setDtHorarioFechamento(Date dtfechamento) {
 		this.dthorariofechamento = dtfechamento;
 	}
 

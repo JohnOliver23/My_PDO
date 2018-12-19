@@ -39,9 +39,9 @@ public class DAOTipo  extends DAO<Tipo>{
 	"where dthorariofechamento is null"*/
 	
 	@SuppressWarnings("unchecked")
-	public List<Tipo> consultarAtendimentoAtual(){
+	public List<Object[]> consultarAtendimentoAtual(){
 		Query q = manager.createQuery(
-				"select t from Tipo t JOIN t.servicos s ");
+				"select s.conta.cliente.nome, s.barbeiro.nome, t.preco, t.nome from Tipo t JOIN t.servicos s ");
 		return q.getResultList();
 	}
 

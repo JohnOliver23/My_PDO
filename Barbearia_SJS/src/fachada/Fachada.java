@@ -4,14 +4,19 @@ import java.util.List;
 
 import daojpa.DAO;
 import daojpa.DAOBarbeiro;
+import daojpa.DAOCartao;
 import daojpa.DAOCliente;
 import daojpa.DAOConta;
+import daojpa.DAODinheiro;
 import daojpa.DAOPessoa;
 import daojpa.DAOServico;
 import daojpa.DAOTipo;
 import model.Barbeiro;
+import model.Cartao;
 import model.Cliente;
 import model.Conta;
+import model.Dinheiro;
+import model.Pagamento;
 //import daodb4o.*;
 import model.Pessoa;
 import model.Servico;
@@ -31,6 +36,8 @@ public class Fachada {
 	private static DAOTipo daotipo = new DAOTipo() ;
 	private static DAOConta daoconta = new DAOConta() ;
 	private static DAOServico daoservico = new DAOServico() ;
+	private static DAODinheiro daodinheiro = new DAODinheiro() ;
+	private static DAOCartao daocartao = new DAOCartao() ;
 
 	public static void inicializar(){
 		DAO.open();
@@ -137,10 +144,78 @@ public class Fachada {
 			}
 			b.setOcupado(true);
 			Servico s = new Servico(b,t,c);
+			c.setTotal(c.getTotal()+ s.getTipo().getPreco());
 			daoservico.create(s);
 			DAO.commit();
 			return s;
 	}
+	
+	/*fechar conta */
+	public static void fecharConta(int idservico)
+			throws Exception {
+		DAO.begin();
+		Servico s = daoservico.read(idservico);
+		if(s == null) {
+			DAO.rollback();
+			throw new Exception("Servico não encontrado : "+idservico);
+		}
+		Conta c  = daoservico.consultarContaDoServico(idservico);
+		if(c == null) {
+			DAO.rollback();
+			throw new Exception("Conta não encontrada");
+		}else if(c.getDtHorarioFechamento()!=null) {
+			throw new Exception("a conta já está fechada : "+c.getId());
+		}else {
+			c.setDtHorarioFechamento(new Date());
+			s.getBarbeiro().setOcupado(false);
+			DAO.commit();
+		
+		}
+	}
+
+	public static Pagamento pagarConta(int idconta, String tipo, int percentual, String cartao, int quantidade) 
+			throws Exception {
+		DAO.begin();
+		Conta c = daoconta.read(idconta);
+		if(c== null) {
+			throw new Exception("Conta não encontrada");
+		}
+		if(c.getDtHorarioFechamento() == null) {
+			throw new Exception("a conta não está fechada : "+idconta);
+		}
+		if(c.getPagamento()!= null) {
+			throw new Exception("essa conta ja foi paga !");
+		}
+		if(tipo.equalsIgnoreCase("Dinheiro")) {
+			if(percentual <0 || percentual >5) {
+				throw new Exception("desconto não permitido");
+			}
+			Dinheiro pd = new Dinheiro(c.getTotal(), percentual);
+			pd.calcularPagamento(c.getTotal());
+			c.setPagamento(pd);
+			daodinheiro.create(pd);
+			DAO.commit();
+			return pd;
+		}else if(tipo.equalsIgnoreCase("cartão")) {
+			if(quantidade <0 || quantidade >4) {
+				throw new Exception("quantidade de parcelas inválido");
+			}
+			if(c.getTotal()/quantidade <100 && quantidade !=1) {
+				throw new Exception("valor da parcela não permitida");
+			}
+			Cartao pc = new Cartao(c.getTotal(), cartao, quantidade);
+			pc.calcularPagamento(c.getTotal());
+			c.setPagamento(pc);
+			daocartao.create(pc);
+			DAO.commit();
+			
+			return pc;
+			
+		}
+		return null;
+		
+	}
+	
 	/*
 	public static Produto apagarProduto(String nome) throws  Exception{
 		DAO.begin();			
@@ -289,13 +364,18 @@ public class Fachada {
 		return texto;		
 	}
 	public static String listarAtendimentoAtual() {
-		List<Tipo> aux = daotipo.consultarAtendimentoAtual();
-		String texto = "\nListagem de Contas: ";
+		List<Object[]> aux = daotipo.consultarAtendimentoAtual();
+		String texto = "";
 		if (aux.isEmpty())
 			texto += "não tem Atendimento no momento";
 		else {	
-			for(Tipo t : aux) {
-				texto += "\n" + t; 
+			for (int i =0; i<aux.size(); i++) {
+				Object[]resultado= (Object[]) aux.get(i);
+				String cliente = (String)resultado [0];
+				String barbeiro = (String)resultado [1];
+				double preco = (Double)resultado [2];
+				String tipo = (String)resultado [3];
+				texto+="cliente : "+cliente+", Barbeiro: "+barbeiro+" ,Preço : "+preco+", Tipo : "+tipo;
 			}
 		}
 		return texto;		
