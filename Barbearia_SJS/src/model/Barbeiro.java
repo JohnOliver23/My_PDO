@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 @DiscriminatorValue("3")
 public class Barbeiro extends Pessoa  {
 	private boolean ocupado;
-	@OneToMany(mappedBy="Barbeiro", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)  
+	@OneToMany(mappedBy="Barbeiro", cascade=CascadeType.ALL, fetch=FetchType.LAZY)  
 	private ArrayList<Servico> servicos = new ArrayList<>();
 	
 	//construtor vazio
@@ -23,6 +23,12 @@ public class Barbeiro extends Pessoa  {
 		super(nome, sobrenome, date);
 	}
 
+	public int getSizeServicos() {
+		return servicos.size();
+	}
+	public ArrayList<Servico> getServicos(){
+		return servicos;
+	}
 	
 	public void adicionar(Servico s) {
 		servicos.add(s);
@@ -42,7 +48,11 @@ public class Barbeiro extends Pessoa  {
 
 	@Override
 	public String toString() {
-		return super.toString()+", ocupado = "+ocupado;
+		String texto = "";
+		if(ocupado) {
+			texto = ", (ocupado)";
+		}
+		return super.toString()+texto;
 	}
 	
 }

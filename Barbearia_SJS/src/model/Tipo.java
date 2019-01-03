@@ -56,7 +56,7 @@ public class Tipo {
 	}
 	@Override
 	public String toString() {
-		String texto = "Tipo [id=" + id + ", nome= " + nome + ", preco= " + preco ;
+		String texto = "Tipo de Serviço : "+ nome+", Preço : " + preco ;
 				return texto;
 	}
 	

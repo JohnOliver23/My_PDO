@@ -1,8 +1,10 @@
 package model;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("3")
 public class Cartao extends Pagamento {
 	private String cartao;
 	private int quantidadeparcelas;

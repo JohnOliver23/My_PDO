@@ -11,6 +11,7 @@ import javax.persistence.Query;
 
 import model.Barbeiro;
 import model.Cliente;
+import model.Conta;
 
 
 public class DAOCliente  extends DAO<Cliente>{
@@ -19,6 +20,17 @@ public class DAOCliente  extends DAO<Cliente>{
 		try{
 			Query q = manager.createQuery("select c from Cliente c where c.nome= '" + n +"'");
 			return (Cliente) q.getSingleResult();
+
+		}catch(NoResultException e){			
+			return null;
+		}
+	}
+	
+	public List<Conta> localizarContasByCliente (int idcliente){
+		try{
+			Query q = manager.createQuery("select c from Conta c where c.cliente.id = :id");
+			q.setParameter("id", idcliente);
+			return (List<Conta>) q.getResultList();
 
 		}catch(NoResultException e){			
 			return null;

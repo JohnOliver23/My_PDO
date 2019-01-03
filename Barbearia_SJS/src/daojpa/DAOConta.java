@@ -34,6 +34,32 @@ public class DAOConta  extends DAO<Conta>{
 				"select count(c) from Conta c");
 		return (Long) q.getSingleResult();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Object[]> consultarFilaDeEspera(){
+		Query q = manager.createQuery(
+				"select cli.nome, cli.sobrenome, c.dthorarioChegada from Conta c JOIN c.cliente cli where c.servicos is empty and c.dtChegada = CURRENT_DATE  ");
+		return q.getResultList();
+	}
+	
+	public long totalFilaDeEspera(){
+		Query q = manager.createQuery(
+				"select count(c) from Conta c JOIN c.cliente cli where c.servicos is empty and c.dtChegada = CURRENT_DATE  ");
+		return (Long) q.getSingleResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Object[]> listarPagamentosDinheiro(){
+		Query q = manager.createQuery(
+				"select s.conta.cliente.nome, s.barbeiro.nome, t.nome, s.conta.pagamento.valorpago from Tipo t JOIN t.servicos s where s.conta.pagamento is not null and type(s.conta.pagamento) = Dinheiro ");
+		return q.getResultList();
+	}
+	@SuppressWarnings("unchecked")
+	public List<Object[]> listarPagamentosCartao(){
+		Query q = manager.createQuery(
+				"select s.conta.cliente.nome, s.barbeiro.nome, t.nome, s.conta.pagamento.valorpago from Tipo t JOIN t.servicos s where s.conta.pagamento is not null and type(s.conta.pagamento) = Cartao ");
+		return q.getResultList();
+	}
 
 
 }

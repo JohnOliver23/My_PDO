@@ -37,6 +37,9 @@ public class Conta {
 	private Cliente cliente;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dthorarioChegada;
+	@Temporal(TemporalType.DATE)
+	private Date dtChegada;
+	
 	//RELACIONAMENTO BIDIRECIONAL
 	@OneToMany(mappedBy="conta", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)   
 	private ArrayList<Servico> servicos = new ArrayList<>();
@@ -46,6 +49,7 @@ public class Conta {
 	public Conta (Cliente c) {
 		this.cliente = c;
 		this.dthorarioChegada = new Date();
+		this.dtChegada = new Date();
 	};
 	
 	

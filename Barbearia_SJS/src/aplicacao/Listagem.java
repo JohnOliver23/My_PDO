@@ -1,7 +1,11 @@
 package aplicacao;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import fachada.Fachada;
+import model.Barbeiro;
 
 
 public class Listagem {
@@ -16,7 +20,11 @@ public class Listagem {
 			System.out.println("===================================");
 			System.out.println("===================================");
 			System.out.println("Listagem das Barbeiros");
-			System.out.println(Fachada.listarBarbeiros());
+			/*
+			List<Barbeiro> list = Fachada.listarBarbeiros();
+			for(Barbeiro b: list) {
+				System.out.println(b.getNome()+" ");
+			}*/
 			System.out.println("===================================");
 			System.out.println("===================================");
 			System.out.println("Listagem das Clientes");
@@ -33,38 +41,22 @@ public class Listagem {
 			System.out.println("Listar o atendimento atual");
 			System.out.println(Fachada.listarAtendimentoAtual());
 			System.out.println("===================================");
-			System.out.println("Fechar a conta 1");
-			//Fachada.fecharConta(1);
-			Fachada.pagarConta(1, "Dinheiro", 0, "hiper", 5);
-			
+			System.out.println("===================================");
+			System.out.println("Listar a Fila de Espera");
+			System.out.println(Fachada.listarFilaDeEspera());
+			System.out.println("===================================");
+			System.out.println("Listar Pagamentos do dia");
+			System.out.println(Fachada.listarPagamentosPorPeriodo("dia","Cartão"));
+			System.out.println("===================================");
+			Fachada.cadastrarConta(6);
+			Fachada.cadastrarConta(7);
+			Fachada.cadastrarConta(8);
 			Fachada.finalizar();
+			
 			
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		/*
-	
-		System.out.println("Listagem das pessoas");
-		query = manager.createQuery("select p from Pessoa p  order by p.nome");
-		List<Pessoa> resultados = (List<Pessoa>) query.getResultList();
-		for(Pessoa p: resultados)
-			System.out.println(p);
-		
-		System.out.println("Listagem dos Barbeiros");
-		query = manager.createQuery("select b from Barbeiro b");
-		List<Barbeiro> resultados2 = (List<Barbeiro>) query.getResultList();
-		for(Barbeiro b: resultados2)
-			System.out.println(b);
-		
-		System.out.println("Listagem dos Clientes");
-		query = manager.createQuery("select c from Cliente c");
-		List<Cliente> resultados3 = (List<Cliente>) query.getResultList();
-		for(Cliente c: resultados3)
-			System.out.println(c);
-		
-		manager.close();
-		factory.close();
-		*/
 	}
 	
 	

@@ -33,16 +33,21 @@ public class DAOTipo  extends DAO<Tipo>{
 				"select count(t) from Tipo t");
 		return (Long) q.getSingleResult();
 	}
-	/*8
-	"select c.nome cliente,b.nome barbeiro, t.nome tipo, t.preco from pessoa c  join conta co on c.id = co.cliente_id\r\n" + 
-	"join servico s on s.conta_id = co.id join tipo t on t.id = s.tipo_id join pessoa b on s.barbeiro_id = b.id\r\n" + 
-	"where dthorariofechamento is null"*/
+
 	
 	@SuppressWarnings("unchecked")
 	public List<Object[]> consultarAtendimentoAtual(){
 		Query q = manager.createQuery(
-				"select s.conta.cliente.nome, s.barbeiro.nome, t.preco, t.nome from Tipo t JOIN t.servicos s ");
+				"select s.id, s.conta.cliente.nome, s.conta.cliente.sobrenome,  s.barbeiro.nome, s.barbeiro.sobrenome,"
+				+ " t.nome, t.preco from Tipo t JOIN t.servicos s where s.conta.pagamento is null ");
 		return q.getResultList();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public long totalAtendimentoAtual(){
+		Query q = manager.createQuery(
+				"select count(s) from Tipo t JOIN t.servicos s where s.conta.pagamento is null ");
+		return (long) q.getSingleResult();
 	}
 
 

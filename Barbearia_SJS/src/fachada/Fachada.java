@@ -1,4 +1,6 @@
 package fachada;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -64,13 +66,12 @@ public class Fachada {
 	
 	public static Barbeiro cadastrarBarbeiro(String nome, String sobrenome, Date data) 
 			throws  Exception{
-		DAO.begin();			
+		DAO.begin();	
 		Barbeiro b = daobarbeiro.readByNome(nome);
 		if(b != null) {
 			DAO.rollback();
 			throw new Exception("Barbeiro já cadastrada: " + nome);
 		}
-		
 		b = new Barbeiro(nome,sobrenome, data);
 		daobarbeiro.create(b);		
 		DAO.commit();
@@ -92,6 +93,7 @@ public class Fachada {
 		return c;
 	}
 	
+	
 	public static Tipo cadastrarTipos(String nome, double preco) 
 			throws  Exception{
 		DAO.begin();			
@@ -106,6 +108,7 @@ public class Fachada {
 		DAO.commit();
 		return t;
 	}
+	
 	public static Conta cadastrarConta(int idcliente)
 			throws Exception{		
 			DAO.begin();			
@@ -114,6 +117,16 @@ public class Fachada {
 				DAO.rollback();
 				throw new Exception("Cliente não encontrado");
 			}
+			List<Conta> lista = daocliente.localizarContasByCliente(idcliente);
+			if(lista.size()>=1) {
+				Conta ultima = lista.get(lista.size()-1);
+				if(ultima.getTotal()==0) {
+					throw new Exception("Cliente já está na fila de espera");
+				}
+				if(ultima.getPagamento()==null) {
+					throw new Exception("O cliente já está sendo atendido");
+				}
+			}
 			Conta conta = new Conta(c);
 			daoconta.create(conta);
 			DAO.commit();
@@ -121,6 +134,14 @@ public class Fachada {
 			
 		
 	}
+	public static int totalFilaDeEspera() {
+		return (int) daoconta.totalFilaDeEspera();
+	}
+	
+	public static int totalAtendimentoAtual() {
+		return (int) daotipo.totalAtendimentoAtual();
+	}
+	
 	public static Servico cadastrarServico(String barbeiro, String tipo, int idconta)
 			throws Exception{		
 			DAO.begin();			
@@ -144,14 +165,63 @@ public class Fachada {
 			}
 			b.setOcupado(true);
 			Servico s = new Servico(b,t,c);
+			b.adicionar(s);
 			c.setTotal(c.getTotal()+ s.getTipo().getPreco());
 			daoservico.create(s);
 			DAO.commit();
 			return s;
 	}
 	
+	/*updates*/
+	public static Barbeiro AtualizaBarbeiro(int idBarbeiro, String nome, String sobrenome, Date data) 
+			throws  Exception{
+		DAO.begin();	
+		Barbeiro b = daobarbeiro.read(idBarbeiro);
+		if(b == null) {
+			DAO.rollback();
+			throw new Exception("Barbeiro não encontado: " + idBarbeiro);
+		}
+		b.setNome(nome);
+		b.setSobrenome(sobrenome);
+		b.setDatanasc(data);
+		daobarbeiro.update(b);
+		DAO.commit();
+		return b;
+	}
+	
+	public static Cliente AtualizaCliente(int idCliente, String nome, String sobrenome, Date data) 
+			throws  Exception{
+		DAO.begin();	
+		Cliente c = daocliente.read(idCliente);
+		if(c == null) {
+			DAO.rollback();
+			throw new Exception("Cliente não encontado: " + idCliente);
+		}
+		c.setNome(nome);
+		c.setSobrenome(sobrenome);
+		c.setDatanasc(data);
+		daocliente.update(c);
+		DAO.commit();
+		return c;
+	}
+	
+	public static Tipo AtualizaTipo(int idTipo, String nome, double preco) 
+			throws  Exception{
+		DAO.begin();	
+		Tipo t = daotipo.read(idTipo);
+		if(t == null) {
+			DAO.rollback();
+			throw new Exception("Tipo de serviço não encontrado: " + idTipo);
+		}
+		t.setNome(nome);
+		t.setPreco(preco);
+		daotipo.update(t);
+		DAO.commit();
+		return t;
+	}
+	
 	/*fechar conta */
-	public static void fecharConta(int idservico)
+	public static int fecharConta(int idservico)
 			throws Exception {
 		DAO.begin();
 		Servico s = daoservico.read(idservico);
@@ -171,6 +241,7 @@ public class Fachada {
 			DAO.commit();
 		
 		}
+		return c.getId();
 	}
 
 	public static Pagamento pagarConta(int idconta, String tipo, int percentual, String cartao, int quantidade) 
@@ -181,14 +252,14 @@ public class Fachada {
 			throw new Exception("Conta não encontrada");
 		}
 		if(c.getDtHorarioFechamento() == null) {
-			throw new Exception("a conta não está fechada : "+idconta);
+			throw new Exception("A conta não está fechada : "+idconta);
 		}
 		if(c.getPagamento()!= null) {
-			throw new Exception("essa conta ja foi paga !");
+			throw new Exception("Essa conta ja foi paga !");
 		}
 		if(tipo.equalsIgnoreCase("Dinheiro")) {
 			if(percentual <0 || percentual >5) {
-				throw new Exception("desconto não permitido");
+				throw new Exception("Desconto não permitido");
 			}
 			Dinheiro pd = new Dinheiro(c.getTotal(), percentual);
 			pd.calcularPagamento(c.getTotal());
@@ -213,92 +284,56 @@ public class Fachada {
 			
 		}
 		return null;
-		
 	}
 	
-	/*
-	public static Produto apagarProduto(String nome) throws  Exception{
+	public static Barbeiro deletarBarbeiro(int id) 
+			throws  Exception{
 		DAO.begin();			
-		Produto p = daoproduto.readByNome(nome);
-		if(p == null)throw new Exception("produto nao cadastrado:" + nome);
-
-		if(p.getPrateleira() != null){
-			Prateleira pt = p.getPrateleira();
-			pt.removerProduto(p);
-			daoprateleira.update(pt);
-		}
-		daoproduto.delete(p);		
+		Barbeiro b = daobarbeiro.read(id);
+		if(b == null)throw new Exception("Barbeiro não cadastrado: " + id);
+		if(b.isOcupado())throw new Exception("Barbeiro está atendendo no momento: " + id);
+		daobarbeiro.delete(b);
 		DAO.commit();
-		return p;
+		return b;
 	}
-
-	public static void apagarPrateleira(int id) 	throws  Exception{
+	
+	public static void deletarCliente(int id) 	
+			throws  Exception{
 		DAO.begin();		
-		Prateleira pt = daoprateleira.read(id);
-		if(pt == null) 	{
+		Cliente c = daocliente.read(id);
+		if(c == null) 	{
 			DAO.rollback();
-			throw new Exception("prateleira nao cadastrada:" + id);
+			throw new Exception("Cliente não cadastrado" + id);
 		}
-		daoprateleira.delete(pt);		
+		daocliente.delete(c);		
 		DAO.commit();
 	}
-	public static Prateleira cadastrarPrateleira(double pesomax)throws  Exception{
-		DAO.begin();	
-
-		Prateleira pt;		
-		pt = new Prateleira(pesomax);	
-		daoprateleira.create(pt);		//id sera criado	
-		DAO.commit();
-
-		return pt;
-	}
-
-	public static void inserirProdutoPrateleira(int id, String nome) throws  Exception {
-		DAO.begin();	
-
-		Prateleira pt = daoprateleira.read(id);
-		if(pt == null) {
+	
+	public static void deletarConta(int id) 	
+			throws  Exception{
+		DAO.begin();		
+		Conta c = daoconta.read(id);
+		if(c == null) 	{
 			DAO.rollback();
-			throw new Exception("prateleira nao cadastrada:" + nome);
+			throw new Exception("Conta não Encontrada" + id);
 		}
-
-		Produto p = daoproduto.readByNome(nome);
-		if(p == null) {
-			DAO.rollback();
-			throw new Exception("produto nao cadastrado:" + nome);
-		}
-
-
-		if(p.getPrateleira() != null) {
-			DAO.rollback();
-			throw new Exception("produto ja alocado numa prateleira:" + nome);
-		}
-
-		pt.adicionarProduto(p);
-		daoprateleira.update(pt);		//atualiza a prateleira e o produto em cascata
-		//daoproduto.update(p);			//opcional 	devido a cascata de atualização de produto
+		daoconta.delete(c);		
 		DAO.commit();
 	}
-
-	public static void retirarProdutoPrateleira(String nome) throws  Exception {
-		DAO.begin();			
-		Produto p = daoproduto.readByNome(nome);
-		if(p == null) {
+	
+	public static Tipo deletarTipo(int id) 	
+			throws  Exception{
+		DAO.begin();		
+		Tipo t = daotipo.read(id);
+		if(t == null) 	{
 			DAO.rollback();
-			throw new Exception("produto nao cadastrado:" + nome);
+			throw new Exception("Tipo de serviço não Encontrado" + id);
 		}
-
-		if(p.getPrateleira() == null) {
-			DAO.rollback();
-			throw new Exception("produto nao alocado numa prateleira:" + nome);
-		}
-		Prateleira pt = p.getPrateleira();
-		pt.removerProduto(p);
-		daoprateleira.update(pt);
-		daoproduto.update(p);		// Cuidado: o produto foi alterado e deve ser gravado		
+		daotipo.delete(t);		
 		DAO.commit();
+		return t;
 	}
-*/
+	
 	public static String listarPessoas() {
 		List<Pessoa> aux = daopessoa.readAll();
 		String texto = "\nListagem de pessoas: ";
@@ -311,45 +346,95 @@ public class Fachada {
 		}
 		return texto;		
 	}
+	public static Cliente localizarClienteById(int id)
+		
+	{
+		Cliente c = daocliente.read(id);
+		if(c == null) {
+			return null;
+		}
+		return c;
+	}
 	
-	public static String listarClientes() {
+	public static Barbeiro localizarBarbeiroById(int id)
+	
+	{
+		Barbeiro b = daobarbeiro.read(id);
+		if(b == null) {
+			return null;
+		}
+		return b;
+	}
+	
+	public static Barbeiro localizarBarbeiroByName(String name)
+	{
+		Barbeiro b = daobarbeiro.readByNome(name);
+		if(b == null) {
+			return null;
+		}
+		return b;
+	}
+	
+	public static Tipo localizarTipoById(int id)
+	
+	{
+		Tipo t = daotipo.read(id);
+		if(t == null) {
+			return null;
+		}
+		return t;
+	}
+	public static Object[][] listarClientes() {
 		List<Cliente> aux = daocliente.readAll();
-		String texto = "\nListagem de pessoas: ";
+		Object[][] lista = new Object[aux.size()][3];
+		int i = 0;
 		if (aux.isEmpty())
-			texto += "não tem clientes cadastradas";
+			return null;
 		else {	
 			for(Cliente c: aux) {
-				texto += "\n" + c; 
+				lista[i][0] = c.getId();
+				lista[i][1]= c.getNome()+" "+c.getSobrenome();
+				lista[i][2] = c.getDatanasc();
+				i++;
 			}
 		}
-		return texto;		
+		return lista;
 	}
 	
-	public static String listarBarbeiros() {
+	public static Object[][] listarBarbeiros() {
 		List<Barbeiro> aux = daobarbeiro.readAll();
-		String texto = "\nListagem de Barbeiros: ";
+		Object[][] lista = new Object[aux.size()][3];
+		int i = 0;
 		if (aux.isEmpty())
-			texto += "não tem barbeiros cadastradas";
+			return null;
 		else {	
 			for(Barbeiro b: aux) {
-				texto += "\n" + b; 
+				lista[i][0] = b.getId();
+				lista[i][1]= b.getNome()+" "+b.getSobrenome();
+				lista[i][2] = b.getDatanasc();
+				i++;
 			}
 		}
-		return texto;		
+		return lista;
 	}
 	
-	public static String listarTipos() {
+	public static Object[][] listarTipos() {
 		List<Tipo> aux = daotipo.readAll();
-		String texto = "\nListagem de Tipos: ";
+		Object[][] lista = new Object[aux.size()][3];
+		int i = 0;
 		if (aux.isEmpty())
-			texto += "não tem tipos cadastradas";
+			return null;
 		else {	
 			for(Tipo t: aux) {
-				texto += "\n" + t; 
+				lista[i][0] = t.getId();
+				lista[i][1]= t.getNome();
+				lista[i][2] = t.getPreco();
+				i++;
 			}
 		}
-		return texto;		
+		return lista;
 	}
+	
 	
 	public static String listarContas() {
 		List<Conta> aux = daoconta.readAll();
@@ -363,123 +448,129 @@ public class Fachada {
 		}
 		return texto;		
 	}
-	public static String listarAtendimentoAtual() {
+	
+	public static Object[][]listarAtendimentoAtual() {
 		List<Object[]> aux = daotipo.consultarAtendimentoAtual();
+		Object[][] lista = new Object[aux.size()][5];
+		if (aux.isEmpty())
+			return null;
+		else {	
+			for (int i =0; i<aux.size(); i++) {
+				Object[]resultado= (Object[]) aux.get(i);
+				lista[i][0] = (int)resultado[0];
+				lista[i][1] = (String)resultado [1]+" "+(String)resultado[2];
+				lista[i][2] = (String)resultado [3]+" "+(String)resultado[4];
+				lista[i][3] = (String)resultado[5];
+				lista[i][4] = (Double)resultado [6];
+			}
+		}
+		return lista;		
+	}
+	
+	public static String[] listarNomeBarbeiros() {
+		List<Barbeiro> barbeiros = daobarbeiro.readAll();
+		String array[] = new String[barbeiros.size()];
+		int i =0;
+		for(Barbeiro b: barbeiros) {
+		    array[i] = b.getNome();
+		    i++;
+		}
+		return array;
+	}
+	
+	public static String[] listarNomeServicos() {
+		List<Tipo> tipos = daotipo.readAll();
+		String array[] = new String[tipos.size()];
+		int i =0;
+		for(Tipo t: tipos) {
+		    array[i] = t.getNome();
+		    i++;
+		}
+		return array;
+	}
+	
+	public static ArrayList<Servico> listarNomeServicoss() {
+		return (ArrayList<Servico>) daoservico.readAll();
+	}
+	
+	public static Object[][] listarFilaDeEspera() {
+		List<Object[]> aux = daoconta.consultarFilaDeEspera();
+		
+		Object[][] lista = new Object[aux.size()][3];
+		if (aux.isEmpty())
+			return null;
+		else {	
+			
+			for (int i =0; i<aux.size(); i++) {
+				Object[]resultado= (Object[]) aux.get(i);
+				String cliente = (String)resultado [0];
+				String sobrenome = (String)resultado[1];
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime((Date) resultado[2]);
+				int hours = calendar.get(Calendar.HOUR_OF_DAY);
+				int minutes = calendar.get(Calendar.MINUTE);
+				int seconds = calendar.get(Calendar.SECOND);
+				int year = calendar.get(Calendar.YEAR);
+				int month = calendar.get(Calendar.MONTH)+1;
+				int day = calendar.get(Calendar.DAY_OF_MONTH);
+				String dayParse = Integer.toString(day);
+				String monthParse = Integer.toString(month);
+				String hourParse = Integer.toString(hours);
+				String minutesParse = Integer.toString(minutes);
+				String secondParse = Integer.toString(seconds);
+				if(dayParse.length()==1) {
+					dayParse = "0"+dayParse;
+				}
+				if(monthParse.length()==1) {
+					monthParse = "0"+monthParse;
+				}
+				if(hourParse.length()==1) {
+					hourParse = "0"+hourParse;
+				}
+				if(minutesParse.length()==1) {
+					minutesParse = "0"+minutesParse;
+				}
+				if(secondParse.length()==1) {
+					secondParse = "0"+secondParse;
+				}
+				String nomeCompleto = cliente+" "+sobrenome;
+				String data = dayParse+"/"+monthParse+"/"+year;
+				String horaCompleta = hourParse+":"+minutesParse+":"+secondParse;
+				lista[i][0] = nomeCompleto;
+				lista[i][1] = data;
+				lista[i][2] = horaCompleta;
+			}
+		}
+		return lista;		
+	}
+	
+	public static String listarPagamentosPorPeriodo(String periodo, String tipoPagamento)
+		throws Exception{
+		if(!(tipoPagamento.equalsIgnoreCase("Dinheiro")||tipoPagamento.equalsIgnoreCase("Cartão"))) {
+			throw new Exception("Tipo de serviço inválido");
+		}
+		List<Object[]> aux;
+		if(tipoPagamento.equalsIgnoreCase("Dinheiro")) {
+			 aux = daoconta.listarPagamentosDinheiro();
+		}else {
+			aux = daoconta.listarPagamentosCartao();
+		}
 		String texto = "";
 		if (aux.isEmpty())
-			texto += "não tem Atendimento no momento";
+			texto += "não tem Pagamentos no momento :"+tipoPagamento;
 		else {	
 			for (int i =0; i<aux.size(); i++) {
 				Object[]resultado= (Object[]) aux.get(i);
 				String cliente = (String)resultado [0];
 				String barbeiro = (String)resultado [1];
-				double preco = (Double)resultado [2];
-				String tipo = (String)resultado [3];
-				texto+="cliente : "+cliente+", Barbeiro: "+barbeiro+" ,Preço : "+preco+", Tipo : "+tipo;
+				String tipoServico = (String)resultado [2];
+				double valorpago = (double)resultado [3];
+				System.out.println("oi");
+				texto+="Cliente : "+cliente+", Barbeiro: "+barbeiro+" , Tipo de Serviço : "+tipoServico+", valorpago : "+valorpago+", Tipo de pagamento : "+tipoPagamento+"\n";
 			}
 		}
 		return texto;		
 	}
+
 	
-/*
-	public static String listarPrateleiras() {
-		List<Prateleira> aux = daoprateleira.readAll();
-		String texto = "\nListagem de Prateleiras:";
-
-		if (aux.isEmpty())
-			texto += "não tem prateleira cadastrada";
-		else {	
-			for(Prateleira p: aux) {
-				texto += "\n" + p; 
-			}
-		}
-		return texto;
-	}
-
-	//consultas	
-	public static String consultarPrateleirasVazias(){
-		List<Prateleira> resultados = daoprateleira.consultarPrateleirasVazias();
-		if(resultados.isEmpty())
-			return "\nNao existem prateleiras vazias";
-		else
-		{	String texto="\nPrateleiras vazias";
-		for(Prateleira pt : resultados){
-			texto += "\nid=" + pt.getId();
-		}
-		return texto;
-		}		
-	}
-
-	public static String consultarProdutosSemPrateleira(){		
-		List<Produto> resultados = daoproduto.consultarProdutoSemPareteleira();	
-		if(resultados.isEmpty())
-			return "\nNao existem  produtos sem prateleira";
-		else
-		{	
-			String texto="\nProdutos sem prateleira";
-			for(Produto pt : resultados){
-				texto += "\nnome=" + pt.getNome();
-			}
-			return texto;
-		}
-	}
-
-	public static String consultarTotalProdutos(){		
-		long i = daoproduto.consultarTotalProdutos();	
-		String texto="\nTotal de produtos = "+i;
-		return texto;	
-	}
-
-	public static String consultarPrateleiraComDoisProdutos() {
-		List<Prateleira> resultados = daoprateleira.consultarPrateleiraComDoisProdutos();
-		if(resultados.isEmpty())
-			return "\nNao existem prateleiras com menos de dois produtos";
-		else{	
-			String texto="\nPrateleiras com menos de dois produtos";
-			for(Prateleira pt : resultados){
-				texto += "\nid=" + pt.getId();
-			}
-			return texto;
-		}		
-	}
-
-	public static String consultarProdutosVizinhos(String nome) {
-		List<Produto> resultados = daoproduto.consultarVizinhos(nome);	
-		if(resultados.isEmpty())
-			return "\nNao existem  produtos vizinhos";
-		else
-		{	
-			String texto="\nProdutos vizinhos ao "+nome;
-			for(Produto pt : resultados){
-				texto += "\nnome=" + pt.getNome();
-			}
-			return texto;
-		}
-	}
-
-	public static String consultarPrateleiraDoProduto(String nome) {
-		Prateleira prat = daoprateleira.consultarPrateleiraDoProduto(nome);
-		if(prat==null)
-			return "\nNao existe prateleira do  " +nome;
-		else	
-			return "\nPrateleira do " +nome + "="+prat.getId();
-	}
-	
-	public static String consultarProdutosDaPrateleira(int id) {		
-		List<Produto> resultados = daoproduto.consultarProdutosDaPrateleira(id);	
-			if(resultados.isEmpty())
-			return "\nNao existe produto da prateleira "+id;
-		else
-		{	
-			String texto="\nProdutos da prateleira "+id;
-			for(Produto p : resultados){
-				texto += "\nnome=" + p.getNome();
-			}
-			return texto;
-		}
-
-	}
-
-*/
-	//...outras consultas
 }

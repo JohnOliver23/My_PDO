@@ -1,6 +1,7 @@
 package model;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -28,8 +29,21 @@ public class Pessoa {
 		this.sobrenome = sobrenome;
 	}
 
-	public Date getDatanasc() {
-		return datanasc;
+	public String getDatanasc() {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime((Date) this.datanasc);
+		int year = calendar.get(Calendar.YEAR);
+		int month = calendar.get(Calendar.MONTH)+1;
+		int day = calendar.get(Calendar.DAY_OF_MONTH);
+		String dayParse = Integer.toString(day);
+		String monthParse = Integer.toString(month);
+		if(dayParse.length()==1) {
+			dayParse = "0"+dayParse;
+		}
+		if(monthParse.length()==1) {
+			monthParse = "0"+monthParse;
+		}
+		return dayParse+"/"+monthParse+"/"+year;
 	}
 
 	public void setDatanasc(Date datanasc) {
@@ -78,7 +92,7 @@ public class Pessoa {
 	@Override
 	public String toString() {
 		SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
-		return "Pessoa [id=" + id + ", nome= " + nome +" ,sobrenome= "+sobrenome+ " ,data de nascimento= "+f.format(datanasc.getTime()) +"]";
+		return this.getClass().getSimpleName() +" : "+ nome +" "+sobrenome+ ", Data de nascimento : "+this.getDatanasc();
 	}
 
 

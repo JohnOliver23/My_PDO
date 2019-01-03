@@ -13,12 +13,19 @@ import javax.persistence.OneToMany;
 public class Cliente extends Pessoa{
 	
 
-	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL, fetch=FetchType.LAZY, orphanRemoval=true)  
+	@OneToMany(mappedBy="cliente", cascade=CascadeType.ALL)  
 	private ArrayList<Conta> contas = new ArrayList<>();
 	
 	//construtor vazio
 	public Cliente(){};
 	
+	public int getSizeContas(){
+		return contas.size();
+	}
+	
+	public ArrayList<Conta> getContas(){
+		return contas;
+	}
 	
 	public Cliente(String nome, String sobrenome, Date data) {
 		super(nome, sobrenome, data);
