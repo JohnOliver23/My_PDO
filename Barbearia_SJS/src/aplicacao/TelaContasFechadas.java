@@ -23,14 +23,14 @@ import javax.swing.table.DefaultTableModel;
 import fachada.Fachada;
 import model.Barbeiro;
 
-public class TelaAtendimentoAtual extends JFrame {
+public class TelaContasFechadas extends JFrame {
 
 	private JPanel contentPane;
 	private JButton btnListar;
 	private DefaultListModel listModel = new DefaultListModel();
 
 	
-	public TelaAtendimentoAtual() {
+	public TelaContasFechadas() {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowOpened(WindowEvent arg0) {
@@ -39,51 +39,44 @@ public class TelaAtendimentoAtual extends JFrame {
 				
 			}
 		});
-		setTitle("Atendimento Atual");
+		setTitle("Contas Fechadas");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 1105, 360);
+		setBounds(100, 100, 813, 290);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblFilaDeEspera = new JLabel("Atendimento Atual");
+		JLabel lblFilaDeEspera = new JLabel("Contas Fechadas");
 		lblFilaDeEspera.setBounds(20, 19, 264, 14);
 		contentPane.add(lblFilaDeEspera);
 		
 		JTable table = new JTable();
 		table.setPreferredScrollableViewportSize(new Dimension(500,80));
 		JScrollPane pane = new JScrollPane(table);
-		pane.setSize(1069, 241);
+		pane.setSize(777, 206);
 		pane.setLocation(20, 44);
 		contentPane.add(pane, BorderLayout.CENTER);
 		
-		JButton btnFechar = new JButton("Fechar Conta");
-		btnFechar.addActionListener(new ActionListener() {
+		JButton btnNewButton = new JButton("Pagar");
+		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
 				int column = 0;
 				int row = table.getSelectedRow();
 				if(row == -1) {
-					JOptionPane.showMessageDialog(null, "Selecione um Atendimento","Atenção",JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Selecione uma conta","Atenção",JOptionPane.WARNING_MESSAGE);
 					
 				}else {
 					int idservico = (int) table.getModel().getValueAt(row, column);
-					int idconta = Fachada.fecharConta(idservico);
-					JOptionPane.showMessageDialog(null, "Conta fechada com sucesso!");
-					TelaContasFechadas t = new TelaContasFechadas();
+					TelaPagarConta t = new TelaPagarConta(idservico);
 					dispose();
 					t.setVisible(true);
-					
 				}
-			  }catch(Exception e) {
-				  JOptionPane.showMessageDialog(null, e.getMessage(),"title", JOptionPane.ERROR_MESSAGE);
-			  }
 			}
 		});
-		btnFechar.setBounds(906, 15, 140, 23);
-		contentPane.add(btnFechar);
+		btnNewButton.setBounds(708, 7, 89, 23);
+		contentPane.add(btnNewButton);
 
 
 		
@@ -91,8 +84,8 @@ public class TelaAtendimentoAtual extends JFrame {
 		btnListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e1) {
 				try{
-					Object[][] lista = Fachada.listarAtendimentoAtual();
-					String [] colunas = {"id","Cliente","Barbeiro","Servico","Data","Hora","Valor"};
+					Object[][] lista = Fachada.listarContasFechadas();
+					String [] colunas = {"id conta","Cliente","Data fechamento","Hora Fechamento","Total"};
 					DefaultTableModel tableModel = new DefaultTableModel(lista,colunas);
 					table.setModel(tableModel);
 					

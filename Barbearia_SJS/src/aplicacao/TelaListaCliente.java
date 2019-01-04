@@ -44,7 +44,7 @@ public class TelaListaCliente extends JFrame {
 		setTitle("Listar Cliente");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 650, 290);
+		setBounds(100, 100, 840, 290);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -57,7 +57,7 @@ public class TelaListaCliente extends JFrame {
 		JTable table = new JTable();
 		table.setPreferredScrollableViewportSize(new Dimension(500,80));
 		JScrollPane pane = new JScrollPane(table);
-		pane.setSize(500, 216);
+		pane.setSize(680, 216);
 		pane.setLocation(20, 34);
 		contentPane.add(pane, BorderLayout.CENTER);
 		
@@ -76,7 +76,7 @@ public class TelaListaCliente extends JFrame {
 				
 			}
 		);
-		btnNewButton.setBounds(528, 35, 106, 23);
+		btnNewButton.setBounds(718, 33, 106, 23);
 		contentPane.add(btnNewButton);
 		
 
@@ -123,7 +123,7 @@ public class TelaListaCliente extends JFrame {
 			}
 			
 		});
-		btnRemove.setBounds(528, 69, 106, 23);
+		btnRemove.setBounds(718, 67, 106, 23);
 		contentPane.add(btnRemove);
 		
 		JButton btnAtualiza = new JButton("Atualizar");
@@ -150,7 +150,7 @@ public class TelaListaCliente extends JFrame {
 				
 			}
 		});
-		btnAtualiza.setBounds(528, 109, 106, 23);
+		btnAtualiza.setBounds(718, 107, 106, 23);
 		contentPane.add(btnAtualiza);
 		
 		JButton btnCriarConta = new JButton("Criar conta");
@@ -182,7 +182,7 @@ public class TelaListaCliente extends JFrame {
 				}
 			}
 		});
-		btnCriarConta.setBounds(530, 153, 104, 23);
+		btnCriarConta.setBounds(720, 151, 104, 23);
 		contentPane.add(btnCriarConta);
 		
 

@@ -39,14 +39,16 @@ public class DAOTipo  extends DAO<Tipo>{
 	public List<Object[]> consultarAtendimentoAtual(){
 		Query q = manager.createQuery(
 				"select s.id, s.conta.cliente.nome, s.conta.cliente.sobrenome,  s.barbeiro.nome, s.barbeiro.sobrenome,"
-				+ " t.nome, t.preco from Tipo t JOIN t.servicos s where s.conta.pagamento is null ");
+				+ " t.nome, s.dthorario, t.preco from Tipo t JOIN t.servicos s where s.conta.pagamento is null and s.conta.dthorariofechamento is null ");
 		return q.getResultList();
 	}
+	
+
 	
 	@SuppressWarnings("unchecked")
 	public long totalAtendimentoAtual(){
 		Query q = manager.createQuery(
-				"select count(s) from Tipo t JOIN t.servicos s where s.conta.pagamento is null ");
+				"select count(s) from Tipo t JOIN t.servicos s where s.conta.pagamento is null and s.conta.dthorariofechamento is null ");
 		return (long) q.getSingleResult();
 	}
 

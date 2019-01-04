@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import model.Barbeiro;
 import model.Cliente;
 import model.Conta;
+import model.Pessoa;
 
 
 public class DAOCliente  extends DAO<Cliente>{
@@ -43,6 +44,12 @@ public class DAOCliente  extends DAO<Cliente>{
 		Query q = manager.createQuery(
 				"select count(c) from Cliente c");
 		return (Long) q.getSingleResult();
+	}
+	
+	public List<Cliente> readAll(){
+		
+		Query query = manager.createQuery("select c from Cliente c order by c.nome");
+		return (List<Cliente>) query.getResultList();
 	}
 
 

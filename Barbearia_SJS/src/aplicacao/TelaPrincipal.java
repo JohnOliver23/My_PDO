@@ -205,7 +205,7 @@ public class TelaPrincipal {
 		});
 		mnConta.add(itemListarConta);
 
-		JMenuItem itemConsultarConta = new JMenuItem("Pagamentos do dia");
+		JMenuItem itemConsultarConta = new JMenuItem("Pagamentos");
 		itemConsultarConta.setForeground(Color.WHITE);
 		itemConsultarConta.setBackground(Color.BLACK);
 		itemConsultarConta.setContentAreaFilled(false);
@@ -213,28 +213,15 @@ public class TelaPrincipal {
 		itemConsultarConta.setBorderPainted(false);
 		itemConsultarConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TelaListaDeEspera t = new TelaListaDeEspera();
+				TelaPagamento t = new TelaPagamento();
 				t.setVisible(true);
 			}
 		});
 		mnConta.add(itemConsultarConta);
 		
-		JMenuItem itemCancelarConta = new JMenuItem("Pagamentos do mês");
-		itemCancelarConta.setForeground(Color.WHITE);
-		itemCancelarConta.setBackground(Color.BLACK);
-		itemCancelarConta.setContentAreaFilled(false);
-		itemCancelarConta.setBorder(null);
-		itemCancelarConta.setBorderPainted(false);
-		itemCancelarConta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				TelaListaDeEspera t = new TelaListaDeEspera();
-				t.setVisible(true);
-			}
-		});
-		mnConta.add(itemCancelarConta);
 		
 		
-		JMenuItem itemPagarConta = new JMenuItem("Pagar");
+		JMenuItem itemPagarConta = new JMenuItem("Contas Fechadas");
 		itemPagarConta.setForeground(Color.WHITE);
 		itemPagarConta.setBackground(Color.BLACK);
 		itemPagarConta.setContentAreaFilled(false);
@@ -242,7 +229,7 @@ public class TelaPrincipal {
 		itemPagarConta.setBorderPainted(false);
 		itemPagarConta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TelaPagarConta t = new TelaPagarConta(0);
+				TelaContasFechadas t = new TelaContasFechadas();
 				t.setVisible(true);
 			}
 		});

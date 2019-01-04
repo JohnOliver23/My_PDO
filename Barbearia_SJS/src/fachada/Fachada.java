@@ -120,11 +120,8 @@ public class Fachada {
 			List<Conta> lista = daocliente.localizarContasByCliente(idcliente);
 			if(lista.size()>=1) {
 				Conta ultima = lista.get(lista.size()-1);
-				if(ultima.getTotal()==0) {
-					throw new Exception("Cliente já está na fila de espera");
-				}
-				if(ultima.getPagamento()==null) {
-					throw new Exception("O cliente já está sendo atendido");
+				if(ultima.getDtHorarioFechamento()== null) {
+					throw new Exception("O cliente possui uma conta em aberto");
 				}
 			}
 			Conta conta = new Conta(c);
@@ -451,7 +448,7 @@ public class Fachada {
 	
 	public static Object[][]listarAtendimentoAtual() {
 		List<Object[]> aux = daotipo.consultarAtendimentoAtual();
-		Object[][] lista = new Object[aux.size()][5];
+		Object[][] lista = new Object[aux.size()][7];
 		if (aux.isEmpty())
 			return null;
 		else {	
@@ -461,7 +458,89 @@ public class Fachada {
 				lista[i][1] = (String)resultado [1]+" "+(String)resultado[2];
 				lista[i][2] = (String)resultado [3]+" "+(String)resultado[4];
 				lista[i][3] = (String)resultado[5];
-				lista[i][4] = (Double)resultado [6];
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime((Date) resultado[6]);
+				int hours = calendar.get(Calendar.HOUR_OF_DAY);
+				int minutes = calendar.get(Calendar.MINUTE);
+				int seconds = calendar.get(Calendar.SECOND);
+				int year = calendar.get(Calendar.YEAR);
+				int month = calendar.get(Calendar.MONTH)+1;
+				int day = calendar.get(Calendar.DAY_OF_MONTH);
+				String dayParse = Integer.toString(day);
+				String monthParse = Integer.toString(month);
+				String hourParse = Integer.toString(hours);
+				String minutesParse = Integer.toString(minutes);
+				String secondParse = Integer.toString(seconds);
+				if(dayParse.length()==1) {
+					dayParse = "0"+dayParse;
+				}
+				if(monthParse.length()==1) {
+					monthParse = "0"+monthParse;
+				}
+				if(hourParse.length()==1) {
+					hourParse = "0"+hourParse;
+				}
+				if(minutesParse.length()==1) {
+					minutesParse = "0"+minutesParse;
+				}
+				if(secondParse.length()==1) {
+					secondParse = "0"+secondParse;
+				}
+				String data = dayParse+"/"+monthParse+"/"+year;
+				String horaCompleta = hourParse+":"+minutesParse+":"+secondParse;
+				lista[i][4]=data;
+				lista[i][5]= horaCompleta;
+				lista[i][6] = (Double)resultado [7];
+			}
+		}
+		return lista;		
+	}
+	
+	public static Object[][]listarContasFechadas() {
+		List<Object[]> aux = daoconta.consultarContasFechadas();
+		Object[][] lista = new Object[aux.size()][5];
+		if (aux.isEmpty())
+			return null;
+		else {	
+			for (int i =0; i<aux.size(); i++) {
+				Object[]resultado= (Object[]) aux.get(i);
+				lista[i][0] = (int)resultado[0];
+				lista[i][1] = (String)resultado [1]+" "+(String)resultado[2];
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime((Date) resultado[3]);
+				int hours = calendar.get(Calendar.HOUR_OF_DAY);
+				int minutes = calendar.get(Calendar.MINUTE);
+				int seconds = calendar.get(Calendar.SECOND);
+				int year = calendar.get(Calendar.YEAR);
+				int month = calendar.get(Calendar.MONTH)+1;
+				int day = calendar.get(Calendar.DAY_OF_MONTH);
+				String dayParse = Integer.toString(day);
+				String monthParse = Integer.toString(month);
+				String hourParse = Integer.toString(hours);
+				String minutesParse = Integer.toString(minutes);
+				String secondParse = Integer.toString(seconds);
+				if(dayParse.length()==1) {
+					dayParse = "0"+dayParse;
+				}
+				if(monthParse.length()==1) {
+					monthParse = "0"+monthParse;
+				}
+				if(hourParse.length()==1) {
+					hourParse = "0"+hourParse;
+				}
+				if(minutesParse.length()==1) {
+					minutesParse = "0"+minutesParse;
+				}
+				if(secondParse.length()==1) {
+					secondParse = "0"+secondParse;
+				}
+				String data = dayParse+"/"+monthParse+"/"+year;
+				String horaCompleta = hourParse+":"+minutesParse+":"+secondParse;
+				lista[i][2] = data;
+				lista[i][3] = horaCompleta;
+				lista[i][4] = (Double)resultado[4];
+				
+				
 			}
 		}
 		return lista;		
@@ -496,17 +575,18 @@ public class Fachada {
 	public static Object[][] listarFilaDeEspera() {
 		List<Object[]> aux = daoconta.consultarFilaDeEspera();
 		
-		Object[][] lista = new Object[aux.size()][3];
+		Object[][] lista = new Object[aux.size()][4];
 		if (aux.isEmpty())
 			return null;
 		else {	
 			
 			for (int i =0; i<aux.size(); i++) {
 				Object[]resultado= (Object[]) aux.get(i);
-				String cliente = (String)resultado [0];
-				String sobrenome = (String)resultado[1];
+				int idconta = (int) resultado[0];
+				String cliente = (String)resultado [1];
+				String sobrenome = (String)resultado[2];
 				Calendar calendar = Calendar.getInstance();
-				calendar.setTime((Date) resultado[2]);
+				calendar.setTime((Date) resultado[3]);
 				int hours = calendar.get(Calendar.HOUR_OF_DAY);
 				int minutes = calendar.get(Calendar.MINUTE);
 				int seconds = calendar.get(Calendar.SECOND);
@@ -536,9 +616,10 @@ public class Fachada {
 				String nomeCompleto = cliente+" "+sobrenome;
 				String data = dayParse+"/"+monthParse+"/"+year;
 				String horaCompleta = hourParse+":"+minutesParse+":"+secondParse;
-				lista[i][0] = nomeCompleto;
-				lista[i][1] = data;
-				lista[i][2] = horaCompleta;
+				lista[i][0] = idconta;
+				lista[i][1] = nomeCompleto;
+				lista[i][2] = data;
+				lista[i][3] = horaCompleta;
 			}
 		}
 		return lista;		

@@ -42,7 +42,7 @@ public class TelaListaDeEspera extends JFrame {
 		setTitle("Fila de Espera");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 702, 290);
+		setBounds(100, 100, 835, 290);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,12 +55,35 @@ public class TelaListaDeEspera extends JFrame {
 		JTable table = new JTable();
 		table.setPreferredScrollableViewportSize(new Dimension(500,80));
 		JScrollPane pane = new JScrollPane(table);
-		pane.setSize(500, 216);
+		pane.setSize(799, 216);
 		pane.setLocation(20, 34);
 		contentPane.add(pane, BorderLayout.CENTER);
 		
 		JButton btnCadastrar = new JButton("Inserir atendimento");
-		btnCadastrar.setBounds(526, 41, 160, 23);
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+				int column = 0;
+				int row = table.getSelectedRow();
+				if(row == -1) {
+				   JOptionPane.showMessageDialog(null, "Selecione um Cliente","Atenção",JOptionPane.WARNING_MESSAGE);
+				}else {
+				int idconta = (int) table.getModel().getValueAt(row, column);	
+				int atdatual = Fachada.totalAtendimentoAtual();
+				if(atdatual >=2) {
+					JOptionPane.showMessageDialog(null, "Não há barbeiro disponível no momento");
+				}else {
+					TelaCadastrarAtendimento t = new TelaCadastrarAtendimento(idconta);
+					t.setVisible(true);
+					dispose();
+				}
+				}
+				}catch(Exception e) {
+					JOptionPane.showMessageDialog(null, e.getMessage(),"Erro", JOptionPane.ERROR_MESSAGE);
+				}
+			}
+		});
+		btnCadastrar.setBounds(659, 7, 160, 23);
 		contentPane.add(btnCadastrar);
 
 
@@ -70,7 +93,7 @@ public class TelaListaDeEspera extends JFrame {
 			public void actionPerformed(ActionEvent e1) {
 				try{
 					Object[][] lista = Fachada.listarFilaDeEspera();
-					String [] colunas = {"Nome","Data","Hora Chegada"};
+					String [] colunas = {"id conta" ,"Nome","Data","Hora Chegada"};
 					DefaultTableModel tableModel = new DefaultTableModel(lista,colunas);
 					table.setModel(tableModel);
 					

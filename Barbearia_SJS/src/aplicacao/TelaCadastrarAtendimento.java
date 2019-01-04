@@ -69,6 +69,8 @@ public class TelaCadastrarAtendimento extends JFrame {
 					Fachada.cadastrarServico(barbeiro, tipo, idConta);
 					JOptionPane.showMessageDialog(null, "atendimento cadastrado com sucesso");
 					dispose();
+					TelaListaDeEspera t = new TelaListaDeEspera();
+					t.setVisible(true);
 					
 				}
 				catch(Exception erro){

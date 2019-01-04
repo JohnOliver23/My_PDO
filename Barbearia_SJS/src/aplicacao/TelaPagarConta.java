@@ -29,7 +29,7 @@ public class TelaPagarConta extends JFrame {
 	private JLabel lblMsg;
 	private JTextField txt_idServico;
 
-	public TelaPagarConta(int idservico) {
+	public TelaPagarConta(int idconta) {
 		setTitle("Por favor, crie sua conta!!");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -51,7 +51,7 @@ public class TelaPagarConta extends JFrame {
 		lblMsg.setBounds(10, 175, 351, 14);
 		contentPane.add(lblMsg);
 		
-		JLabel lblIdConta = new JLabel("Id Servi\u00E7o");
+		JLabel lblIdConta = new JLabel("Id Conta");
 		lblIdConta.setBounds(10, 45, 74, 14);
 		contentPane.add(lblIdConta);
 		
@@ -64,7 +64,7 @@ public class TelaPagarConta extends JFrame {
 		txt_idServico = new JTextField();
 		txt_idServico.setBounds(81, 39, 84, 20);
 		contentPane.add(txt_idServico);
-		txt_idServico.setText(Integer.toString(idservico));
+		txt_idServico.setText(Integer.toString(idconta));
 		txt_idServico.setColumns(10);
 		
 		JLabel lblPercent = new JLabel("Percentual: ");
@@ -108,15 +108,14 @@ public class TelaPagarConta extends JFrame {
 					
 					int parcela = Integer.parseInt(combo_parcela.getSelectedItem().toString());
 					
-					int idconta = Fachada.fecharConta(idservico);
-					
 					Pagamento p = Fachada.pagarConta(idconta, tipo, percentual, cartao, parcela);
 					
 					JOptionPane.showMessageDialog(null, "Pagamento realizado com sucesso");
 					
 					dispose();
 					
-					TelaAtendimentoAtual t = new TelaAtendimentoAtual();
+					TelaContasFechadas t = new TelaContasFechadas();
+					
 					t.setVisible(true);
 				}
 				catch(Exception e2){
