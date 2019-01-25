@@ -68,7 +68,8 @@ public class TelaPagamento extends JFrame {
 					String periodo = combo_periodo.getSelectedItem().toString();
 					String barbeiro = combo_barbeiro.getSelectedItem().toString();
 					String pagamento = combo_pagamento.getSelectedItem().toString();
-					
+					TelaListaPagamentos p = new TelaListaPagamentos();
+					p.setVisible(true);
 					JOptionPane.showMessageDialog(null, periodo+" "+barbeiro+" "+pagamento);
 					
 					

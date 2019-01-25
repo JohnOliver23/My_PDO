@@ -1,4 +1,6 @@
 package fachada;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -498,6 +500,64 @@ public class Fachada {
 	
 	public static Object[][]listarContasFechadas() {
 		List<Object[]> aux = daoconta.consultarContasFechadas();
+		Object[][] lista = new Object[aux.size()][5];
+		if (aux.isEmpty())
+			return null;
+		else {	
+			for (int i =0; i<aux.size(); i++) {
+				Object[]resultado= (Object[]) aux.get(i);
+				lista[i][0] = (int)resultado[0];
+				lista[i][1] = (String)resultado [1]+" "+(String)resultado[2];
+				Calendar calendar = Calendar.getInstance();
+				calendar.setTime((Date) resultado[3]);
+				int hours = calendar.get(Calendar.HOUR_OF_DAY);
+				int minutes = calendar.get(Calendar.MINUTE);
+				int seconds = calendar.get(Calendar.SECOND);
+				int year = calendar.get(Calendar.YEAR);
+				int month = calendar.get(Calendar.MONTH)+1;
+				int day = calendar.get(Calendar.DAY_OF_MONTH);
+				String dayParse = Integer.toString(day);
+				String monthParse = Integer.toString(month);
+				String hourParse = Integer.toString(hours);
+				String minutesParse = Integer.toString(minutes);
+				String secondParse = Integer.toString(seconds);
+				if(dayParse.length()==1) {
+					dayParse = "0"+dayParse;
+				}
+				if(monthParse.length()==1) {
+					monthParse = "0"+monthParse;
+				}
+				if(hourParse.length()==1) {
+					hourParse = "0"+hourParse;
+				}
+				if(minutesParse.length()==1) {
+					minutesParse = "0"+minutesParse;
+				}
+				if(secondParse.length()==1) {
+					secondParse = "0"+secondParse;
+				}
+				String data = dayParse+"/"+monthParse+"/"+year;
+				String horaCompleta = hourParse+":"+minutesParse+":"+secondParse;
+				lista[i][2] = data;
+				lista[i][3] = horaCompleta;
+				lista[i][4] = (Double)resultado[4];
+				
+				
+			}
+		}
+		return lista;		
+	}
+	
+	public static Object[][]listarPagamentos(String periodo, String barbeiro, String tipoPagamento)
+		throws Exception
+	{
+		Barbeiro b = daobarbeiro.readByNome(barbeiro);
+		if (b==null) {
+			throw new Exception("barbeiro não cadastrado");
+		}
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		//Data data = formatter.parse(periodo);
+		List<Object[]> aux = daoconta.consultarPagamentos(periodo, barbeiro, tipoPagamento);
 		Object[][] lista = new Object[aux.size()][5];
 		if (aux.isEmpty())
 			return null;

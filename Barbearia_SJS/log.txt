@@ -1,177 +1,82 @@
-[EL Fine]: server: 2019-01-04 20:33:41.457--Thread(Thread[AWT-EventQueue-0,6,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
-[EL Config]: metadata: 2019-01-04 20:33:41.662--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Conta] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.682--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class model.Cliente.
-[EL Config]: metadata: 2019-01-04 20:33:41.686--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to one mapping element [field pagamento] is being defaulted to: class model.Pagamento.
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Pagamento] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Dinheiro] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Cartao] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Pessoa] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Barbeiro] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Servico] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field tipo] is being defaulted to: class model.Tipo.
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field conta] is being defaulted to: class model.Conta.
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field barbeiro] is being defaulted to: class model.Barbeiro.
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Cliente] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field contas] is being defaulted to: class model.Conta.
-[EL Config]: metadata: 2019-01-04 20:33:41.689--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Tipo] is set to [FIELD].
-[EL Config]: metadata: 2019-01-04 20:33:41.695--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
-[EL Config]: metadata: 2019-01-04 20:33:41.695--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Conta] is being defaulted to: Conta.
-[EL Config]: metadata: 2019-01-04 20:33:41.699--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dthorarioChegada] is being defaulted to: DTHORARIOCHEGADA.
-[EL Config]: metadata: 2019-01-04 20:33:41.699--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [total] is being defaulted to: TOTAL.
-[EL Config]: metadata: 2019-01-04 20:33:41.71--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dthorariofechamento] is being defaulted to: DTHORARIOFECHAMENTO.
-[EL Config]: metadata: 2019-01-04 20:33:41.71--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.71--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dtChegada] is being defaulted to: DTCHEGADA.
-[EL Config]: metadata: 2019-01-04 20:33:41.711--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Pagamento] is being defaulted to: Pagamento.
-[EL Config]: metadata: 2019-01-04 20:33:41.711--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The table name for entity [class model.Pagamento] is being defaulted to: PAGAMENTO.
-[EL Config]: metadata: 2019-01-04 20:33:41.712--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.712--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [valorpago] is being defaulted to: VALORPAGO.
-[EL Config]: metadata: 2019-01-04 20:33:41.712--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Dinheiro] is being defaulted to: Dinheiro.
-[EL Config]: metadata: 2019-01-04 20:33:41.712--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [percentualdesconto] is being defaulted to: PERCENTUALDESCONTO.
-[EL Config]: metadata: 2019-01-04 20:33:41.715--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Cartao] is being defaulted to: Cartao.
-[EL Config]: metadata: 2019-01-04 20:33:41.715--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [cartao] is being defaulted to: CARTAO.
-[EL Config]: metadata: 2019-01-04 20:33:41.715--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [quantidadeparcelas] is being defaulted to: QUANTIDADEPARCELAS.
-[EL Config]: metadata: 2019-01-04 20:33:41.715--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Barbeiro] is being defaulted to: Barbeiro.
-[EL Config]: metadata: 2019-01-04 20:33:41.715--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Pessoa] is being defaulted to: Pessoa.
-[EL Config]: metadata: 2019-01-04 20:33:41.715--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The table name for entity [class model.Pessoa] is being defaulted to: PESSOA.
-[EL Config]: metadata: 2019-01-04 20:33:41.715--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [datanasc] is being defaulted to: DATANASC.
-[EL Config]: metadata: 2019-01-04 20:33:41.716--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [nome] is being defaulted to: NOME.
-[EL Config]: metadata: 2019-01-04 20:33:41.716--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.716--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [sobrenome] is being defaulted to: SOBRENOME.
-[EL Config]: metadata: 2019-01-04 20:33:41.716--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [ocupado] is being defaulted to: OCUPADO.
-[EL Config]: metadata: 2019-01-04 20:33:41.716--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Servico] is being defaulted to: Servico.
-[EL Config]: metadata: 2019-01-04 20:33:41.716--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.716--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dthorario] is being defaulted to: DTHORARIO.
-[EL Config]: metadata: 2019-01-04 20:33:41.717--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Cliente] is being defaulted to: Cliente.
-[EL Config]: metadata: 2019-01-04 20:33:41.717--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Tipo] is being defaulted to: Tipo.
-[EL Config]: metadata: 2019-01-04 20:33:41.717--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [preco] is being defaulted to: PRECO.
-[EL Config]: metadata: 2019-01-04 20:33:41.717--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [nome] is being defaulted to: NOME.
-[EL Config]: metadata: 2019-01-04 20:33:41.717--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.717--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field cliente] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.717--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [cliente] is being defaulted to: CLIENTE_ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.729--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field pagamento] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.729--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [pagamento] is being defaulted to: PAGAMENTO_ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.729--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field tipo] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.729--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [tipo] is being defaulted to: TIPO_ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.73--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field conta] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.73--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [conta] is being defaulted to: CONTA_ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.731--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field barbeiro] is being defaulted to: ID.
-[EL Config]: metadata: 2019-01-04 20:33:41.731--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [barbeiro] is being defaulted to: BARBEIRO_ID.
-[EL Warning]: metadata: 2019-01-04 20:33:41.732--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field servicos] within entity class [class model.Conta] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
-[EL Warning]: metadata: 2019-01-04 20:33:41.746--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field servicos] within entity class [class model.Barbeiro] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
-[EL Warning]: metadata: 2019-01-04 20:33:41.746--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field contas] within entity class [class model.Cliente] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
-[EL Warning]: metadata: 2019-01-04 20:33:41.747--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field servicos] within entity class [class model.Tipo] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
-[EL Info]: 2019-01-04 20:33:42.099--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
-[EL Fine]: connection: 2019-01-04 20:33:42.222--Thread(Thread[AWT-EventQueue-0,6,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
-[EL Config]: connection: 2019-01-04 20:33:42.223--ServerSession(1216335214)--Connection(380848403)--Thread(Thread[AWT-EventQueue-0,6,main])--connecting(DatabaseLogin(
+[EL Fine]: server: 2019-01-25 14:15:21.057--Thread(Thread[AWT-EventQueue-0,6,main])--Configured server platform: org.eclipse.persistence.platform.server.NoServerPlatform
+[EL Config]: metadata: 2019-01-25 14:15:21.281--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Conta] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.306--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field cliente] is being defaulted to: class model.Cliente.
+[EL Config]: metadata: 2019-01-25 14:15:21.311--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
+[EL Config]: metadata: 2019-01-25 14:15:21.315--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to one mapping element [field pagamento] is being defaulted to: class model.Pagamento.
+[EL Config]: metadata: 2019-01-25 14:15:21.315--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Pagamento] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.315--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Dinheiro] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.316--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Cartao] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.316--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Pessoa] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.317--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Barbeiro] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.317--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
+[EL Config]: metadata: 2019-01-25 14:15:21.318--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Servico] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.318--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field tipo] is being defaulted to: class model.Tipo.
+[EL Config]: metadata: 2019-01-25 14:15:21.318--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field conta] is being defaulted to: class model.Conta.
+[EL Config]: metadata: 2019-01-25 14:15:21.318--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the many to one mapping element [field barbeiro] is being defaulted to: class model.Barbeiro.
+[EL Config]: metadata: 2019-01-25 14:15:21.319--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Cliente] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.319--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field contas] is being defaulted to: class model.Conta.
+[EL Config]: metadata: 2019-01-25 14:15:21.319--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The access type for the persistent class [class model.Tipo] is set to [FIELD].
+[EL Config]: metadata: 2019-01-25 14:15:21.32--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The target entity (reference) class for the one to many mapping element [field servicos] is being defaulted to: class model.Servico.
+[EL Config]: metadata: 2019-01-25 14:15:21.32--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Conta] is being defaulted to: Conta.
+[EL Config]: metadata: 2019-01-25 14:15:21.336--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dthorarioChegada] is being defaulted to: DTHORARIOCHEGADA.
+[EL Config]: metadata: 2019-01-25 14:15:21.339--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [total] is being defaulted to: TOTAL.
+[EL Config]: metadata: 2019-01-25 14:15:21.339--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dthorariofechamento] is being defaulted to: DTHORARIOFECHAMENTO.
+[EL Config]: metadata: 2019-01-25 14:15:21.339--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.34--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dtChegada] is being defaulted to: DTCHEGADA.
+[EL Config]: metadata: 2019-01-25 14:15:21.34--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Pagamento] is being defaulted to: Pagamento.
+[EL Config]: metadata: 2019-01-25 14:15:21.341--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The table name for entity [class model.Pagamento] is being defaulted to: PAGAMENTO.
+[EL Config]: metadata: 2019-01-25 14:15:21.344--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.345--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [valorpago] is being defaulted to: VALORPAGO.
+[EL Config]: metadata: 2019-01-25 14:15:21.345--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Dinheiro] is being defaulted to: Dinheiro.
+[EL Config]: metadata: 2019-01-25 14:15:21.345--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [percentualdesconto] is being defaulted to: PERCENTUALDESCONTO.
+[EL Config]: metadata: 2019-01-25 14:15:21.346--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Cartao] is being defaulted to: Cartao.
+[EL Config]: metadata: 2019-01-25 14:15:21.346--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [cartao] is being defaulted to: CARTAO.
+[EL Config]: metadata: 2019-01-25 14:15:21.346--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [quantidadeparcelas] is being defaulted to: QUANTIDADEPARCELAS.
+[EL Config]: metadata: 2019-01-25 14:15:21.346--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Barbeiro] is being defaulted to: Barbeiro.
+[EL Config]: metadata: 2019-01-25 14:15:21.347--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Pessoa] is being defaulted to: Pessoa.
+[EL Config]: metadata: 2019-01-25 14:15:21.347--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The table name for entity [class model.Pessoa] is being defaulted to: PESSOA.
+[EL Config]: metadata: 2019-01-25 14:15:21.347--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [datanasc] is being defaulted to: DATANASC.
+[EL Config]: metadata: 2019-01-25 14:15:21.347--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2019-01-25 14:15:21.348--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.348--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [sobrenome] is being defaulted to: SOBRENOME.
+[EL Config]: metadata: 2019-01-25 14:15:21.348--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [ocupado] is being defaulted to: OCUPADO.
+[EL Config]: metadata: 2019-01-25 14:15:21.348--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Servico] is being defaulted to: Servico.
+[EL Config]: metadata: 2019-01-25 14:15:21.349--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.349--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [dthorario] is being defaulted to: DTHORARIO.
+[EL Config]: metadata: 2019-01-25 14:15:21.349--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Cliente] is being defaulted to: Cliente.
+[EL Config]: metadata: 2019-01-25 14:15:21.35--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The alias name for the entity class [class model.Tipo] is being defaulted to: Tipo.
+[EL Config]: metadata: 2019-01-25 14:15:21.35--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [preco] is being defaulted to: PRECO.
+[EL Config]: metadata: 2019-01-25 14:15:21.35--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [nome] is being defaulted to: NOME.
+[EL Config]: metadata: 2019-01-25 14:15:21.35--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The column name for element [id] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.366--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field cliente] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.366--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [cliente] is being defaulted to: CLIENTE_ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.366--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field pagamento] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.367--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [pagamento] is being defaulted to: PAGAMENTO_ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.367--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field tipo] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.367--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [tipo] is being defaulted to: TIPO_ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.368--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field conta] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.368--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [conta] is being defaulted to: CONTA_ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.369--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The primary key column name for the mapping element [field barbeiro] is being defaulted to: ID.
+[EL Config]: metadata: 2019-01-25 14:15:21.369--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--The foreign key column name for the mapping element [barbeiro] is being defaulted to: BARBEIRO_ID.
+[EL Warning]: metadata: 2019-01-25 14:15:21.383--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field servicos] within entity class [class model.Conta] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
+[EL Warning]: metadata: 2019-01-25 14:15:21.384--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field servicos] within entity class [class model.Barbeiro] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
+[EL Warning]: metadata: 2019-01-25 14:15:21.385--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field contas] within entity class [class model.Cliente] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
+[EL Warning]: metadata: 2019-01-25 14:15:21.385--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Element [field servicos] within entity class [class model.Tipo] uses a collection type [class java.util.ArrayList] when the JPA specification only supports java.util.Collection, java.util.Set, java.util.List, or java.util.Map.  This type is supported with eager loading; using lazy loading with this collection type requires additional configuration and an IndirectContainer implementation that extends [class java.util.ArrayList] or setting the mapping to use basic indirection and the type to be ValueholderInterface.
+[EL Info]: 2019-01-25 14:15:22.009--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--EclipseLink, version: Eclipse Persistence Services - 2.7.3.v20180807-4be1041
+[EL Fine]: connection: 2019-01-25 14:15:22.143--Thread(Thread[AWT-EventQueue-0,6,main])--Detected database platform: org.eclipse.persistence.platform.database.PostgreSQLPlatform
+[EL Config]: connection: 2019-01-25 14:15:22.152--ServerSession(217300138)--Connection(412831306)--Thread(Thread[AWT-EventQueue-0,6,main])--connecting(DatabaseLogin(
 	platform=>PostgreSQLPlatform
 	user name=> "postgres"
 	datasource URL=> "jdbc:postgresql://localhost:5432/barbearia"
 ))
-[EL Config]: connection: 2019-01-04 20:33:42.278--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--Connected: jdbc:postgresql://localhost:5432/barbearia
+[EL Config]: connection: 2019-01-25 14:15:22.194--ServerSession(217300138)--Connection(2099290187)--Thread(Thread[AWT-EventQueue-0,6,main])--Connected: jdbc:postgresql://localhost:5432/barbearia
 	User: postgres
-	Database: PostgreSQL  Version: 9.5.15
+	Database: PostgreSQL  Version: 9.4.1
 	Driver: PostgreSQL Native Driver  Version: PostgreSQL 9.4 JDBC4.2 (build 1206)
-[EL Warning]: metadata: 2019-01-04 20:33:42.295--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Tipo] since weaving was not enabled or did not occur.
-[EL Warning]: metadata: 2019-01-04 20:33:42.295--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Conta] since weaving was not enabled or did not occur.
-[EL Warning]: metadata: 2019-01-04 20:33:42.295--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Barbeiro] since weaving was not enabled or did not occur.
-[EL Warning]: metadata: 2019-01-04 20:33:42.3--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [contas] for the entity class [class model.Cliente] since weaving was not enabled or did not occur.
-[EL Info]: connection: 2019-01-04 20:33:42.35--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--/file:/C:/Users/olive/My_PDO/Barbearia_SJS/target/classes/_barbearia login successful
-[EL Fine]: sql: 2019-01-04 20:33:45.999--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT t0.ID, t1.NOME, t1.SOBRENOME, t0.DTHORARIOCHEGADA FROM Conta t0, PESSOA t1 WHERE (((SELECT COUNT(t2.ID) FROM Servico t2 WHERE (t2.CONTA_ID = t0.ID)) = ?) AND ((t1.ID = t0.CLIENTE_ID) AND (t1.Tipo = ?))) ORDER BY t0.DTHORARIOCHEGADA
-	bind => [0, 2]
-[EL Fine]: sql: 2019-01-04 20:34:22.738--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME FROM PESSOA WHERE (Tipo = ?) ORDER BY NOME
+[EL Warning]: metadata: 2019-01-25 14:15:22.204--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Conta] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-01-25 14:15:22.206--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Tipo] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-01-25 14:15:22.206--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [servicos] for the entity class [class model.Barbeiro] since weaving was not enabled or did not occur.
+[EL Warning]: metadata: 2019-01-25 14:15:22.206--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--Reverting the lazy setting on the OneToOne or ManyToOne attribute [contas] for the entity class [class model.Cliente] since weaving was not enabled or did not occur.
+[EL Info]: connection: 2019-01-25 14:15:22.246--ServerSession(217300138)--Thread(Thread[AWT-EventQueue-0,6,main])--/file:/C:/My_PDO/Barbearia_SJS/target/classes/_barbearia login successful
+[EL Fine]: sql: 2019-01-25 14:15:26.717--ServerSession(217300138)--Connection(2099290187)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT t0.ID, t1.NOME, t1.SOBRENOME, t0.DTHORARIOFECHAMENTO, t0.TOTAL FROM Conta t0, PESSOA t1 WHERE (((t0.PAGAMENTO_ID IS NULL) AND (t0.DTHORARIOFECHAMENTO IS NOT NULL)) AND ((t1.ID = t0.CLIENTE_ID) AND (t1.Tipo = ?))) ORDER BY t0.DTHORARIOFECHAMENTO DESC
 	bind => [2]
-[EL Fine]: sql: 2019-01-04 20:34:22.76--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [41]
-[EL Fine]: sql: 2019-01-04 20:34:22.766--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, VALORPAGO, PERCENTUALDESCONTO, CARTAO, QUANTIDADEPARCELAS FROM PAGAMENTO WHERE (ID = ?)
-	bind => [10]
-[EL Fine]: sql: 2019-01-04 20:34:22.769--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [71]
-[EL Fine]: sql: 2019-01-04 20:34:22.771--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME, OCUPADO FROM PESSOA WHERE ((ID = ?) AND (Tipo = ?))
-	bind => [56, 3]
-[EL Fine]: sql: 2019-01-04 20:34:22.773--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (BARBEIRO_ID = ?)
-	bind => [56]
-[EL Fine]: sql: 2019-01-04 20:34:22.774--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (ID = ?)
-	bind => [56]
-[EL Fine]: sql: 2019-01-04 20:34:22.777--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME FROM PESSOA WHERE ((ID = ?) AND (Tipo = ?))
-	bind => [5, 2]
-[EL Fine]: sql: 2019-01-04 20:34:22.778--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [5]
-[EL Fine]: sql: 2019-01-04 20:34:22.779--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [69]
-[EL Fine]: sql: 2019-01-04 20:34:22.78--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [56]
-[EL Fine]: sql: 2019-01-04 20:34:22.781--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, NOME, PRECO FROM Tipo WHERE (ID = ?)
-	bind => [3]
-[EL Fine]: sql: 2019-01-04 20:34:22.783--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (TIPO_ID = ?)
-	bind => [3]
-[EL Fine]: sql: 2019-01-04 20:34:22.784--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME, OCUPADO FROM PESSOA WHERE ((ID = ?) AND (Tipo = ?))
-	bind => [3, 3]
-[EL Fine]: sql: 2019-01-04 20:34:22.785--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (BARBEIRO_ID = ?)
-	bind => [3]
-[EL Fine]: sql: 2019-01-04 20:34:22.787--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (ID = ?)
-	bind => [59]
-[EL Fine]: sql: 2019-01-04 20:34:22.788--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME FROM PESSOA WHERE ((ID = ?) AND (Tipo = ?))
-	bind => [61, 2]
-[EL Fine]: sql: 2019-01-04 20:34:22.789--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [61]
-[EL Fine]: sql: 2019-01-04 20:34:22.79--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [64]
-[EL Fine]: sql: 2019-01-04 20:34:22.792--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, VALORPAGO, PERCENTUALDESCONTO, CARTAO, QUANTIDADEPARCELAS FROM PAGAMENTO WHERE (ID = ?)
-	bind => [9]
-[EL Fine]: sql: 2019-01-04 20:34:22.793--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [59]
-[EL Fine]: sql: 2019-01-04 20:34:22.795--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, NOME, PRECO FROM Tipo WHERE (ID = ?)
-	bind => [1]
-[EL Fine]: sql: 2019-01-04 20:34:22.795--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (TIPO_ID = ?)
-	bind => [1]
-[EL Fine]: sql: 2019-01-04 20:34:22.796--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (ID = ?)
-	bind => [58]
-[EL Fine]: sql: 2019-01-04 20:34:22.797--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME FROM PESSOA WHERE ((ID = ?) AND (Tipo = ?))
-	bind => [62, 2]
-[EL Fine]: sql: 2019-01-04 20:34:22.798--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [62]
-[EL Fine]: sql: 2019-01-04 20:34:22.8--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [68]
-[EL Fine]: sql: 2019-01-04 20:34:22.801--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [58]
-[EL Fine]: sql: 2019-01-04 20:34:22.801--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (ID = ?)
-	bind => [55]
-[EL Fine]: sql: 2019-01-04 20:34:22.803--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, VALORPAGO, PERCENTUALDESCONTO, CARTAO, QUANTIDADEPARCELAS FROM PAGAMENTO WHERE (ID = ?)
-	bind => [7]
-[EL Fine]: sql: 2019-01-04 20:34:22.804--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [55]
-[EL Fine]: sql: 2019-01-04 20:34:22.813--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [63]
-[EL Fine]: sql: 2019-01-04 20:34:22.814--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [68]
-[EL Fine]: sql: 2019-01-04 20:34:22.815--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [65]
-[EL Fine]: sql: 2019-01-04 20:34:22.816--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [64]
-[EL Fine]: sql: 2019-01-04 20:34:22.817--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [67]
-[EL Fine]: sql: 2019-01-04 20:34:22.818--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [70]
-[EL Fine]: sql: 2019-01-04 20:34:22.819--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTHORARIO, BARBEIRO_ID, CONTA_ID, TIPO_ID FROM Servico WHERE (CONTA_ID = ?)
-	bind => [72]
-[EL Fine]: sql: 2019-01-04 20:34:22.82--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [66]
-[EL Fine]: sql: 2019-01-04 20:34:22.821--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [69]
-[EL Fine]: sql: 2019-01-04 20:34:22.822--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, DTCHEGADA, DTHORARIOCHEGADA, DTHORARIOFECHAMENTO, TOTAL, CLIENTE_ID, PAGAMENTO_ID FROM Conta WHERE (CLIENTE_ID = ?)
-	bind => [71]
-[EL Fine]: sql: 2019-01-04 20:34:54.929--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT t0.ID, t1.NOME, t1.SOBRENOME, t0.DTHORARIOCHEGADA FROM Conta t0, PESSOA t1 WHERE (((SELECT COUNT(t2.ID) FROM Servico t2 WHERE (t2.CONTA_ID = t0.ID)) = ?) AND ((t1.ID = t0.CLIENTE_ID) AND (t1.Tipo = ?))) ORDER BY t0.DTHORARIOCHEGADA
-	bind => [0, 2]
-[EL Fine]: sql: 2019-01-04 20:35:02.863--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT t0.ID, t2.NOME, t2.SOBRENOME, t4.NOME, t4.SOBRENOME, t1.NOME, t0.DTHORARIO, t1.PRECO FROM PESSOA t4, Conta t3, PESSOA t2, Tipo t1, Servico t0 WHERE (((t3.PAGAMENTO_ID IS NULL) AND (t3.DTHORARIOFECHAMENTO IS NULL)) AND ((((t0.TIPO_ID = t1.ID) AND (t3.ID = t0.CONTA_ID)) AND ((t2.ID = t3.CLIENTE_ID) AND (t2.Tipo = ?))) AND ((t4.ID = t0.BARBEIRO_ID) AND (t4.Tipo = ?))))
-	bind => [2, 3]
-[EL Fine]: sql: 2019-01-04 20:35:11.815--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT t0.ID, t1.NOME, t1.SOBRENOME, t0.DTHORARIOFECHAMENTO, t0.TOTAL FROM Conta t0, PESSOA t1 WHERE (((t0.PAGAMENTO_ID IS NULL) AND (t0.DTHORARIOFECHAMENTO IS NOT NULL)) AND ((t1.ID = t0.CLIENTE_ID) AND (t1.Tipo = ?))) ORDER BY t0.DTHORARIOFECHAMENTO DESC
-	bind => [2]
-[EL Fine]: sql: 2019-01-04 20:35:24.004--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME FROM PESSOA WHERE (Tipo = ?) ORDER BY NOME
-	bind => [2]
-[EL Fine]: sql: 2019-01-04 20:35:31.266--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--SELECT ID, Tipo, DATANASC, NOME, SOBRENOME, OCUPADO FROM PESSOA WHERE (Tipo = ?)
-	bind => [3]
-[EL Config]: connection: 2019-01-04 20:36:21.887--ServerSession(1216335214)--Connection(50550303)--Thread(Thread[AWT-EventQueue-0,6,main])--disconnect
-[EL Info]: connection: 2019-01-04 20:36:21.89--ServerSession(1216335214)--Thread(Thread[AWT-EventQueue-0,6,main])--/file:/C:/Users/olive/My_PDO/Barbearia_SJS/target/classes/_barbearia logout successful
-[EL Config]: connection: 2019-01-04 20:36:21.891--ServerSession(1216335214)--Connection(380848403)--Thread(Thread[AWT-EventQueue-0,6,main])--disconnect

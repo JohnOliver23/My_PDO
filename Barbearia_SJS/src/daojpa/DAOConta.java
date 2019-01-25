@@ -71,5 +71,12 @@ public class DAOConta  extends DAO<Conta>{
 		return q.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Object[]> consultarPagamentos(String data, String barbeiro, String tipoPagamento){
+		Query q = manager.createQuery(
+				"select c.id, c.cliente.nome, c.cliente.sobrenome,c.dthorariofechamento,c.pagamento.tipo, c.total from Conta c where c.pagamento is null "
+				+ "and c.dthorariofechamento is not null order by c.dthorariofechamento desc ");
+		return q.getResultList();
+	}
 
 }
